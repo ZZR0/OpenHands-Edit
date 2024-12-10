@@ -7,7 +7,7 @@ import uuid
 from typing import Callable, Protocol, Type
 
 import openhands.agenthub  # noqa F401 (we import this to get the agents registered)
-from openhands.controller import AgentController
+from openhands.controller import AgentMemController
 from openhands.controller.agent import Agent
 from openhands.controller.state.state import State
 from openhands.core.config import (
@@ -137,7 +137,16 @@ async def run_controller(
             logger.info(f'Error restoring state: {e}')
 
     # init controller with this initial state
-    controller = AgentController(
+    # controller = AgentController(
+    #     agent=agent,
+    #     max_iterations=config.max_iterations,
+    #     max_budget_per_task=config.max_budget_per_task,
+    #     agent_to_llm_config=config.get_agent_to_llm_config_map(),
+    #     event_stream=event_stream,
+    #     initial_state=initial_state,
+    #     headless_mode=headless_mode,
+    # )
+    controller = AgentMemController(
         agent=agent,
         max_iterations=config.max_iterations,
         max_budget_per_task=config.max_budget_per_task,

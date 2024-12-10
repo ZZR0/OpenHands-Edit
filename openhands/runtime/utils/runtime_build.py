@@ -163,6 +163,7 @@ def build_runtime_image_in_folder(
     force_rebuild: bool,
     platform: str | None = None,
 ) -> str:
+    # import pdb; pdb.set_trace()
     runtime_image_repo, _ = get_runtime_image_repo_and_tag(base_image)
     lock_tag = f'oh_v{oh_version}_{get_hash_for_lock_files(base_image)}'
     versioned_tag = (

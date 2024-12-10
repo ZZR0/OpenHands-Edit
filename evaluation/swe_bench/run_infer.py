@@ -44,6 +44,7 @@ USE_INSTANCE_IMAGE = os.environ.get('USE_INSTANCE_IMAGE', 'false').lower() == 't
 AGENT_CLS_TO_FAKE_USER_RESPONSE_FN = {
     'CodeActAgent': codeact_user_response,
     'CodeActSWEAgent': codeact_user_response,
+    'CodeActAgentEdit': codeact_user_response,
 }
 
 
@@ -66,7 +67,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
                 f'--- BEGIN HINTS ---\n{instance.hints_text}\n--- END HINTS ---\n'
             )
         instruction += CODEACT_SWE_PROMPT.format(workspace_dir_name=workspace_dir_name)
-    else:
+    elif metadata.agent_class == 'OriginalAgent':
         # Instruction based on Anthropic's official trajectory
         # https://github.com/eschluntz/swe-bench-experiments/tree/main/evaluation/verified/20241022_tools_claude-3-5-sonnet-updated/trajs
         instruction = (
@@ -79,7 +80,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '</pr_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-            'Your task is to make the minimal changes to non-tests files in the /repo directory to ensure the <pr_description> is satisfied.\n'
+            'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
             'Follow these steps to resolve the issue:\n'
             '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
             '2. Create a script to reproduce the error and execute it with `python <filename.py>` using the BashTool, to confirm the error\n'
@@ -88,6 +89,36 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '5. Think about edgecases and make sure your fix handles them as well\n'
             "Your thinking should be thorough and so it's fine if it's very long.\n"
         )
+    else:
+        instruction = (
+            '<uploaded_files>\n'
+            f'/workspace/{workspace_dir_name}\n'
+            '</uploaded_files>\n'
+            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+            f'<pr_description>\n'
+            f'{instance.problem_statement}\n'
+            '</pr_description>\n\n'
+            'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
+            "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
+            'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
+            '### Follow These Steps to Resolve the Issue:\n'
+            '1. **Familiarize Yourself with the Repository**:\n'
+            '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
+            '2. **Analyze the Problem**:\n'
+            '   - Identify the specific areas of the codebase that require changes.\n'
+            '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
+            '3. **Implement the Fix**:\n'
+            '   - Edit the source code in the identified locations to resolve the issue.\n'
+            '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
+            '4. **Handle Edge Cases**:\n'
+            '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
+            '5. **Rerun Your Patch**:\n'
+            '   - Rerun your patch and confirm that the error is fixed!\n'
+            '### Additional Notes:\n'
+            '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
+            '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
+        )
+
     return instruction
 
 
@@ -378,6 +409,7 @@ def process_instance(
     metadata: EvalMetadata,
     reset_logger: bool = True,
 ) -> EvalOutput:
+    # import pdb; pdb.set_trace()
     config = get_config(instance, metadata)
 
     # Setup the logger properly, so you can run multi-processing to parallelize the evaluation
@@ -423,7 +455,7 @@ def process_instance(
             f'Got git diff for instance {instance.instance_id}:\n--------\n{git_patch}\n--------'
         )
     finally:
-        runtime.close()
+        runtime.close(rm_all_containers=False)
     # ==========================================
 
     # ======= Attempt to evaluate the agent's edits =======
@@ -485,6 +517,7 @@ if __name__ == '__main__':
         default='test',
         help='split to evaluate on',
     )
+    # import pdb; pdb.set_trace()
     args, _ = parser.parse_known_args()
 
     # NOTE: It is preferable to load datasets from huggingface datasets and perform post-processing

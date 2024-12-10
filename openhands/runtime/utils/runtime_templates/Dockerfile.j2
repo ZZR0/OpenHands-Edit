@@ -4,9 +4,19 @@ FROM {{ base_image }}
 ENV POETRY_VIRTUALENVS_PATH=/openhands/poetry
 ENV MAMBA_ROOT_PREFIX=/openhands/micromamba
 
+# 设置代理
+ENV https_proxy=http://172.17.0.1:10810
+
+# 给 apt 更换清华源
+RUN sed -i 's|http://archive.ubuntu.com/ubuntu/|https://mirrors.tuna.tsinghua.edu.cn/ubuntu/|g' /etc/apt/sources.list
+# 给 pip 更换清华源
+RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+
 {% macro install_dependencies() %}
 # Install all dependencies
 WORKDIR /openhands/code
+RUN /openhands/micromamba/bin/micromamba run -n openhands poetry source add --priority=primary mirrors https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+RUN /openhands/micromamba/bin/micromamba run -n openhands poetry lock --no-update
 RUN \
     /openhands/micromamba/bin/micromamba config set changeps1 False && \
     # Configure Poetry and create virtual environment
@@ -97,3 +107,6 @@ COPY ./code/openhands /openhands/code/openhands
 
 # Install extra dependencies if specified
 {% if extra_deps %}RUN {{ extra_deps }} {% endif %}
+
+# 清除代理
+ENV https_proxy=
