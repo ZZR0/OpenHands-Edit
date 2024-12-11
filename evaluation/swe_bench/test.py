@@ -135,14 +135,14 @@ def test_anthropic_2():
 
 def test_openai2():
     # api_key = 'sk-isa0ZCsGSRizprusXPMdwIj1LstdPxYtjmkjMJHAtIqRL7zi'
-    # api_key = 'sk-M3bKoucx7o9TSEkK0eC5249f951644E69d880eC269Df061d'
-    # client = OpenAI(api_key=api_key, base_url='https://api2.aigcbest.top/v1')
+    api_key = 'sk-M3bKoucx7o9TSEkK0eC5249f951644E69d880eC269Df061d'
+    client = OpenAI(api_key=api_key, base_url='https://api2.aigcbest.top/v1')
 
     # api_key = 'hk-4qt48b100004811414c08bcb08e49f7a42b44edde99c63e1'
     # client = OpenAI(api_key=api_key, base_url='https://api.openai-hk.com/v1')
 
-    api_key = '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'
-    client = OpenAI(api_key=api_key)
+    # api_key = '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'
+    # client = OpenAI(api_key=api_key)
 
     # api_key = 'sk-e34104606d4e4c7893466654fbc3524b'
     # client = OpenAI(api_key=api_key, base_url='https://api.deepseek.com/v1')
@@ -186,10 +186,10 @@ def test_openai2():
     for i in tqdm(range(20)):
         response = client.chat.completions.create(
             # model="deepseek-chat",
-            model='gpt-4o-mini',
+            model='gpt-4o-2024-05-13',
             messages=msgs,
             tools=data['kwargs']['tools'],
-            temperature=0.2,
+            temperature=0.0,
         )
         # response = client.chat.completions.create(
         #     model="deepseek-chat",
@@ -217,10 +217,12 @@ def test_openai2():
     # ChatCompletion(id='chatcmpl-Abqon76VlAxMT6gK2VXDmOIdg14Tk', choices=[Choice(finish_reason='tool_calls', index=0, logprobs=None, message=ChatCompletionMessage(content="The relevant directories and files for NDDataRef are likely within the `astropy/nddata` directory. To start, we should focus on `astropy/nddata` and find the implementation of NDDataRef, and understand how mask handling is being performed.\n\nLet's list the contents of `astropy/nddata` to narrow down our search.", refusal=None, role='assistant', audio=None, function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_QTrjHWJPXWvBMxmaucZNnrjP', function=Function(arguments='{"command":"ls -R /workspace/astropy__astropy__5.2/astropy/nddata"}', name='execute_bash'), type='function')]))], created=1733584533, model='gpt-4o-2024-05-13', object='chat.completion', service_tier=None, system_fingerprint='fp_84ac7e2412', usage=CompletionUsage(completion_tokens=108, prompt_tokens=11262, total_tokens=11370, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
     # ChatCompletion(id='chatcmpl-Abqu52caVYIq8E3vbZQxJRU2gBVte', choices=[Choice(finish_reason='tool_calls', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', audio=None, function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_zCjhdgKWxUi0n4KMVrZPGVbt', function=Function(arguments='{"path":"/workspace/astropy__astropy__5.2/reproduce_error.py","file_text":"import numpy as np\\nfrom astropy.nddata import NDDataRef\\n\\narray = np.array([[0, 1, 0], [1, 0, 1], [0, 1, 0]])\\nmask = np.array([[0, 1, 64], [8, 0, 1], [2, 1, 0]])\\n\\nnref_nomask = NDDataRef(array)\\nnref_mask = NDDataRef(array, mask=mask)\\n\\ntry:\\n    print(nref_nomask.multiply(1., handle_mask=np.bitwise_or).mask)\\n    print(\'No error with no mask * no mask (constant)\')\\nexcept TypeError as e:\\n    print(f\'Error with no mask * no mask (constant): {e}\')\\n\\ntry:\\n    print(nref_nomask.multiply(nref_nomask, handle_mask=np.bitwise_or).mask)\\n    print(\'No error with no mask * no mask\')\\nexcept TypeError as e:\\n    print(f\'Error with no mask * no mask: {e}\')\\n\\ntry:\\n    print(nref_mask.multiply(1., handle_mask=np.bitwise_or).mask)\\n    print(\'No error with mask * no mask (constant)\')\\nexcept TypeError as e:\\n    print(f\'Error with mask * no mask (constant): {e}\')\\n\\ntry:\\n    print(nref_mask.multiply(nref_mask, handle_mask=np.bitwise_or).mask)\\n    print(\'No error with mask * mask\')\\nexcept TypeError as e:\\n    print(f\'Error with mask * mask: {e}\')\\n\\ntry:\\n    print(nref_mask.multiply(nref_nomask, handle_mask=np.bitwise_or).mask)\\n    print(\'No error with mask * no mask\')\\nexcept TypeError as e:\\n    print(f\'Error with mask * no mask: {e}\')\\n"}', name='create_file'), type='function')]))], created=1733584861, model='gpt-4o-2024-05-13', object='chat.completion', service_tier=None, system_fingerprint='fp_84ac7e2412', usage=CompletionUsage(completion_tokens=454, prompt_tokens=11262, total_tokens=11716, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
     # ChatCompletion(id='chatcmpl-Abqud6GqQvzxsPu4gj6Ez9sRw4PDf', choices=[Choice(finish_reason='tool_calls', index=0, logprobs=None, message=ChatCompletionMessage(content="The error described in the PR relates to the `NDDataRef` class in the `astropy.nddata` package. Within version 5.2, there were no problems when handling masks in operations even when one operand did not have a mask. This changed in version 5.3, leading to a `TypeError` during mask operations.\n\nTo resolve this issue, I'll do the following:\n\n1. **Create a script to reproduce the error in v5.2.** This script will confirm that there is no error in v5.2.\n2. **Review the code in v5.2 for the `NDDataRef` arithmetic operations** to understand why it is working without error and compare it with v5.3.\n3. **Identify the changes in v5.3 that introduced the error** and correct them to ensure the mask operations function as expected.\n4. **Rerun the script to confirm the error is resolved.**\n\nTo start, I'll create a reproduction script. Let's first confirm the location of `NDDataRef` in the `astropy.nddata` module and proceed accordingly.", refusal=None, role='assistant', audio=None, function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_o5mqt16g2zQg3WVTziMlJPF8', function=Function(arguments='{"command":"ls -R /workspace/astropy__astropy__5.2/astropy/nddata"}', name='execute_bash'), type='function')]))], created=1733584895, model='gpt-4o-2024-05-13', object='chat.completion', service_tier=None, system_fingerprint='fp_04751d0b65', usage=CompletionUsage(completion_tokens=264, prompt_tokens=11262, total_tokens=11526, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
-    # openai: [947, 592, 619, 785, 604, 598, 895, 611, 596, 913, 897, 474, 605, 950, 947, 789, 618, 923, 572, 586]
-    # aigcbe: [340, 204, 710, 372, 36,  749, 754, 413, 103, 877, 373, 246, 453, 131, 391, 411, 190, 196, 275, 260]
+    # openai: 726.0 [947, 592, 619, 785, 604, 598, 895, 611, 596, 913, 897, 474, 605, 950, 947, 789, 618, 923, 572, 586]
+    # aigcbe: 374.2 [340, 204, 710, 372, 36,  749, 754, 413, 103, 877, 373, 246, 453, 131, 391, 411, 190, 196, 275, 260]
     # mini 359.95 [36, 534, 505, 519, 298, 273, 36, 534, 298, 533, 278, 511, 641, 525, 301, 532, 36, 556, 36, 36]
     # mini 328.55 [262, 511, 311, 558, 298, 277, 679, 829, 296, 703, 311, 446, 258, 423, 354, 595, 289, 301, 277, 281]
+    # aigcbe: 429.9 [476, 629, 335, 450, 100, 277, 227, 277, 937, 780, 112, 739, 115, 923, 116, 495, 512, 91, 175, 833]
+    # openai: 490.0 [916, 624, 621, 98, 278, 876, 257, 478, 306, 338, 633, 593, 833, 480, 467, 264, 259, 281, 951, 247]
 
 
 def test_message_post_processing():
@@ -281,8 +283,8 @@ def test_message_post_processing():
 
 
 if __name__ == '__main__':
-    test_openai()
+    # test_openai()
     # test_anthropic()
     # test_anthropic_2()
-    # test_openai2()
+    test_openai2()
     # test_message_post_processing()

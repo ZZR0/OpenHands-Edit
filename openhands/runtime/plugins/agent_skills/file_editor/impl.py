@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Literal, get_args
 
 from .base import CLIResult, ToolError, ToolResult
+from .flake8_utils import flake8, format_flake8_output  # type: ignore
 from .run import maybe_truncate, run
 
 Command = Literal[
@@ -13,6 +14,24 @@ Command = Literal[
     'undo_edit',
 ]
 SNIPPET_LINES: int = 4
+
+_LINT_ERROR_TEMPLATE = """Your proposed edit has introduced new syntax error(s). Please read this error message carefully and then retry editing the file.
+
+ERRORS:
+{errors}
+
+This is how your edit would have looked if applied
+------------------------------------------------
+{window_applied}
+------------------------------------------------
+
+This is the original code before your edit
+------------------------------------------------
+{window_original}
+------------------------------------------------
+
+Your changes have NOT been applied. Please fix your edit command and try again.
+DO NOT re-run the same failed edit command. Running it again will lead to the same error."""
 
 
 class EditTool:
@@ -97,6 +116,46 @@ class EditTool:
                     f'The path {path} is a directory and only the `view` command can be used on directories'
                 )
 
+    def _pure_view(self, path: Path, view_range: list[int] | None = None):
+        """Implement the view command"""
+        if path.is_dir():
+            if view_range:
+                raise ToolError(
+                    'The `view_range` parameter is not allowed when `path` points to a directory.'
+                )
+
+            _, stdout, stderr = run(rf"find {path} -maxdepth 2 -not -path '*/\.*'")
+            if not stderr:
+                stdout = f"Here's the files and directories up to 2 levels deep in {path}, excluding hidden items:\n{stdout}\n"
+            return CLIResult(output=stdout, error=stderr)
+
+        file_content = self.read_file(path)
+        init_line = 1
+        if view_range:
+            if len(view_range) != 2 or not all(isinstance(i, int) for i in view_range):
+                raise ToolError(
+                    'Invalid `view_range`. It should be a list of two integers.'
+                )
+            file_lines = file_content.split('\n')
+            n_lines_file = len(file_lines)
+            init_line, final_line = view_range
+            init_line = max(1, init_line)
+            final_line = min(n_lines_file, final_line)
+
+            if final_line == -1:
+                file_content = '\n'.join(file_lines[init_line - 1 :])
+            else:
+                file_content = '\n'.join(file_lines[init_line - 1 : final_line])
+
+        file_content = '\n'.join(
+            [
+                f'{i + init_line:6}\t{line}'
+                for i, line in enumerate(file_content.split('\n'))
+            ]
+        )
+
+        return file_content
+
     def view(self, path: Path, view_range: list[int] | None = None):
         """Implement the view command"""
         if path.is_dir():
@@ -165,6 +224,9 @@ class EditTool:
             raise ToolError(
                 f'No replacement was performed. Multiple occurrences of old_str `{old_str}` in lines {lines}. Please ensure it is unique'
             )
+        # import pdb; pdb.set_trace()
+        # Get pre-edit linting errors
+        pre_edit_lint = flake8(path)
 
         # Replace old_str with new_str
         new_file_content = file_content.replace(old_str, new_str)
@@ -180,6 +242,27 @@ class EditTool:
         start_line = max(0, replacement_line - SNIPPET_LINES)
         end_line = replacement_line + SNIPPET_LINES + new_str.count('\n')
         snippet = '\n'.join(new_file_content.split('\n')[start_line : end_line + 1])
+
+        # Check for new linting errors
+        post_edit_lint = flake8(path)
+        new_flake8_output = format_flake8_output(
+            post_edit_lint,
+            previous_errors_string=pre_edit_lint,
+            replacement_window=(start_line, end_line),
+            replacement_n_lines=len(new_str.splitlines()),
+        )
+
+        if new_flake8_output:
+            # Show error and revert changes
+            with_edits = self._pure_view(path, [start_line, end_line])
+            self.undo_edit(path)
+            without_edits = self._pure_view(path, [start_line, end_line])
+            error_msg = _LINT_ERROR_TEMPLATE.format(
+                errors=new_flake8_output,
+                window_applied=with_edits,
+                window_original=without_edits,
+            )
+            return CLIResult(output=error_msg)
 
         # Prepare the success message
         success_msg = f'The file {path} has been edited. '
@@ -216,9 +299,38 @@ class EditTool:
 
         new_file_text = '\n'.join(new_file_text_lines)
         snippet = '\n'.join(snippet_lines)
-
+        # Get pre-edit linting errors
+        pre_edit_lint = flake8(path)
         self.write_file(path, new_file_text)
         self._file_history[path].append(file_text)
+
+        # Check for new linting errors
+        post_edit_lint = flake8(path)
+        new_flake8_output = format_flake8_output(
+            post_edit_lint,
+            previous_errors_string=pre_edit_lint,
+            replacement_window=(insert_line, insert_line + 1),
+            replacement_n_lines=len(new_str.splitlines()),
+        )
+        if new_flake8_output:
+            # Show error and revert changes
+            with_edits = self._pure_view(
+                path,
+                [
+                    insert_line - SNIPPET_LINES,
+                    insert_line + len(new_str.splitlines()) + SNIPPET_LINES,
+                ],
+            )
+            self.undo_edit(path)
+            without_edits = self._pure_view(
+                path, [insert_line - SNIPPET_LINES, insert_line + SNIPPET_LINES]
+            )
+            error_msg = _LINT_ERROR_TEMPLATE.format(
+                errors=new_flake8_output,
+                window_applied=with_edits,
+                window_original=without_edits,
+            )
+            return CLIResult(output=error_msg)
 
         success_msg = f'The file {path} has been edited. '
         success_msg += self._make_output(

@@ -67,7 +67,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
                 f'--- BEGIN HINTS ---\n{instance.hints_text}\n--- END HINTS ---\n'
             )
         instruction += CODEACT_SWE_PROMPT.format(workspace_dir_name=workspace_dir_name)
-    elif metadata.agent_class == 'OriginalAgent':
+    elif metadata.agent_class == 'CodeActAgent':
         # Instruction based on Anthropic's official trajectory
         # https://github.com/eschluntz/swe-bench-experiments/tree/main/evaluation/verified/20241022_tools_claude-3-5-sonnet-updated/trajs
         instruction = (
@@ -113,7 +113,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '4. **Handle Edge Cases**:\n'
             '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
             '5. **Rerun Your Patch**:\n'
-            '   - Rerun your patch and confirm that the error is fixed!\n'
+            '   - After making the necessary changes, rerun your patch to verify its functionality. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
             '### Additional Notes:\n'
             '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
             '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
@@ -283,6 +283,16 @@ def initialize_runtime(
             obs.exit_code == 0,
             f'Failed to source /swe_util/instance_swe_entry.sh: {str(obs)}',
         )
+
+        # action = CmdRunAction(command='cat /openhands/code/openhands/runtime/plugins/agent_skills/file_editor/impl.py')
+        # action = IPythonRunCellAction(code='import openhands; import os; print(os.path.dirname(openhands.__file__))')
+        # action = IPythonRunCellAction(code='print(file_editor("view", path="/swe_util/instance_swe_entry.sh"))')
+        # action = IPythonRunCellAction(code='print(file_editor("str_replace", path="/openhands/code/openhands/runtime/plugins/agent_skills/file_editor/test.py", old_str="insert_line=65))", new_str="print( ;;;"))')
+        # action.timeout = 600
+        # logger.info(action, extra={'msg_type': 'ACTION'})
+        # obs = runtime.run_action(action)
+        # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+        # exit(0)
     else:
         action = CmdRunAction(command='source /swe_util/swe_entry.sh')
         action.timeout = 1800
