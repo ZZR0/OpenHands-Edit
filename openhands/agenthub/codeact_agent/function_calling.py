@@ -4,12 +4,17 @@ This is similar to the functionality of `CodeActResponseParser`.
 """
 
 import json
+import warnings
 
+import numpy as np
 from litellm import (
     ChatCompletionToolParam,
     ChatCompletionToolParamFunctionChunk,
     ModelResponse,
 )
+from sklearn.cluster import DBSCAN, OPTICS, KMeans
+from sklearn.exceptions import ConvergenceWarning
+from sklearn.metrics import silhouette_score
 
 from openhands.core.logger import openhands_logger as logger
 from openhands.events.action import (
@@ -22,6 +27,9 @@ from openhands.events.action import (
     MessageAction,
 )
 from openhands.events.tool import ToolCallMetadata
+
+# 忽略特定的警告
+warnings.filterwarnings('ignore', category=ConvergenceWarning)
 
 SYSTEM_PROMPT = """You are a helpful assistant that can interact with a computer to solve tasks.
 <IMPORTANT>
@@ -313,6 +321,33 @@ def combine_thought(action: Action, thought: str) -> Action:
     return action
 
 
+def get_all_keys(d):
+    """递归获取字典中的所有键值"""
+    keys = []
+    for key, value in d.items():
+        keys.append(key)
+        if isinstance(value, dict):
+            keys.extend(get_all_keys(value))
+    return keys
+
+
+def get_all_key_values(d):
+    """递归获取字典中的所有键值对
+
+    Args:
+        d: 要处理的字典
+
+    Returns:
+        list: 包含所有键值对的列表，格式为 [(key_path, value), ...]
+    """
+    items = []
+    for key, value in d.items():
+        if isinstance(value, dict):
+            items.extend(get_all_key_values(value))
+        items.append((key, value))
+    return items
+
+
 def response_to_actions(response: ModelResponse) -> list[Action]:
     actions: list[Action] = []
     assert len(response.choices) == 1, 'Only one choice is supported for now'
@@ -331,8 +366,33 @@ def response_to_actions(response: ModelResponse) -> list[Action]:
         for i, tool_call in enumerate(assistant_msg.tool_calls):
             action: Action
             try:
-                arguments = json.loads(tool_call.function.arguments)
-            except json.decoder.JSONDecodeError as e:
+                raw_arguments = json.loads(tool_call.function.arguments)
+                logger.info(f'Raw arguments: {raw_arguments}')
+                # {'fields': {'value': {'string_value': 'view', 'path': '/workspace/astropy__astropy__5.1/astropy/io/ascii/rst.py'}, 'key': 'command'}}
+                # {'fields': {'value': {'string_value': '/workspace/astropy__astropy__5.2/astropy/nddata/mixins/ndarithmetic.py'}, 'key': 'path'}}
+                arguments = {}
+                all_keys = get_all_keys(raw_arguments)
+                if 'fields' in all_keys:
+                    all_key_values = get_all_key_values(raw_arguments)
+                    _arguments = {k: v for k, v in all_key_values}
+                    for key in _arguments:
+                        if isinstance(_arguments[key], dict):
+                            for v_key in _arguments[key]:
+                                if 'value' in v_key:
+                                    break
+                            _arguments[key] = _arguments[key][v_key]
+
+                    if 'key' in _arguments and 'value' in _arguments:
+                        _arguments[_arguments['key']] = _arguments['value']
+                    for key in _arguments:
+                        if 'key' in key or 'value' in key or 'fields' in key:
+                            continue
+                        arguments[key] = _arguments[key]
+                else:
+                    arguments = raw_arguments
+                logger.info(f'New arguments: {arguments}')
+                tool_call.function.arguments = json.dumps(arguments)
+            except Exception as e:
                 raise RuntimeError(
                     f'Failed to parse tool call arguments: {tool_call.function.arguments}'
                 ) from e
@@ -395,3 +455,112 @@ def get_tools(
     else:
         tools.append(StrReplaceEditorTool)
     return tools
+
+
+def select_by_kmeans(embeddings: list[float]) -> tuple[int, list[int]]:
+    # 自动选择最优簇数并进行聚类
+    # 将嵌入转换为数组
+    embedding_array = np.array(embeddings)
+
+    # 初始化变量
+    max_k = min(len(embedding_array) - 1, 10)  # 最大簇数
+    best_k = 2
+    best_score = -1
+
+    # 计算每个簇数的轮廓系数
+    for k in range(2, max_k):
+        kmeans = KMeans(n_clusters=k, random_state=42)
+        labels = kmeans.fit_predict(embedding_array)
+        score = (
+            silhouette_score(embedding_array, labels)
+            if len(np.unique(labels)) > 1
+            else 0
+        )
+
+        if score > best_score:
+            best_score = score
+            best_k = k
+
+    # 使用最佳簇数重新进行K-means聚类
+    kmeans = KMeans(n_clusters=best_k, random_state=42)
+    labels = kmeans.fit_predict(embedding_array)
+    # 找到最大簇
+    unique, counts = np.unique(labels, return_counts=True)
+    max_cluster_label = unique[np.argmax(counts)]
+
+    # 找到最大簇的类中心
+    max_cluster_center = kmeans.cluster_centers_[max_cluster_label]
+
+    # 计算最大簇中每个点到类中心的距离
+    max_cluster_indices = [
+        i for i, label in enumerate(labels) if label == max_cluster_label
+    ]
+    distances = [
+        np.linalg.norm(np.array(embeddings[i]) - max_cluster_center)
+        for i in max_cluster_indices
+    ]
+
+    # 找到距离类中心最近的选项
+    closest_index = max_cluster_indices[np.argmin(distances)]
+
+    return closest_index, labels
+
+
+def select_by_dbscan(embeddings: list[float]) -> tuple[int, list[int]]:
+    # 将嵌入转换为数组
+    embedding_array = np.array(embeddings)
+
+    # 使用DBSCAN进行聚类
+    dbscan = DBSCAN(eps=0.5, min_samples=2)  # 可以根据数据调整eps和min_samples
+    labels = dbscan.fit_predict(embedding_array)
+
+    # 找到最大簇
+    unique, counts = np.unique(labels[labels != -1], return_counts=True)
+    max_cluster_label = unique[np.argmax(counts)]
+
+    # 找到最大簇的类中心
+    max_cluster_indices = [
+        i for i, label in enumerate(labels) if label == max_cluster_label
+    ]
+    max_cluster_center = np.mean([embeddings[i] for i in max_cluster_indices], axis=0)
+
+    # 计算最大簇中每个点到类中心的距离
+    distances = [
+        np.linalg.norm(np.array(embeddings[i]) - max_cluster_center)
+        for i in max_cluster_indices
+    ]
+
+    # 找到距离类中心最近的选项
+    closest_index = max_cluster_indices[np.argmin(distances)]
+    return closest_index, labels
+
+
+def select_by_optics(embeddings: list[float]) -> tuple[int, list[int]]:
+    # 使用OPTICS进行聚类
+    # 将嵌入转换为数组
+    embedding_array = np.array(embeddings)
+
+    # 使用OPTICS进行聚类
+    optics = OPTICS(min_samples=2)  # 可以根据数据调整min_samples
+    labels = optics.fit_predict(embedding_array)
+    print(labels)
+    # 找到最大簇
+    unique, counts = np.unique(labels[labels != -1], return_counts=True)
+    max_cluster_label = unique[np.argmax(counts)]
+
+    # 找到最大簇的类中心
+    max_cluster_indices = [
+        i for i, label in enumerate(labels) if label == max_cluster_label
+    ]
+    max_cluster_center = np.mean([embeddings[i] for i in max_cluster_indices], axis=0)
+
+    # 计算最大簇中每个点到类中心的距离
+    distances = [
+        np.linalg.norm(np.array(embeddings[i]) - max_cluster_center)
+        for i in max_cluster_indices
+    ]
+
+    # 找到距离类中心最近的选项
+    closest_index = max_cluster_indices[np.argmin(distances)]
+
+    return closest_index, labels

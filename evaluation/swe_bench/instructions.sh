@@ -14,8 +14,10 @@ poetry self update # 如果遇到了 Cannot install swebench 的报错
 ./evaluation/swe_bench/scripts/run_infer.sh llm.gpt-4o-2024-05-13 HEAD CodeActAgent 500 100 1 'princeton-nlp/SWE-bench_Verified' 'test' 1
 ./evaluation/swe_bench/scripts/run_infer.sh llm.deepseek-chat HEAD CodeActAgent 500 100 1 'princeton-nlp/SWE-bench_Verified' 'test' 1
 
-./evaluation/swe_bench/scripts/run_infer.sh llm.gpt-4o-mini-2024-07-18 HEAD CodeActAgentEdit 500 100 1 'princeton-nlp/SWE-bench_Verified' 'test' 1
-./evaluation/swe_bench/scripts/run_infer.sh llm.gpt-4o-mini-2024-07-18 HEAD CodeActAgentEdit 500 100 1 'princeton-nlp/SWE-bench_Verified' 'test' 1
+EXP_NAME="wtest" ./evaluation/swe_bench/scripts/run_infer.sh llm.gpt-4o-mini-2024-07-18-aigc HEAD CodeActAgentEdit 500 100 4 'princeton-nlp/SWE-bench_Verified' 'test' 1
+./evaluation/swe_bench/scripts/run_infer.sh llm.gpt-4o-mini-2024-07-18-openai HEAD CodeActAgentEdit 500 100 1 'princeton-nlp/SWE-bench_Verified' 'test' 1
+
+EXP_NAME="notest" ./evaluation/swe_bench/scripts/run_infer.sh llm.gemini-2.0-flash-exp HEAD CodeActAgentEdit 500 100 10 'princeton-nlp/SWE-bench_Verified' 'test' 1
 
 ./evaluation/swe_bench/scripts/run_infer.sh llm.gpt-4o-2024-05-13-aigc HEAD CodeActAgentEdit 500 100 4 'princeton-nlp/SWE-bench_Verified' 'test' 1
 ./evaluation/swe_bench/scripts/run_infer.sh llm.gpt-4o-2024-05-13-openai HEAD CodeActAgentEdit 500 100 4 'princeton-nlp/SWE-bench_Verified' 'test' 1
@@ -33,3 +35,8 @@ poetry self update # 如果遇到了 Cannot install swebench 的报错
 ./evaluation/benchmarks/swe_bench/scripts/eval_infer.sh evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgent/gpt-4o-2024-05-13_maxiter_100_N_v2.2-no-hint-run_1/output.jsonl
 
 ./evaluation/benchmarks/swe_bench/scripts/eval_infer.sh $YOUR_OUTPUT_JSONL [instance_id] [dataset_name] [split]
+
+rm -r /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gpt-4o-mini-2024-07-18_maxiter_100_N_v2.1-no-hint-run_1
+
+docker images | grep all-hands-ai | awk 'length($2) == 44' | awk '{print $3}' | xargs docker rmi
+docker container ls | grep all-hands-ai | awk '{print $1}' | xargs docker rm

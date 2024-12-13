@@ -123,6 +123,9 @@ class LLM(RetryMixin, DebugMixin):
             # noinspection PyBroadException
             except Exception:
                 pass
+        if 'gemini-2.0-flash' in self.config.model:
+            self.model_info = litellm.get_model_info('gemini-1.5-flash')
+            self.model_info['key'] = 'gemini-2.0-flash'
         logger.info(f'Model info: {self.model_info}')
 
         if self.config.log_completions:

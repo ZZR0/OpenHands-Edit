@@ -109,6 +109,7 @@ async def run_controller(
     """
     # Create the agent
     if agent is None:
+        # import pdb; pdb.set_trace()
         agent_cls: Type[Agent] = Agent.get_cls(config.default_agent)
         agent_config = config.get_agent_config(config.default_agent)
         llm_config = config.get_llm_config_from_agent(config.default_agent)

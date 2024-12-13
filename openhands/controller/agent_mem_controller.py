@@ -467,9 +467,6 @@ class AgentMemController:
                 wait_for_response=True,
             )
             self.event_stream.add_event(action, EventSource.USER)
-            self.event_stream.add_event(
-                MessageAction(content='</finish>'), EventSource.USER
-            )
             await self.update_state_after_step()
             logger.info(action, extra={'msg_type': 'ACTION'})
             return

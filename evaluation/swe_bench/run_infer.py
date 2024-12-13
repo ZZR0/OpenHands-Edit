@@ -90,6 +90,34 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             "Your thinking should be thorough and so it's fine if it's very long.\n"
         )
     else:
+        # instruction = (
+        #     '<uploaded_files>\n'
+        #     f'/workspace/{workspace_dir_name}\n'
+        #     '</uploaded_files>\n'
+        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+        #     f'<pr_description>\n'
+        #     f'{instance.problem_statement}\n'
+        #     '</pr_description>\n\n'
+        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
+        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
+        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
+        #     '### Follow These Steps to Resolve the Issue:\n'
+        #     '1. **Familiarize Yourself with the Repository**:\n'
+        #     '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
+        #     '2. **Analyze the Problem**:\n'
+        #     '   - Identify the specific areas of the codebase that require changes.\n'
+        #     '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
+        #     '3. **Implement the Fix**:\n'
+        #     '   - Edit the source code in the identified locations to resolve the issue.\n'
+        #     '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
+        #     '4. **Handle Edge Cases**:\n'
+        #     '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
+        #     '5. **Rerun Your Patch**:\n'
+        #     '   - After making the necessary changes, rerun your patch to verify its functionality. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
+        #     '### Additional Notes:\n'
+        #     '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
+        #     '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
+        # )
         instruction = (
             '<uploaded_files>\n'
             f'/workspace/{workspace_dir_name}\n'
@@ -118,6 +146,37 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
             '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
         )
+        # instruction = (
+        #     '<uploaded_files>\n'
+        #     f'/workspace/{workspace_dir_name}\n'
+        #     '</uploaded_files>\n'
+        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+        #     f'<pr_description>\n'
+        #     f'{instance.problem_statement}\n'
+        #     '</pr_description>\n\n'
+        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
+        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
+        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
+        #     '### Follow These Steps to Resolve the Issue:\n'
+        #     '1. **Familiarize Yourself with the Repository**:\n'
+        #     '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
+        #     '2. **Analyze the Problem**:\n'
+        #     '   - Identify the specific areas of the codebase that require changes.\n'
+        #     '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
+        #     '3. **Implement the Fix**:\n'
+        #     '   - Edit the source code in the identified locations to resolve the issue.\n'
+        #     '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
+        #     '4. **Handle Edge Cases**:\n'
+        #     '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
+        #     '5. **Verify Your Patch**:\n'
+        #     '   - Create a script to reproduce the error described in the `<pr_description>`.\n'
+        #     '   - Do not run the pre-existing test script in the repository, such as `pytest`, but instead run the test script you created with `python <filename.py>` using the BashTool.\n'
+        #     '   - Execute the script with `python <filename.py>` using the BashTool to confirm that your changes resolve the issue.\n'
+        #     '   - Once the error is fixed, rerun your patch to verify its functionality.\n\n'
+        #     '### Additional Notes:\n'
+        #     '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
+        #     '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
+        # )
 
     return instruction
 
@@ -156,6 +215,7 @@ def get_config(
         default_agent=metadata.agent_class,
         run_as_openhands=False,
         max_iterations=metadata.max_iterations,
+        max_budget_per_task=5.0,
         runtime=os.environ.get('RUNTIME', 'eventstream'),
         sandbox=SandboxConfig(
             base_container_image=base_container_image,
@@ -537,6 +597,7 @@ if __name__ == '__main__':
     swe_bench_tests = filter_dataset(dataset.to_pandas(), 'instance_id')
 
     llm_config = None
+    # import pdb; pdb.set_trace()
     if args.llm_config:
         llm_config = get_llm_config_arg(args.llm_config)
         llm_config.log_completions = True

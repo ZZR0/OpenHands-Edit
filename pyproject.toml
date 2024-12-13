@@ -24,6 +24,7 @@ toml = "*"
 uvicorn = "*"
 types-toml = "*"
 numpy = "*"
+scikit-learn = "*"
 json-repair = "*"
 browsergym = "0.10.2" # integrate browsergym as the browsing interface
 html2text = "*"

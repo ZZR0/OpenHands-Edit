@@ -93,6 +93,7 @@ class CodeActAgentEdit(Agent):
             if config.micro_agent_name
             else None
         )
+        self.config.function_calling = False
         if (
             self.config.function_calling
             and not self.llm.config.supports_function_calling
@@ -125,6 +126,15 @@ class CodeActAgentEdit(Agent):
             )
             self.system_prompt = self.prompt_manager.system_message
             self.initial_user_message = self.prompt_manager.initial_user_message
+
+        self.best_of_n = 8
+        if self.best_of_n > 1:
+            from openai import OpenAI
+
+            api_key = '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'
+            base_url = 'https://api.openai.com/v1'
+            self.embedding_client = OpenAI(base_url=base_url, api_key=api_key)
+            self.embedding_model = 'text-embedding-3-large'
 
         self.pending_actions: deque[Action] = deque()
 
@@ -320,6 +330,21 @@ class CodeActAgentEdit(Agent):
         - MessageAction(content) - Message action to run (e.g. ask for clarification)
         - AgentFinishAction() - end the interaction
         """
+
+        def check_tool_calls(choice, tools):
+            if choice.message.tool_calls is None:
+                return True
+            if tools is None:
+                return True
+            if all(
+                [
+                    tool_call.function.name in tools
+                    for tool_call in choice.message.tool_calls
+                ]
+            ):
+                return True
+            return False
+
         # Continue with pending actions if any
         if self.pending_actions:
             return self.pending_actions.popleft()
@@ -334,6 +359,7 @@ class CodeActAgentEdit(Agent):
         messages = self._post_process_messages(messages)
         params: dict = {
             'messages': self.llm.format_messages_for_llm(messages),
+            'n': self.best_of_n,
         }
         if self.config.function_calling:
             params['tools'] = self.tools
@@ -348,12 +374,48 @@ class CodeActAgentEdit(Agent):
         if (
             len(messages) > 4
             and messages[-1].role == 'user'
-            and 'You have been working on this task for a while.'
+            and "You've been working on this task for a while."
             in messages[-1].content[0].text
         ):
             params['tools'] = None
 
-        response = self.llm.completion(**params)
+        # response = self.llm.completion(**params)
+        # response = self.choices_selection(response)
+
+        # import pdb; pdb.set_trace()
+        correct_response = None
+        tools_names = (
+            [tool['function']['name'] for tool in self.tools]
+            if self.config.function_calling
+            else None
+        )
+        for i in range(5):
+            # import pdb; pdb.set_trace()
+            response = self.llm.completion(**params)
+            response.choices = [
+                choice
+                for choice in response.choices
+                if choice.message.content is not None
+                or choice.message.tool_calls is not None
+            ]
+            if len(response.choices) == 0:
+                continue
+
+            for choice in response.choices:
+                if check_tool_calls(choice, tools_names):
+                    correct_response = response.__deepcopy__()
+                    correct_response.choices = [choice]
+
+            response = self.choices_selection(response)
+            if check_tool_calls(response.choices[0], tools_names):
+                break
+            logger.info(f'Tool calls not correct in the response, retrying {i} ...')
+
+        if not check_tool_calls(response.choices[0], tools_names) and correct_response:
+            logger.info(
+                'Tool calls not correct in the response, replace with the correct one.'
+            )
+            response = correct_response
 
         if self.config.function_calling:
             actions = codeact_function_calling.response_to_actions(response)
@@ -363,10 +425,49 @@ class CodeActAgentEdit(Agent):
         else:
             return self.action_parser.parse(response)
 
+    def choices_selection(self, response: ModelResponse) -> ModelResponse:
+        if len(response.choices) == 1:
+            return response
+
+        # response.choices = [response.choices[0]]
+        choices = [choice.message.to_dict() for choice in response.choices]
+        for choice in choices:
+            if isinstance(choice['tool_calls'], list):
+                [call.pop('id') for call in choice['tool_calls']]
+        choices = [
+            json.dumps(choice, indent=4, ensure_ascii=False) for choice in choices
+        ]
+
+        try:
+            embedding_response = self.embedding_client.embeddings.create(
+                input=choices,
+                model=self.embedding_model,
+                timeout=120,
+            )
+
+            embeddings = [embedding.embedding for embedding in embedding_response.data]
+            # import pdb; pdb.set_trace()
+            closest_index, labels = codeact_function_calling.select_by_kmeans(
+                embeddings
+            )
+            logger.info(f'Select the best choice: {closest_index}, labels: {labels}')
+            # closest_index = codeact_function_calling.select_by_dbscan(embeddings)
+            # closest_index = codeact_function_calling.select_by_optics(embeddings)
+        except Exception as e:
+            logger.error(f'Error embedding choices: {e}')
+            closest_index = 0
+
+        # 更新response.choices为离类中心最近的选项
+        response.choices = [response.choices[closest_index]]
+
+        return response
+
     def _post_process_messages(self, messages: list[Message]) -> list[Message]:
+        # import pdb; pdb.set_trace()
         first_opservation_index = -1
+        opservation_role = 'tool' if self.config.function_calling else 'assistant'
         for i, message in enumerate(messages):
-            if message.role == 'tool':
+            if message.role == opservation_role:
                 first_opservation_index = i
                 break
         if first_opservation_index == -1:
@@ -380,7 +481,7 @@ class CodeActAgentEdit(Agent):
                 in messages[i].content[0].text
             ):
                 summary_user_message_index.append(i)
-
+        # import pdb; pdb.set_trace()
         if len(summary_user_message_index) <= 1:
             return messages
 
@@ -552,7 +653,8 @@ class CodeActAgentEdit(Agent):
                         and messages[-1].role == message.role
                         and message.role != 'tool'
                     ):
-                        messages[-1].content.extend(message.content)
+                        # messages[-1].content.extend(message.content)
+                        messages[-1].content = message.content
                     else:
                         messages.append(message)
 
@@ -589,6 +691,6 @@ class CodeActAgentEdit(Agent):
             # do not add this for function calling
             if latest_user_message:
                 reminder_text = f'\n\nENVIRONMENT REMINDER: You have {state.max_iterations - state.iteration} turns left to complete the task. When finished reply with <finish></finish>.'
-                latest_user_message.content.append(TextContent(text=reminder_text))
+                latest_user_message.content[0].text += reminder_text
 
         return messages
