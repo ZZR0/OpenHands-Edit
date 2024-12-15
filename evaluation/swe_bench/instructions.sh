@@ -39,4 +39,4 @@ EXP_NAME="notest" ./evaluation/swe_bench/scripts/run_infer.sh llm.gemini-2.0-fla
 rm -r /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gpt-4o-mini-2024-07-18_maxiter_100_N_v2.1-no-hint-run_1
 
 docker images | grep all-hands-ai | awk 'length($2) == 44' | awk '{print $3}' | xargs docker rmi
-docker container ls | grep all-hands-ai | awk '{print $1}' | xargs docker rm
+docker container ls | grep openhands-runtime- | awk '{print $1}' | xargs docker rm -f

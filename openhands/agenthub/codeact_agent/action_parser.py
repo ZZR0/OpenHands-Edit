@@ -32,9 +32,9 @@ class CodeActResponseParser(ResponseParser):
         super().__init__()
         self.action_parsers = [
             CodeActActionParserFinish(),
-            CodeActActionParserFileEdit(),
             CodeActActionParserCmdRun(),
             CodeActActionParserIPythonRunCell(),
+            CodeActActionParserFileEdit(),
             CodeActActionParserAgentDelegate(),
         ]
         self.default_parser = CodeActActionParserMessage()
@@ -51,10 +51,24 @@ class CodeActResponseParser(ResponseParser):
             # special handling for DeepSeek: it has stop-word bug and returns </execute_ipython instead of </execute_ipython>
             if f'</execute_{lang}' in action and f'</execute_{lang}>' not in action:
                 action = action.replace(f'</execute_{lang}', f'</execute_{lang}>')
-
+            # special handling for Gemini: it has stop-word bug and returns </execute_ipython></file_edit> instead of </execute_ipython>
+            if (
+                f'<execute_{lang}>' in action
+                and f'</execute_{lang}></file_edit>' in action
+            ):
+                action = action.replace(
+                    f'</execute_{lang}></file_edit>', f'</execute_{lang}>'
+                )
             if f'<execute_{lang}>' in action and f'</execute_{lang}>' not in action:
                 action += f'</execute_{lang}>'
-        if '<file_edit' in action and '</file_edit>' not in action:
+
+        if (
+            '<file_edit' in action
+            and '</file_edit>' not in action
+            and not any(
+                f'</execute_{lang}>' in action for lang in ['bash', 'ipython', 'browse']
+            )
+        ):
             action += '</file_edit>'
         return action
 

@@ -263,11 +263,12 @@ def initialize_runtime(
     logger.info('BEGIN Runtime Initialization Fn')
     logger.info('-' * 30)
     workspace_dir_name = _get_swebench_workspace_dir_name(instance)
+    instance_base_commit = instance['base_commit']
+    instance_id = instance['instance_id']
     obs: CmdOutputObservation
-
     # Set instance id
     action = CmdRunAction(
-        command=f"""echo 'export SWE_INSTANCE_ID={instance['instance_id']}' >> ~/.bashrc && echo 'export PIP_CACHE_DIR=~/.cache/pip' >> ~/.bashrc && echo "alias git='git --no-pager'" >> ~/.bashrc"""
+        command=f"""echo 'export SWE_INSTANCE_COMMIT={instance_base_commit}' >> ~/.bashrc && echo 'export SWEBENCH_WORKSPACE=/workspace/{workspace_dir_name}' >> ~/.bashrc && echo 'export SWE_INSTANCE_ID={instance_id}' >> ~/.bashrc && echo 'export PIP_CACHE_DIR=~/.cache/pip' >> ~/.bashrc && echo "alias git='git --no-pager'" >> ~/.bashrc"""
     )
     action.timeout = 600
     logger.info(action, extra={'msg_type': 'ACTION'})

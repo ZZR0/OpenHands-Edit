@@ -78,6 +78,7 @@ class LLM(RetryMixin, DebugMixin):
         self.metrics: Metrics = (
             metrics if metrics is not None else Metrics(model_name=config.model)
         )
+        self.extra_data: dict[str, Any] = {}
         self.cost_metric_supported: bool = True
         self.config: LLMConfig = copy.deepcopy(config)
 

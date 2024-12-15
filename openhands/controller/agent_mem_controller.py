@@ -1,7 +1,7 @@
 import asyncio
 import copy
 import traceback
-from typing import Type
+from typing import Any, Type
 
 import litellm
 
@@ -42,7 +42,11 @@ from openhands.events.observation import (
 )
 from openhands.events.serialization.event import truncate_content
 from openhands.llm.llm import LLM
-from openhands.runtime.utils.shutdown_listener import should_continue
+from openhands.runtime.base import Runtime
+from openhands.runtime.utils.shutdown_listener import (
+    should_continue,
+    sleep_if_should_continue,
+)
 
 # note: RESUME is only available on web GUI
 TRAFFIC_CONTROL_REMINDER = (
@@ -50,11 +54,123 @@ TRAFFIC_CONTROL_REMINDER = (
 )
 
 
+def assert_and_raise(condition: bool, msg: str):
+    """Raise an EvalException if the condition is not met.
+
+    This will be used in conjunction with _process_instance_wrapper to handle retries. An EvalException should trigger a retry.
+    """
+    if not condition:
+        raise ValueError(msg)
+
+
+def get_git_diff(
+    runtime: Runtime,
+) -> dict[str, Any]:
+    """Get the git diff for the current instance."""
+    logger.info('-' * 30)
+    logger.info('BEGIN Git Patch Getter.')
+    logger.info('-' * 30)
+    obs: CmdOutputObservation
+
+    action = CmdRunAction(command='export CURRENT_WORKSPACE=$(pwd)')
+    action.timeout = 600
+    # logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)  # type: ignore
+    # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    assert_and_raise(
+        isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
+        f'Failed to export CURRENT_WORKSPACE: {str(obs)}',
+    )
+
+    action = CmdRunAction(command='cd $SWEBENCH_WORKSPACE')
+    action.timeout = 600
+    # logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)  # type: ignore
+    # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    assert_and_raise(
+        isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
+        f'Failed to cd to $SWEBENCH_WORKSPACE: {str(obs)}',
+    )
+
+    action = CmdRunAction(command='git config --global core.pager ""')
+    action.timeout = 600
+    # logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)  # type: ignore
+    # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    assert_and_raise(
+        isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
+        f'Failed to git config --global core.pager "": {str(obs)}',
+    )
+
+    action = CmdRunAction(command='git add -A')
+    action.timeout = 600
+    # logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)  # type: ignore
+    # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    assert_and_raise(
+        isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
+        f'Failed to git add -A: {str(obs)}',
+    )
+
+    n_retries = 0
+    git_patch = None
+    while n_retries < 5:
+        action = CmdRunAction(
+            command='git diff --no-color --cached $SWE_INSTANCE_COMMIT',
+            keep_prompt=False,
+        )
+        action.timeout = 600 + 100 * n_retries
+        # logger.info(action, extra={'msg_type': 'ACTION'})
+        obs = runtime.run_action(action)  # type: ignore
+        # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+        n_retries += 1
+        if isinstance(obs, CmdOutputObservation):
+            if obs.exit_code == 0:
+                git_patch = obs.content.strip()
+                break
+            else:
+                logger.info('Failed to get git diff, retrying...')
+                sleep_if_should_continue(10)
+        elif isinstance(obs, ErrorObservation):  # type: ignore
+            logger.error(f'Error occurred: {obs.content}. Retrying...')
+            sleep_if_should_continue(10)
+        else:
+            assert_and_raise(False, f'Unexpected observation type: {str(obs)}')
+
+    assert_and_raise(git_patch is not None, 'Failed to get git diff (None)')
+
+    action = CmdRunAction(command='git reset')
+    action.timeout = 600
+    # logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)  # type: ignore
+    # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    assert_and_raise(
+        isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
+        f'Failed to git reset: {str(obs)}',
+    )
+
+    action = CmdRunAction(command='cd $CURRENT_WORKSPACE')
+    action.timeout = 600
+    # logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)  # type: ignore
+    # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    assert_and_raise(
+        isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
+        f'Failed to cd to $CURRENT_WORKSPACE: {str(obs)}',
+    )
+
+    logger.info('-' * 30)
+    logger.info('END Git Patch Getter.')
+    logger.info('-' * 30)
+    return git_patch  # type: ignore
+
+
 class AgentMemController:
     id: str
     agent: Agent
     max_iterations: int
     event_stream: EventStream
+    runtime: Runtime
     state: State
     confirmation_mode: bool
     agent_to_llm_config: dict[str, LLMConfig]
@@ -67,6 +183,7 @@ class AgentMemController:
     def __init__(
         self,
         agent: Agent,
+        runtime: Runtime,
         event_stream: EventStream,
         max_iterations: int,
         max_budget_per_task: float | None = None,
@@ -99,6 +216,7 @@ class AgentMemController:
         self.agent = agent
         self.headless_mode = headless_mode
 
+        self.runtime = runtime
         # subscribe to the event stream
         self.event_stream = event_stream
         self.event_stream.subscribe(
@@ -132,6 +250,12 @@ class AgentMemController:
     async def update_state_after_step(self):
         # update metrics especially for cost. Use deepcopy to avoid it being modified by agent.reset()
         self.state.local_metrics = copy.deepcopy(self.agent.llm.metrics)
+        self.state.extra_data['prior_output_token_count'] = self.agent.extra_data[  # type: ignore
+            'output_tokens'
+        ]
+        self.state.extra_data['prior_input_token_count'] = self.agent.extra_data[  # type: ignore
+            'input_tokens'
+        ]
 
     async def report_error(self, message: str, exception: Exception | None = None):
         """Reports an error to the user and sends the exception to the LLM next step, in the hope it can self-correct.
@@ -385,6 +509,7 @@ class AgentMemController:
         self.delegate = AgentMemController(
             sid=self.id + '-delegate',
             agent=delegate_agent,
+            runtime=self.runtime,
             event_stream=self.event_stream,
             max_iterations=self.state.max_iterations,
             max_budget_per_task=self.max_budget_per_task,
@@ -442,20 +567,45 @@ class AgentMemController:
         if stop_step:
             return
 
-        last_user_event_so_far = 0
-        for event in self.event_stream.get_events(reverse=True):
-            if event.source != EventSource.USER:
-                last_user_event_so_far += 1
-            else:
-                break
+        # last_user_event_so_far = 0
+        # for event in self.event_stream.get_events(reverse=True):
+        #     if event.source != EventSource.USER:
+        #         last_user_event_so_far += 1
+        #     else:
+        #         break
 
-        if last_user_event_so_far > 20:
-            self.update_state_before_step()
+        agent_event_so_far = 0
+        # import pdb; pdb.set_trace()
+        logger.info(
+            f'Event Stream Role: {[event.source for event in self.event_stream.get_events(reverse=True)]}'
+        )
+        for event in self.event_stream.get_events(reverse=True):
+            if (
+                event.source == EventSource.USER  # type: ignore
+                and "You've been working on this task for a while." in event.message  # type: ignore
+            ):
+                break
+            if event.source == EventSource.AGENT:
+                agent_event_so_far += 1
+
+        # if agent_event_so_far >= 4 and (
+        #     self.state.extra_data.get("prior_output_token_count", 0) + self.state.extra_data.get("prior_input_token_count", 0) > 28000
+        # ):
+        # if last_user_event_so_far > 20:
+        if agent_event_so_far >= 20:
             # import pdb; pdb.set_trace()
-            # print(f'last_user_event_so_far: {last_user_event_so_far}')
+            # git_diff = get_git_diff(runtime=self.runtime)
+            git_diff = ''
+            self.update_state_before_step()
+
+            if git_diff:
+                start_msg = f"You've been working on this task for a while. The current git diff of your code is:\n```\n{git_diff}\n```\n\nTo stay on track and ensure progress, consider the following steps:\n\n"
+            else:
+                start_msg = "You've been working on this task for a while. To stay on track and ensure progress, consider the following steps:\n\n"
+
             action = MessageAction(
                 content=(
-                    "You've been working on this task for a while. To stay on track and ensure progress, consider the following steps:\n\n"
+                    f'{start_msg}'
                     "1. **Summarize Your Progress**: Take a moment to reflect on and document what you've accomplished so far. This will help you maintain clarity and focus.\n\n"
                     '2. **Organize Key Information**: Identify and note down the critical details needed to complete the task. Ensure the information is relevant and presented in a clear, structured format. For example, use code blocks like this:\n'
                     '   ```\n'

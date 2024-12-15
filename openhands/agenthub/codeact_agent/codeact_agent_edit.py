@@ -2,6 +2,7 @@ import json
 import os
 from collections import deque
 from itertools import islice
+from typing import Any
 
 from litellm import ModelResponse
 
@@ -137,6 +138,7 @@ class CodeActAgentEdit(Agent):
             self.embedding_model = 'text-embedding-3-large'
 
         self.pending_actions: deque[Action] = deque()
+        self.extra_data: dict[str, Any] = {}
 
     def get_action_message(
         self,
@@ -392,6 +394,8 @@ class CodeActAgentEdit(Agent):
         for i in range(5):
             # import pdb; pdb.set_trace()
             response = self.llm.completion(**params)
+            self.extra_data['input_tokens'] = response.usage.get('prompt_tokens')
+            self.extra_data['output_tokens'] = response.usage.get('completion_tokens')
             response.choices = [
                 choice
                 for choice in response.choices
@@ -437,6 +441,7 @@ class CodeActAgentEdit(Agent):
         choices = [
             json.dumps(choice, indent=4, ensure_ascii=False) for choice in choices
         ]
+        # choices = [choice[:24000] for choice in choices]
 
         try:
             embedding_response = self.embedding_client.embeddings.create(

@@ -152,6 +152,7 @@ async def run_controller(
         max_iterations=config.max_iterations,
         max_budget_per_task=config.max_budget_per_task,
         agent_to_llm_config=config.get_agent_to_llm_config_map(),
+        runtime=runtime,
         event_stream=event_stream,
         initial_state=initial_state,
         headless_mode=headless_mode,
