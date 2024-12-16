@@ -128,7 +128,7 @@ class CodeActAgentEdit(Agent):
             self.system_prompt = self.prompt_manager.system_message
             self.initial_user_message = self.prompt_manager.initial_user_message
 
-        self.best_of_n = 8
+        self.best_of_n = 1
         if self.best_of_n > 1:
             from openai import OpenAI
 
@@ -410,7 +410,11 @@ class CodeActAgentEdit(Agent):
                     correct_response = response.__deepcopy__()
                     correct_response.choices = [choice]
 
-            response = self.choices_selection(response)
+            response = self.choices_selection_llm(
+                messages[-1].content[0].text, response
+            )
+            # response = self.choices_selection_embedding(response)
+
             if check_tool_calls(response.choices[0], tools_names):
                 break
             logger.info(f'Tool calls not correct in the response, retrying {i} ...')
@@ -429,7 +433,62 @@ class CodeActAgentEdit(Agent):
         else:
             return self.action_parser.parse(response)
 
-    def choices_selection(self, response: ModelResponse) -> ModelResponse:
+    def choices_selection_llm(
+        self, question: str, response: ModelResponse
+    ) -> ModelResponse:
+        # import pdb; pdb.set_trace()
+        if len(response.choices) == 1:
+            return response
+        assert (
+            not self.config.function_calling
+        ), 'choices_selection_llm is only supported in non-function calling mode'
+        options_list = [
+            f"Answer Option {i}:\n```\n{choice.message.to_dict()['content']}\n```"
+            for i, choice in enumerate(response.choices)
+        ]
+        options_list = '\n'.join(options_list)  # type: ignore
+        prompt = (
+            'Please evaluate the given question and select the best option from the provided choices. \n'
+            'The best option is the one that is most likely to solve the problem or best addresses the question. \n'
+            'Carefully consider the content of each choice before making your selection. \n'
+            'Here is the question:\n'
+            '```\n'
+            f'{question}\n'
+            '```\n'
+            'Here are the options:\n'
+            f'{options_list}\n'
+            'Your task: \n'
+            '- Please first analyze the question and the options provided. \n'
+            '- Then select the most appropriate option based on the information given. \n'
+            '- Return the reason for your selection and the index of the selected option at the end in the following format: `[[index]]` (e.g., `[[0]]` for the first option). \n'
+            'Please ensure your response strictly follows this format `[[index]]`. \n'
+        )
+        params: dict = {
+            'messages': self.llm.format_messages_for_llm(
+                [
+                    Message(
+                        role='user',
+                        content=[TextContent(text=prompt)],
+                    )
+                ]
+            ),
+            'n': 5,
+        }
+        options_response = self.llm.completion(**params)
+        option_texts = [choice.message.content for choice in options_response.choices]
+        index_dict = {i: 0 for i in range(len(options_list))}
+        for option_text in option_texts:
+            try:
+                index = int(option_text.split('[[')[1].split(']]')[0])
+                index_dict[index] += 1
+            except Exception as e:
+                logger.info(f'Error selecting the best option: {e}')
+        logger.info(f'Select the best choice: {index_dict}')
+        index = max(index_dict, key=index_dict.get)  # type: ignore
+        response.choices = [response.choices[index]]
+        return response
+
+    def choices_selection_embedding(self, response: ModelResponse) -> ModelResponse:
         if len(response.choices) == 1:
             return response
 
@@ -490,6 +549,9 @@ class CodeActAgentEdit(Agent):
         if len(summary_user_message_index) <= 1:
             return messages
 
+        # if summary_user_message_index[-1] == len(messages) - 1 and len(summary_user_message_index) == 1:
+        #     return messages
+        # elif summary_user_message_index[-1] == len(messages) - 1:
         if summary_user_message_index[-1] == len(messages) - 1:
             # import pdb; pdb.set_trace()
             return (
