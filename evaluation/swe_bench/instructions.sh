@@ -42,3 +42,5 @@ rm -r /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princ
 
 docker images | grep all-hands-ai | awk 'length($2) == 44' | awk '{print $3}' | xargs docker rmi
 docker container ls | grep openhands-runtime- | awk '{print $1}' | xargs docker rm -f
+
+docker images | grep all-hands-ai | awk 'length($2) == 27' | grep days | awk '{ print $1":"$2 }' | xargs -I {} docker save -o /hdd1/zzr/docker_images/{}.tar {}

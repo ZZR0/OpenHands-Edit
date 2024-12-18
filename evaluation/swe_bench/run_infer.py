@@ -1,10 +1,13 @@
 import asyncio
 import json
 import os
+import random
 import tempfile
+import time
 from datetime import datetime
 from typing import Any
 
+import docker
 import pandas as pd
 import toml
 from datasets import load_dataset
@@ -36,11 +39,19 @@ from openhands.events.action import CmdRunAction, MessageAction
 from openhands.events.observation import CmdOutputObservation, ErrorObservation
 from openhands.events.serialization.event import event_to_dict
 from openhands.runtime.base import Runtime
+from openhands.runtime.utils.runtime_build import (
+    get_hash_for_lock_files,
+    get_hash_for_source_files,
+    get_runtime_image_repo_and_tag,
+    oh_version,
+)
 from openhands.runtime.utils.shutdown_listener import sleep_if_should_continue
 from openhands.utils.async_utils import call_async_from_sync
 
 USE_HINT_TEXT = os.environ.get('USE_HINT_TEXT', 'false').lower() == 'true'
 USE_INSTANCE_IMAGE = os.environ.get('USE_INSTANCE_IMAGE', 'false').lower() == 'true'
+DOCKER_IMAGE_DIR = os.environ.get('DOCKER_IMAGE_DIR', '/hdd1/zzr/docker_images/')
+
 
 AGENT_CLS_TO_FAKE_USER_RESPONSE_FN = {
     'CodeActAgent': codeact_user_response,
@@ -508,11 +519,84 @@ def complete_runtime(
     return {'git_patch': git_patch}
 
 
+def load_docker_image(base_container_image: str):
+    def load_docker_image_from_path(image_path):
+        try:
+            logger.info(f'Loading docker image: {image_path}')
+            docker_client = docker.from_env()
+
+            # 读取文件的二进制内容
+            with open(image_path, 'rb') as image_file:
+                image_data = image_file.read()
+
+            # 加载镜像
+            docker_client.images.load(image_data)
+            logger.info('Docker image loaded successfully.')
+
+        except docker.errors.ImageLoadError as e:
+            logger.error(f'Failed to load image: {e}')
+        except Exception as e:
+            logger.error(f'An unexpected error occurred: {e}')
+
+    def image_exists(image_name: str) -> bool:
+        """Check if the image exists in the local store.
+
+        Args:
+            image_name (str): The Docker image to check (<image repo>:<image tag>)
+        Returns:
+            bool: Whether the Docker image exists in the registry or in the local store
+        """
+        docker_client = docker.from_env()
+        if not image_name:
+            logger.error(f'Invalid image name: `{image_name}`')
+            return False
+
+        try:
+            logger.debug(f'Checking, if image exists locally:\n{image_name}')
+            docker_client.images.get(image_name)
+            logger.debug('Image found locally.')
+            return True
+        except docker.errors.ImageNotFound:
+            logger.debug(f'Image {image_name} not found locally')
+            return False
+
+    # import pdb; pdb.set_trace()
+    runtime_image_repo, _ = get_runtime_image_repo_and_tag(base_container_image)
+    lock_tag = f'oh_v{oh_version}_{get_hash_for_lock_files(base_container_image)}'
+    image_path = f'{DOCKER_IMAGE_DIR}/{runtime_image_repo}:{lock_tag}.tar'
+    if image_exists(f'{runtime_image_repo}:{lock_tag}'):
+        logger.info(f'Docker image {runtime_image_repo}:{lock_tag} already exists')
+    elif os.path.exists(image_path):
+        logger.info(f'Loading docker image: {image_path}')
+        load_docker_image_from_path(image_path)
+    else:
+        logger.error(f'Docker image not found: {image_path}')
+
+
+def remove_docker_image(base_container_image: str):
+    # import pdb; pdb.set_trace()
+    runtime_image_repo, _ = get_runtime_image_repo_and_tag(base_container_image)
+    lock_tag = f'oh_v{oh_version}_{get_hash_for_lock_files(base_container_image)}'
+    source_tag = f'{lock_tag}_{get_hash_for_source_files()}'
+    docker_client = docker.from_env()
+    lock_image_name = f'{runtime_image_repo}:{lock_tag}'
+    source_image_name = f'{runtime_image_repo}:{source_tag}'
+    image_path = f'{DOCKER_IMAGE_DIR}/{runtime_image_repo}:{lock_tag}.tar'
+    if os.path.exists(image_path):
+        logger.info(f'Removing docker image: {source_image_name}')
+        docker_client.images.remove(source_image_name, force=True)
+        logger.info(f'Removing docker image: {lock_image_name}')
+        docker_client.images.remove(lock_image_name, force=True)
+    else:
+        logger.info(f'Docker image {lock_image_name} will be kept.')
+
+
 def process_instance(
     instance: pd.Series,
     metadata: EvalMetadata,
     reset_logger: bool = True,
 ) -> EvalOutput:
+    time.sleep(random.randint(1, 10))
     # import pdb; pdb.set_trace()
     config = get_config(instance, metadata)
 
@@ -524,6 +608,8 @@ def process_instance(
         logger.info(f'Starting evaluation for instance {instance.instance_id}.')
 
     current_time = datetime.now().strftime('%Y%m%d%H%M%S')
+    # dockerpull.org/xingyaoww/sweb.eval.x86_64.django_s_django-15781
+    load_docker_image(config.sandbox.base_container_image)
     runtime = create_runtime(config, sid=f'{instance.instance_id}_{current_time}')
     call_async_from_sync(runtime.connect)
 
@@ -589,6 +675,8 @@ def process_instance(
         metrics=metrics,
         error=state.last_error if state and state.last_error else None,
     )
+
+    remove_docker_image(config.sandbox.base_container_image)
     return output
 
 

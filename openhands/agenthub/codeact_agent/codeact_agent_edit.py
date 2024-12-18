@@ -128,7 +128,7 @@ class CodeActAgentEdit(Agent):
             self.system_prompt = self.prompt_manager.system_message
             self.initial_user_message = self.prompt_manager.initial_user_message
 
-        self.best_of_n = 1
+        self.best_of_n = 4
         if self.best_of_n > 1:
             from openai import OpenAI
 
@@ -446,22 +446,23 @@ class CodeActAgentEdit(Agent):
             f"Answer Option {i}:\n```\n{choice.message.to_dict()['content']}\n```"
             for i, choice in enumerate(response.choices)
         ]
+        index_dict = {i: 0 for i in range(len(options_list))}
         options_list = '\n'.join(options_list)  # type: ignore
         prompt = (
-            'Please evaluate the given question and select the best option from the provided choices. \n'
-            'The best option is the one that is most likely to solve the problem or best addresses the question. \n'
-            'Carefully consider the content of each choice before making your selection. \n'
+            'Please evaluate the given question and select the best option from the provided choices.\n'
+            'The best option is the one that most effectively solves the problem or best addresses the question. \n'
+            'Instructions:\n'
+            '1. Carefully analyze the content and differences between the provided options.\n'
+            '2. Select the most appropriate option based on the information given.\n'
+            '3. Provide a clear explanation for your selection, highlighting why it is the best choice.\n'
+            '4. At the end of your response, return the index of the selected option in the following format: `[[index]]` (e.g., `[[0]]` for the first option).\n'
             'Here is the question:\n'
             '```\n'
             f'{question}\n'
             '```\n'
             'Here are the options:\n'
             f'{options_list}\n'
-            'Your task: \n'
-            '- Please first analyze the question and the options provided. \n'
-            '- Then select the most appropriate option based on the information given. \n'
-            '- Return the reason for your selection and the index of the selected option at the end in the following format: `[[index]]` (e.g., `[[0]]` for the first option). \n'
-            'Please ensure your response strictly follows this format `[[index]]`. \n'
+            'Your response should strictly follow the required format: `[[index]]`.'
         )
         params: dict = {
             'messages': self.llm.format_messages_for_llm(
@@ -476,7 +477,6 @@ class CodeActAgentEdit(Agent):
         }
         options_response = self.llm.completion(**params)
         option_texts = [choice.message.content for choice in options_response.choices]
-        index_dict = {i: 0 for i in range(len(options_list))}
         for option_text in option_texts:
             try:
                 index = int(option_text.split('[[')[1].split(']]')[0])
