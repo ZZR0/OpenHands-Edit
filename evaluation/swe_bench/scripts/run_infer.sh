@@ -103,4 +103,9 @@ for i in $(seq 1 $N_RUNS); do
   run_eval $current_eval_note
 done
 
+# 选择patch
+# poetry run python evaluation/swe_bench/run_select.py \
+#   --input-file evaluation/swe_bench/results/CodeActAgent-llm.claude-3-5-sonnet-20241022-test-run.jsonl \
+#   --output-file evaluation/swe_bench/results/CodeActAgent-llm.claude-3-5-sonnet-20241022-test-run-selected.jsonl
+
 checkout_original_branch

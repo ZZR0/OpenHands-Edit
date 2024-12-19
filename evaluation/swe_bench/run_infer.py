@@ -523,7 +523,7 @@ def load_docker_image(base_container_image: str):
     def load_docker_image_from_path(image_path):
         try:
             logger.info(f'Loading docker image: {image_path}')
-            docker_client = docker.from_env()
+            docker_client = docker.from_env(timeout=600)
 
             # 读取文件的二进制内容
             with open(image_path, 'rb') as image_file:
@@ -567,10 +567,11 @@ def load_docker_image(base_container_image: str):
     if image_exists(f'{runtime_image_repo}:{lock_tag}'):
         logger.info(f'Docker image {runtime_image_repo}:{lock_tag} already exists')
     elif os.path.exists(image_path):
-        logger.info(f'Loading docker image: {image_path}')
+        # lock_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f'docker_image_load.lock')
+        # with FileLock(lock_file_path):
         load_docker_image_from_path(image_path)
     else:
-        logger.error(f'Docker image not found: {image_path}')
+        logger.info(f'Docker image not found: {image_path}')
 
 
 def remove_docker_image(base_container_image: str):
@@ -578,13 +579,13 @@ def remove_docker_image(base_container_image: str):
     runtime_image_repo, _ = get_runtime_image_repo_and_tag(base_container_image)
     lock_tag = f'oh_v{oh_version}_{get_hash_for_lock_files(base_container_image)}'
     source_tag = f'{lock_tag}_{get_hash_for_source_files()}'
-    docker_client = docker.from_env()
+    docker_client = docker.from_env(timeout=120)
     lock_image_name = f'{runtime_image_repo}:{lock_tag}'
     source_image_name = f'{runtime_image_repo}:{source_tag}'
     image_path = f'{DOCKER_IMAGE_DIR}/{runtime_image_repo}:{lock_tag}.tar'
+    logger.info(f'Removing docker image: {source_image_name}')
+    docker_client.images.remove(source_image_name, force=True)
     if os.path.exists(image_path):
-        logger.info(f'Removing docker image: {source_image_name}')
-        docker_client.images.remove(source_image_name, force=True)
         logger.info(f'Removing docker image: {lock_image_name}')
         docker_client.images.remove(lock_image_name, force=True)
     else:

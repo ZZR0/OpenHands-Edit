@@ -44,3 +44,14 @@ docker images | grep all-hands-ai | awk 'length($2) == 44' | awk '{print $3}' | 
 docker container ls | grep openhands-runtime- | awk '{print $1}' | xargs docker rm -f
 
 docker images | grep all-hands-ai | awk 'length($2) == 27' | grep days | awk '{ print $1":"$2 }' | xargs -I {} docker save -o /hdd1/zzr/docker_images/{}.tar {}
+
+poetry run python evaluation/swe_bench/run_select.py \
+  --llm-config llm.gemini-2.0-flash-exp \
+  --dataset princeton-nlp/SWE-bench_Verified \
+  --split test \
+  --patch-files /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_iter20_2-run_1/output.jsonl \
+                /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_iter20_3-run_1/output.jsonl \
+                /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_iter20_4-run_1/output.jsonl \
+                /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_iter20_5-run_1/output.jsonl
+
+docker builder prune

@@ -205,6 +205,7 @@ def build_runtime_image_in_folder(
     # We look for an existing image that shares the same lock_tag. If such an image exists, we
     # can use it as the base image for the build and just copy source files. This makes the build
     # much faster.
+    # import pdb; pdb.set_trace()
     if runtime_builder.image_exists(lock_image_name):
         logger.info(f'Build [{hash_image_name}] from lock image [{lock_image_name}]')
         build_from = BuildFromImageType.LOCK
