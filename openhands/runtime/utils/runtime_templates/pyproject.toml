@@ -86,12 +86,6 @@ opencv-python = "*"
 pandas = "*"
 reportlab = "*"
 
-
-[[tool.poetry.source]]
-name = "mirrors"
-url = "https://mirrors.aliyun.com/pypi/simple/"
-priority = "primary"
-
 [tool.coverage.run]
 concurrency = ["gevent"]
 

@@ -15,8 +15,8 @@ RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
 {% macro install_dependencies() %}
 # Install all dependencies
 WORKDIR /openhands/code
-RUN /openhands/micromamba/bin/micromamba run -n openhands poetry source add --priority=primary mirrors https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
-RUN /openhands/micromamba/bin/micromamba run -n openhands poetry lock --no-update
+# RUN /openhands/micromamba/bin/micromamba run -n openhands poetry source add --priority=primary mirrors https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+# RUN /openhands/micromamba/bin/micromamba run -n openhands poetry lock --no-update
 RUN \
     /openhands/micromamba/bin/micromamba config set changeps1 False && \
     # Configure Poetry and create virtual environment

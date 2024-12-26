@@ -17,6 +17,7 @@ from openhands.events.action import (
     FileReadAction,
     FileWriteAction,
     IPythonRunCellAction,
+    RunRegressionAction,
 )
 from openhands.events.event import Event
 from openhands.events.observation import (
@@ -190,6 +191,10 @@ class Runtime(FileEditRuntimeMixin):
     @abstractmethod
     def run_ipython(self, action: IPythonRunCellAction) -> Observation:
         pass
+
+    @abstractmethod
+    def run_regression(self, action: RunRegressionAction) -> Observation:
+        return self.run_action(action)
 
     @abstractmethod
     def read(self, action: FileReadAction) -> Observation:

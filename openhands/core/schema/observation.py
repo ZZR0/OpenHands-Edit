@@ -24,6 +24,10 @@ class ObservationTypeSchema(BaseModel):
     """Runs a IPython cell.
     """
 
+    RUN_REGRESSION: str = Field(default='run_regression')
+    """Runs a regression test.
+    """
+
     CHAT: str = Field(default='chat')
     """A message from the user
     """

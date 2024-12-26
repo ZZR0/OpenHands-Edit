@@ -23,6 +23,7 @@ from openhands.events.action import (
     FileReadAction,
     FileWriteAction,
     IPythonRunCellAction,
+    RunRegressionAction,
 )
 from openhands.events.action.action import Action
 from openhands.events.observation import (
@@ -114,7 +115,7 @@ class EventStreamRuntime(Runtime):
         env_vars (dict[str, str] | None, optional): Environment variables to set. Defaults to None.
     """
 
-    container_name_prefix = 'openhands-runtime-'
+    container_name_prefix = 'open___hands-run___time-'
 
     # Need to provide this method to allow inheritors to init the Runtime
     # without initting the EventStreamRuntime.
@@ -507,6 +508,9 @@ class EventStreamRuntime(Runtime):
         return self.run_action(action)
 
     def run_ipython(self, action: IPythonRunCellAction) -> Observation:
+        return self.run_action(action)
+
+    def run_regression(self, action: RunRegressionAction) -> Observation:
         return self.run_action(action)
 
     def read(self, action: FileReadAction) -> Observation:

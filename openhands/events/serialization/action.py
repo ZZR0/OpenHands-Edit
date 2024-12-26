@@ -18,6 +18,7 @@ from openhands.events.action.files import (
     FileWriteAction,
 )
 from openhands.events.action.message import MessageAction
+from openhands.events.action.run_tests import RunRegressionAction
 from openhands.events.action.tasks import AddTaskAction, ModifyTaskAction
 
 actions = (
@@ -36,6 +37,7 @@ actions = (
     ModifyTaskAction,
     ChangeAgentStateAction,
     MessageAction,
+    RunRegressionAction,
 )
 
 ACTION_TYPE_TO_CLASS = {action_class.action: action_class for action_class in actions}  # type: ignore[attr-defined]

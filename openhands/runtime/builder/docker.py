@@ -89,6 +89,9 @@ class DockerRuntimeBuilder(RuntimeBuilder):
             buildx_cmd.extend(extra_build_args)
 
         buildx_cmd.append(path)  # must be last!
+        print(
+            f'Building image {target_image_hash_name} with command `{" ".join(buildx_cmd)}`.'
+        )
 
         print('================ DOCKER BUILD STARTED ================')
         if sys.stdout.isatty():

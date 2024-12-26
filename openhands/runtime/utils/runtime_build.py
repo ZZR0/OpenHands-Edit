@@ -263,7 +263,10 @@ def prep_build_folder(
 
     # Copy pyproject.toml and poetry.lock files
     for file in ['pyproject.toml', 'poetry.lock']:
-        src = Path(openhands_source_dir, file)
+        # src = Path(openhands_source_dir, file)
+        src = Path(
+            Path(os.path.join(os.path.dirname(__file__), 'runtime_templates')), file
+        )
         if not src.exists():
             src = Path(project_root, file)
         shutil.copy2(src, Path(build_folder, 'code', file))

@@ -14,6 +14,7 @@ from openhands.events.observation.files import (
 )
 from openhands.events.observation.observation import Observation
 from openhands.events.observation.reject import UserRejectObservation
+from openhands.events.observation.run_tests import RunRegressionObservation
 from openhands.events.observation.success import SuccessObservation
 
 observations = (
@@ -29,6 +30,7 @@ observations = (
     ErrorObservation,
     AgentStateChangedObservation,
     UserRejectObservation,
+    RunRegressionObservation,
 )
 
 OBSERVATION_TYPE_TO_CLASS = {

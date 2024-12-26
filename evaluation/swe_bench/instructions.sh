@@ -26,3 +26,6 @@ poetry self update # 如果遇到了 Cannot install swebench 的报错
 ./evaluation/benchmarks/swe_bench/scripts/eval_infer.sh evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgent/gpt-4o-2024-05-13_maxiter_100_N_v2.2-no-hint-run_1/output.jsonl
 
 ./evaluation/benchmarks/swe_bench/scripts/eval_infer.sh $YOUR_OUTPUT_JSONL [instance_id] [dataset_name] [split]
+
+
+./evaluation/swe_bench/scripts/run_infer.sh llm.gpt-4o-2024-05-13 HEAD CodeActAgent 1 100 1 'princeton-nlp/SWE-bench_Verified' 'test' 1
