@@ -14,10 +14,10 @@ class RunRegressionAction(Action):
     repo: str
     version: str
     test_command: str
-    testcases: list[str]
 
     thought: str = ''
     _timeout: int = 300
+    testcases: list[str] | None = None
 
     hidden: bool = False
     action: str = ActionType.RUN_REGRESSION
