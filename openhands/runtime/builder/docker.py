@@ -20,7 +20,7 @@ class DockerRuntimeBuilder(RuntimeBuilder):
         if tuple(map(int, server_version.split('.'))) < (18, 9):
             raise RuntimeError('Docker server version must be >= 18.09 to use BuildKit')
 
-        self.max_lines = 10
+        self.max_lines = 60
         self.log_lines = [''] * self.max_lines
 
     def build(
@@ -85,6 +85,24 @@ class DockerRuntimeBuilder(RuntimeBuilder):
                 ]
             )
 
+        if os.environ.get('DOCKER_USE_PROXY', '0') == '1':
+            if 'http_proxy' in os.environ:
+                buildx_cmd.append(
+                    f'--build-arg=http_proxy={os.environ["http_proxy"].replace("127.0.0.1", "172.17.0.1").replace("localhost", "172.17.0.1")}'
+                )
+            if 'https_proxy' in os.environ:
+                buildx_cmd.append(
+                    f'--build-arg=https_proxy={os.environ["https_proxy"].replace("127.0.0.1", "172.17.0.1").replace("localhost", "172.17.0.1")}'
+                )
+            if 'all_proxy' in os.environ:
+                buildx_cmd.append(
+                    f'--build-arg=all_proxy={os.environ["all_proxy"].replace("127.0.0.1", "172.17.0.1").replace("localhost", "172.17.0.1")}'
+                )
+            if 'no_proxy' in os.environ:
+                buildx_cmd.append(f'--build-arg=no_proxy={os.environ["no_proxy"]}')
+
+        # buildx_cmd.append('--no-cache')
+
         if extra_build_args:
             buildx_cmd.extend(extra_build_args)
 
@@ -92,6 +110,8 @@ class DockerRuntimeBuilder(RuntimeBuilder):
         print(
             f'Building image {target_image_hash_name} with command `{" ".join(buildx_cmd)}`.'
         )
+        # time.sleep(100)
+        # exit(0)
 
         print('================ DOCKER BUILD STARTED ================')
         if sys.stdout.isatty():
@@ -126,6 +146,7 @@ class DockerRuntimeBuilder(RuntimeBuilder):
         except subprocess.CalledProcessError as e:
             logger.error(f'Image build failed:\n{e}')
             logger.error(f'Command output:\n{e.output}')
+            logger.error(f'Stderr output:\n{e.stderr}')
             raise
 
         except subprocess.TimeoutExpired:
@@ -240,7 +261,7 @@ class DockerRuntimeBuilder(RuntimeBuilder):
             return
 
         self.log_lines.pop(0)
-        self.log_lines.append(new_line[:80])
+        self.log_lines.append(new_line[:280])
 
         sys.stdout.write('\033[F' * (self.max_lines))
         sys.stdout.flush()

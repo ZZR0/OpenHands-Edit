@@ -5,7 +5,7 @@ ENV POETRY_VIRTUALENVS_PATH=/openhands/poetry
 ENV MAMBA_ROOT_PREFIX=/openhands/micromamba
 
 # 设置代理
-ENV https_proxy=http://172.17.0.1:10810
+# ENV https_proxy=http://172.17.0.1:10810
 
 # 给 apt 更换清华源
 RUN sed -i 's|http://archive.ubuntu.com/ubuntu/|https://mirrors.tuna.tsinghua.edu.cn/ubuntu/|g' /etc/apt/sources.list
@@ -109,4 +109,4 @@ COPY ./code/openhands /openhands/code/openhands
 {% if extra_deps %}RUN {{ extra_deps }} {% endif %}
 
 # 清除代理
-ENV https_proxy=
+# ENV https_proxy=
