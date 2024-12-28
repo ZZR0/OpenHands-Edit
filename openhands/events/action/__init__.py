@@ -15,6 +15,7 @@ from openhands.events.action.files import (
     FileWriteAction,
 )
 from openhands.events.action.message import MessageAction
+from openhands.events.action.run_tests import RunRegressionAction
 from openhands.events.action.tasks import AddTaskAction, ModifyTaskAction
 
 __all__ = [
@@ -36,4 +37,5 @@ __all__ = [
     'IPythonRunCellAction',
     'MessageAction',
     'ActionConfirmationStatus',
+    'RunRegressionAction',
 ]

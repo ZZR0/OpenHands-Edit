@@ -36,6 +36,10 @@ class ActionTypeSchema(BaseModel):
     """Runs a IPython cell.
     """
 
+    RUN_REGRESSION: str = Field(default='run_regression')
+    """Runs a regression test.
+    """
+
     BROWSE: str = Field(default='browse')
     """Opens a web page.
     """

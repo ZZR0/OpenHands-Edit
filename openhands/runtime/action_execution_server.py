@@ -33,6 +33,7 @@ from openhands.events.action import (
     FileReadAction,
     FileWriteAction,
     IPythonRunCellAction,
+    RunRegressionAction,
 )
 from openhands.events.observation import (
     CmdOutputObservation,
@@ -53,6 +54,7 @@ from openhands.runtime.plugins import (
 )
 from openhands.runtime.utils.bash import BashSession
 from openhands.runtime.utils.files import insert_lines, read_lines
+from openhands.runtime.utils.run_tests import RunTestsSession
 from openhands.runtime.utils.runtime_init import init_user_and_working_directory
 from openhands.utils.async_utils import wait_all
 
@@ -103,6 +105,8 @@ class ActionExecutor:
             work_dir=work_dir,
             username=username,
         )
+
+        self.run_tests_session = RunTestsSession(work_dir=work_dir)
 
         self.lock = asyncio.Lock()
         self.plugins: dict[str, Plugin] = {}
@@ -205,6 +209,9 @@ class ActionExecutor:
             raise RuntimeError(
                 'JupyterRequirement not found. Unable to run IPython action.'
             )
+
+    async def run_regression(self, action: RunRegressionAction) -> Observation:
+        return await self.run_tests_session.run(action)
 
     def _resolve_path(self, path: str, working_dir: str) -> str:
         filepath = Path(path)

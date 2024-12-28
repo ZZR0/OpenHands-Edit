@@ -21,12 +21,14 @@ from openhands.events.action import (
     FileEditAction,
     IPythonRunCellAction,
     MessageAction,
+    RunRegressionAction,
 )
 from openhands.events.observation import (
     AgentDelegateObservation,
     CmdOutputObservation,
     FileEditObservation,
     IPythonRunCellObservation,
+    RunRegressionObservation,
     UserRejectObservation,
 )
 from openhands.events.observation.error import ErrorObservation
@@ -111,6 +113,7 @@ class CodeActAgentEdit(Agent):
                 codeact_enable_browsing_delegate=self.config.codeact_enable_browsing_delegate,
                 codeact_enable_jupyter=self.config.codeact_enable_jupyter,
                 codeact_enable_llm_editor=self.config.codeact_enable_llm_editor,
+                codeact_enable_regression=self.config.codeact_enable_regression,
             )
             logger.info(
                 f'TOOLS loaded for CodeActAgent: {json.dumps(self.tools, indent=2)}'
@@ -182,6 +185,7 @@ class CodeActAgentEdit(Agent):
                 CmdRunAction,
                 IPythonRunCellAction,
                 FileEditAction,
+                RunRegressionAction,
             ),
         ) or (isinstance(action, AgentFinishAction) and action.source == 'agent'):
             if self.config.function_calling:
@@ -292,6 +296,12 @@ class CodeActAgentEdit(Agent):
         elif isinstance(obs, UserRejectObservation):
             text = 'OBSERVATION:\n' + truncate_content(obs.content, max_message_chars)
             text += '\n[Last action has been rejected by the user]'
+            message = Message(role='user', content=[TextContent(text=text)])
+        elif isinstance(obs, RunRegressionObservation):
+            text = obs_prefix + truncate_content(obs.content, max_message_chars)
+            text += f'\n[Test command finished with exit code {obs.exit_code}]'
+            # if not obs.passed:
+            #     text += f'\nTests not passed: {obs.tests_not_passed}'
             message = Message(role='user', content=[TextContent(text=text)])
         else:
             # If an observation message is not returned, it will cause an error
@@ -426,7 +436,9 @@ class CodeActAgentEdit(Agent):
             response = correct_response
 
         if self.config.function_calling:
-            actions = codeact_function_calling.response_to_actions(response)
+            actions = codeact_function_calling.response_to_actions(
+                response, self.config.instance
+            )
             for action in actions:
                 self.pending_actions.append(action)
             return self.pending_actions.popleft()
