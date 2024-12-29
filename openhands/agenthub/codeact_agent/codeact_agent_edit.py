@@ -122,13 +122,13 @@ class CodeActAgentEdit(Agent):
             self.initial_user_message = None
         else:
             # Non-function-calling mode
-            self.action_parser = CodeActResponseParser()
+            self.action_parser = CodeActResponseParser(self.config.instance)
             self.prompt_manager = PromptManager(
                 prompt_dir=os.path.join(os.path.dirname(__file__)),
                 agent_skills_docs=AgentSkillsRequirement.documentation,
                 micro_agent=self.micro_agent,
             )
-            self.system_prompt = self.prompt_manager.system_message
+            self.system_prompt = self.prompt_manager.system_message_edit
             self.initial_user_message = self.prompt_manager.initial_user_message
 
         self.best_of_n = 4
@@ -379,8 +379,9 @@ class CodeActAgentEdit(Agent):
             params['stop'] = [
                 '</execute_ipython>',
                 '</execute_bash>',
-                '</execute_browse>',
+                # '</execute_browse>',
                 '</file_edit>',
+                '</run_regression>',
             ]
 
         if (

@@ -1,4 +1,8 @@
 import re
+from typing import Any
+
+from swebench.harness.test_spec import MAP_REPO_VERSION_TO_SPECS
+from swebench.harness.utils import get_test_directives
 
 from openhands.controller.action_parser import (
     ActionParser,
@@ -14,6 +18,7 @@ from openhands.events.action import (
     FileEditAction,
     IPythonRunCellAction,
     MessageAction,
+    RunRegressionAction,
 )
 
 
@@ -27,15 +32,17 @@ class CodeActResponseParser(ResponseParser):
     - AgentFinishAction() - end the interaction
     """
 
-    def __init__(self):
+    def __init__(self, instance: dict[str, Any] | None = None):
         # Need pay attention to the item order in self.action_parsers
         super().__init__()
+        self.instance = instance
         self.action_parsers = [
             CodeActActionParserFinish(),
             CodeActActionParserCmdRun(),
             CodeActActionParserIPythonRunCell(),
             CodeActActionParserFileEdit(),
             CodeActActionParserAgentDelegate(),
+            CodeActActionParserRunRegression(instance),
         ]
         self.default_parser = CodeActActionParserMessage()
 
@@ -44,36 +51,46 @@ class CodeActResponseParser(ResponseParser):
         return self.parse_action(action_str)
 
     def parse_response(self, response) -> str:
+        MAP_LANG_TO_COMMAND = {
+            'bash': 'execute_bash',
+            'ipython': 'execute_ipython',
+            'browse': 'execute_browse',
+            'regression': 'run_regression',
+        }
+
         action = response.choices[0].message.content
         if action is None:
             return ''
-        for lang in ['bash', 'ipython', 'browse']:
+        for lang in ['bash', 'ipython', 'browse', 'regression']:
+            command = MAP_LANG_TO_COMMAND[lang]
             # special handling for DeepSeek: it has stop-word bug and returns </execute_ipython instead of </execute_ipython>
-            if f'</execute_{lang}' in action and f'</execute_{lang}>' not in action:
-                action = action.replace(f'</execute_{lang}', f'</execute_{lang}>')
+            if f'</{command}' in action and f'</{command}>' not in action:
+                action = action.replace(f'</{command}', f'</{command}>')
             # special handling for Gemini: it has stop-word bug and returns </execute_ipython></file_edit> instead of </execute_ipython>
-            if (
-                f'<execute_{lang}>' in action
-                and f'</execute_{lang}></file_edit>' in action
-            ):
-                action = action.replace(
-                    f'</execute_{lang}></file_edit>', f'</execute_{lang}>'
-                )
-            if f'<execute_{lang}>' in action and f'</execute_{lang}>' not in action:
-                action += f'</execute_{lang}>'
+            if f'<{command}>' in action and f'</{command}></file_edit>' in action:
+                action = action.replace(f'</{command}></file_edit>', f'</{command}>')
+            if f'<{command}>' in action and f'</{command}>' not in action:
+                action += f'</{command}>'
 
         if (
             '<file_edit' in action
             and '</file_edit>' not in action
             and not any(
-                f'</execute_{lang}>' in action for lang in ['bash', 'ipython', 'browse']
+                f'</{MAP_LANG_TO_COMMAND[lang]}>' in action
+                for lang in ['bash', 'ipython', 'browse', 'regression']
             )
         ):
             action += '</file_edit>'
         return action
 
     def parse_action(self, action_str: str) -> Action:
+        instance = self.instance
         for action_parser in self.action_parsers:
+            if (
+                isinstance(action_parser, CodeActActionParserRunRegression)
+                and not instance
+            ):
+                continue
             if action_parser.check_condition(action_str):
                 return action_parser.parse(action_str)
         return self.default_parser.parse(action_str)
@@ -93,6 +110,8 @@ class CodeActResponseParser(ResponseParser):
             return action.content
         elif isinstance(action, AgentFinishAction) and action.source == 'agent':
             return action.thought
+        elif isinstance(action, RunRegressionAction):
+            return f'{action.thought}\n<run_regression></run_regression>'
         return ''
 
 
@@ -310,4 +329,57 @@ class CodeActActionParserFileEdit(ActionParser):
             action.start = start_line
         if end_line is not None:
             action.end = end_line
+        return action
+
+
+class CodeActActionParserRunRegression(ActionParser):
+    """Parser action:
+    - RunRegressionAction(repo, version, test_command, testcases) - run regression tests
+    """
+
+    def __init__(self, instance: dict[str, Any] | None):
+        self.run_regression_command = None
+        self.instance = instance
+
+    def check_condition(self, action_str: str) -> bool:
+        self.run_regression_match = re.search(
+            r'<run_regression>.*</run_regression>', action_str, re.DOTALL
+        )
+
+        return self.run_regression_match is not None
+
+    def parse(self, action_str: str) -> Action:
+        assert (
+            self.run_regression_match is not None
+        ), 'self.run_regression_match should not be None when parse is called'
+
+        thought = action_str.replace(self.run_regression_match.group(0), '').strip()
+
+        instance = self.instance
+        assert instance, 'Instance metadata must be set if regression is enabled.'
+        instance_id = instance['instance_id']
+
+        # Convert e.g. "logs/scikit-learn__scikit-learn-12421/test_output.txt" to "scikit-learn/scikit-learn"
+        repo = '-'.join(
+            instance_id.replace('__', '/').split('-')[:-1]
+        )  # e.g. scikit-learn/scikit-learn
+
+        test_command = ' '.join(
+            [
+                MAP_REPO_VERSION_TO_SPECS[instance['repo']][instance['version']][
+                    'test_cmd'
+                ],
+                *get_test_directives(instance),
+            ]
+        )
+        if 'pytest ' in test_command:
+            test_command = test_command.replace('-rA ', '-rA -s ')
+
+        action = RunRegressionAction(
+            repo=repo,
+            version=instance['version'],
+            test_command=test_command,
+            testcases=instance['initial_passed_tests'],
+            thought=thought,
+        )
         return action

@@ -224,7 +224,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '   - If the PR description does not provide a script to reproduce the error, do not create a `/workspace/reproduce_error.py` file.\n'
             '6. **Run regression test**:\n'
             '   - Run regression tests to ensure that your changes do not introduce new issues or regressions.\n'
-            '   - You can use the tool `run_regression` we provided.\n'
+            '   - You can use the tool `<run_regression></run_regression>` we provided.\n'
             '   - If regression tests fail, try to fix the issue and rerun the regression tests.\n'
             '7. **Return Your Patch**:\n'
             '   - After making the necessary changes, return the patch. Note that you do not need to run any other tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
