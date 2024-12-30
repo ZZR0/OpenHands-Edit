@@ -24,6 +24,7 @@ from openhands.events.action import (
     IPythonRunCellAction,
     MessageAction,
     RunRegressionAction,
+    UnknownAction,
 )
 from openhands.events.tool import ToolCallMetadata
 
@@ -334,7 +335,9 @@ def combine_thought(action: Action, thought: str) -> Action:
 
 
 def response_to_actions(
-    response: ModelResponse, instance: dict[str, Any] | None = None
+    response: ModelResponse,
+    instance: dict[str, Any] | None = None,
+    tool_list: list[ChatCompletionToolParam] | None = None,
 ) -> list[Action]:
     actions: list[Action] = []
     assert len(response.choices) == 1, 'Only one choice is supported for now'
@@ -410,7 +413,13 @@ def response_to_actions(
                     testcases=instance['initial_passed_tests'],
                 )
             else:
-                raise RuntimeError(f'Unknown tool call: {tool_call.function.name}')
+                if not tool_list:
+                    raise RuntimeError(f'Unknown tool call: {tool_call.function.name}')
+                tool_str_list = [tool['function']['name'] for tool in tool_list]
+                action = UnknownAction(
+                    tool_name=tool_call.function.name, tool_list=tool_str_list
+                )
+                # raise RuntimeError(f'Unknown tool call: {tool_call.function.name}')
 
             # We only add thought to the first action
             if i == 0:

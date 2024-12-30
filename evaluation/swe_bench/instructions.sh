@@ -1,6 +1,7 @@
 export https_proxy=http://127.0.0.1:10809 # 注意只能设置 https_proxy，如果设置了 all 或者 http 会导致把 localhost 的请求也走代理
 export no_proxy=localhost,127.0.0.1,local,.local
 export EVAL_DOCKER_IMAGE_PREFIX=dockerpull.org/xingyaoww/
+export DOCKER_USE_PROXY=1
 
 export PYTHON_KEYRING_BACKEND=keyring.backends.fail.Keyring # 如果 make build 之后就报错
 poetry self update # 如果遇到了 Cannot install swebench 的报错
