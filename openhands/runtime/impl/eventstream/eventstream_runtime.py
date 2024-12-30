@@ -24,9 +24,11 @@ from openhands.events.action import (
     FileWriteAction,
     IPythonRunCellAction,
     RunRegressionAction,
+    UnknownAction,
 )
 from openhands.events.action.action import Action
 from openhands.events.observation import (
+    ErrorObservation,
     FatalErrorObservation,
     NullObservation,
     Observation,
@@ -444,6 +446,8 @@ class EventStreamRuntime(Runtime):
             action.timeout = self.config.sandbox.timeout
 
         with self.action_semaphore:
+            if isinstance(action, UnknownAction):
+                return ErrorObservation(action.message)
             if not action.runnable:
                 return NullObservation('')
             if (

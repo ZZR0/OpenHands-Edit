@@ -17,6 +17,7 @@ from openhands.events.action.files import (
 from openhands.events.action.message import MessageAction
 from openhands.events.action.run_tests import RunRegressionAction
 from openhands.events.action.tasks import AddTaskAction, ModifyTaskAction
+from openhands.events.action.unknown_action import UnknownAction
 
 __all__ = [
     'Action',
@@ -38,4 +39,5 @@ __all__ = [
     'MessageAction',
     'ActionConfirmationStatus',
     'RunRegressionAction',
+    'UnknownAction',
 ]

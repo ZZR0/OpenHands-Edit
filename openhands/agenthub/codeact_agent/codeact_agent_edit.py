@@ -22,6 +22,7 @@ from openhands.events.action import (
     IPythonRunCellAction,
     MessageAction,
     RunRegressionAction,
+    UnknownAction,
 )
 from openhands.events.observation import (
     AgentDelegateObservation,
@@ -186,6 +187,7 @@ class CodeActAgentEdit(Agent):
                 IPythonRunCellAction,
                 FileEditAction,
                 RunRegressionAction,
+                UnknownAction,
             ),
         ) or (isinstance(action, AgentFinishAction) and action.source == 'agent'):
             if self.config.function_calling:
@@ -438,7 +440,9 @@ class CodeActAgentEdit(Agent):
 
         if self.config.function_calling:
             actions = codeact_function_calling.response_to_actions(
-                response, self.config.instance
+                response,
+                self.config.instance,
+                self.tools,
             )
             for action in actions:
                 self.pending_actions.append(action)

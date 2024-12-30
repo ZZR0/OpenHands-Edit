@@ -20,9 +20,11 @@ from openhands.events.action import (
     FileWriteAction,
     IPythonRunCellAction,
     RunRegressionAction,
+    UnknownAction,
 )
 from openhands.events.action.action import Action
 from openhands.events.observation import (
+    ErrorObservation,
     FatalErrorObservation,
     NullObservation,
     Observation,
@@ -348,6 +350,8 @@ class RemoteRuntime(Runtime):
         if isinstance(action, FileEditAction):
             return self.edit(action)
         with self.action_semaphore:
+            if isinstance(action, UnknownAction):
+                return ErrorObservation(action.message)
             if not action.runnable:
                 return NullObservation('')
             action_type = action.action  # type: ignore[attr-defined]
