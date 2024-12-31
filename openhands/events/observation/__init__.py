@@ -16,6 +16,7 @@ from openhands.events.observation.observation import Observation
 from openhands.events.observation.reject import UserRejectObservation
 from openhands.events.observation.run_tests import RunRegressionObservation
 from openhands.events.observation.success import SuccessObservation
+from openhands.events.observation.unknown import UnknownActionObservation
 
 __all__ = [
     'Observation',
@@ -33,4 +34,5 @@ __all__ = [
     'SuccessObservation',
     'UserRejectObservation',
     'RunRegressionObservation',
+    'UnknownActionObservation',
 ]

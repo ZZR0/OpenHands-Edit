@@ -24,10 +24,10 @@ from openhands.events.action import (
 )
 from openhands.events.action.action import Action
 from openhands.events.observation import (
-    ErrorObservation,
     FatalErrorObservation,
     NullObservation,
     Observation,
+    UnknownActionObservation,
 )
 from openhands.events.serialization import event_to_dict, observation_from_dict
 from openhands.events.serialization.action import ACTION_TYPE_TO_CLASS
@@ -351,7 +351,7 @@ class RemoteRuntime(Runtime):
             return self.edit(action)
         with self.action_semaphore:
             if isinstance(action, UnknownAction):
-                return ErrorObservation(action.message)
+                return UnknownActionObservation(action.message)
             if not action.runnable:
                 return NullObservation('')
             action_type = action.action  # type: ignore[attr-defined]

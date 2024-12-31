@@ -15,13 +15,15 @@ class UnknownAction(Action):
 
     @property
     def message(self) -> str:
-        res = f'Unknown tool call: `{self.tool_name}`\nPlease check if the tool name is in the tool list.'
+        res = f'Unknown tool call: `{self.tool_name}`\nPlease check if the tool name is in the tool list.\n'
+        res += 'Maybe this tool is a secondary tool? If so, please use the primary tool name, and follow the format described in the tool list.\n'
         if self.tool_list:
-            res += '\nTool list: '
+            res += 'Allowed Tool list: '
             for i, tool in enumerate(self.tool_list):
                 if i:
                     res += ', '
                 res += f'`{tool}`'
+            res += '\n'
         return res
 
     def __str__(self) -> str:

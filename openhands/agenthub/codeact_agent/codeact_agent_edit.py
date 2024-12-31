@@ -30,6 +30,7 @@ from openhands.events.observation import (
     FileEditObservation,
     IPythonRunCellObservation,
     RunRegressionObservation,
+    UnknownActionObservation,
     UserRejectObservation,
 )
 from openhands.events.observation.error import ErrorObservation
@@ -304,6 +305,9 @@ class CodeActAgentEdit(Agent):
             text += f'\n[Test command finished with exit code {obs.exit_code}]'
             # if not obs.passed:
             #     text += f'\nTests not passed: {obs.tests_not_passed}'
+            message = Message(role='user', content=[TextContent(text=text)])
+        elif isinstance(obs, UnknownActionObservation):
+            text = obs_prefix + truncate_content(obs.content, max_message_chars)
             message = Message(role='user', content=[TextContent(text=text)])
         else:
             # If an observation message is not returned, it will cause an error

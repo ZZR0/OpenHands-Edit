@@ -48,5 +48,7 @@ class ObservationTypeSchema(BaseModel):
 
     USER_REJECTED: str = Field(default='user_rejected')
 
+    UNKNOWN: str = Field(default='unknown')
+
 
 ObservationType = ObservationTypeSchema()
