@@ -471,6 +471,7 @@ class EventStreamRuntime(Runtime):
             assert action.timeout is not None
 
             try:
+                logger.info(f'Execute Action: {action}')
                 response = send_request_with_retry(
                     self.session,
                     'POST',
@@ -482,6 +483,7 @@ class EventStreamRuntime(Runtime):
                     output = response.json()
                     obs = observation_from_dict(output)
                     obs._cause = action.id  # type: ignore[attr-defined]
+                    logger.info(f'response: {response}')
                 else:
                     logger.debug(f'action: {action}')
                     logger.debug(f'response: {response}')

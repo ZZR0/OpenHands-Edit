@@ -103,7 +103,7 @@ def select_patch(
     if index >= len(patches):
         raise RuntimeError('out-of-bound patch selection by LLM')
 
-    return index, patches[index], messages
+    return instance['instance_id'], index
 
 
 def prepare_dataset(instances: list, patches: list) -> list:
@@ -185,23 +185,29 @@ if __name__ == '__main__':
     #     # patch['select_traj'] = ''
     #     output.append(patch)
 
-    def select_patch_wrapper(item):
-        instance, patches = item
-        return select_patch(llm, instance, patches)
+    def select_patch_wrapper(instance):
+        try:
+            return select_patch(llm, instance, instance['patches'])
+        except Exception as e:
+            logger.error(f'Error selecting patch for instance {instance["instance_id"]}')
+            logger.error(e)
+            return instance['instance_id'], 0
 
+    instances_dict = {instance['instance_id']: instance for instance in instances}
     with Pool(cpu_count()) as pool:
         results = list(
             tqdm(
                 pool.imap(
                     select_patch_wrapper,
-                    [(instance, instance['patches']) for instance in instances],
+                    list(instances_dict.values()),
                 ),
                 total=len(instances),
                 desc='Selecting patches',
             )
         )
 
-        for patch_idx, patch, thread in results:
+        for instance_id, patch_idx in results:
+            patch = instances_dict[instance_id]['patches'][patch_idx]
             patch['select_traj'] = ''
             output.append(patch)
 

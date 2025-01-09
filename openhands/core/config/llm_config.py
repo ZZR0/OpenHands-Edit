@@ -1,5 +1,6 @@
 import os
 from dataclasses import dataclass, fields
+import random
 from typing import Optional
 
 from openhands.core.config.config_utils import get_field_info
@@ -57,7 +58,7 @@ class LLMConfig:
     aws_region_name: str | None = None
     openrouter_site_url: str = 'https://docs.all-hands.dev/'
     openrouter_app_name: str = 'OpenHands'
-    num_retries: int = 8
+    num_retries: int = 16
     retry_multiplier: float = 2
     retry_min_wait: int = 15
     retry_max_wait: int = 120
@@ -78,6 +79,10 @@ class LLMConfig:
     log_completions_folder: str | None = None
     draft_editor: Optional['LLMConfig'] = None
     supports_function_calling: bool = False
+
+    def __init__(self, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def defaults_to_dict(self) -> dict:
         """Serialize fields to a dict for the frontend, including type hints, defaults, and whether it's optional."""

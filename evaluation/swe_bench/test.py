@@ -1,11 +1,11 @@
-import json
-
-import requests
-from openai import OpenAI
-from tqdm import tqdm
 
 
 def test_gemini_api():
+    import json
+
+    import requests
+    from openai import OpenAI
+    from tqdm import tqdm
     # data_path = '/hdd2/zzr/OpenHands-fn-calling/data.json'
     data_path = '/hdd2/zzr/OpenHands-fn-calling/err.json'
     data = json.load(open(data_path, 'r'))
@@ -690,8 +690,92 @@ def test_parameter_parsing():
     print(f'New arguments: {arguments}')
 
 
+def test_action():
+    import requests
+    from openhands.runtime.utils.request import send_request_with_retry
+    from openhands.events.serialization import event_to_dict, observation_from_dict
+    from openhands.events.action import (
+        ActionConfirmationStatus,
+        BrowseInteractiveAction,
+        BrowseURLAction,
+        CmdRunAction,
+        FileEditAction,
+        FileReadAction,
+        FileWriteAction,
+        IPythonRunCellAction,
+    )
+    from openhands.events.action.action import Action
+    # action = FileReadAction(path='./setup.cfg', start=0, end=-1, thought='', action='read', security_risk=None)
+    # action = FileReadAction(path='/workspace/django__django__3.0/analysis.md', start=0, end=-1, thought='', action='read', security_risk=None)
+    # action = FileEditAction(path='./setup.cfg', content='hello', start=0, end=-1, security_risk=None)
+    action1 = FileReadAction(path='/workspace/reproduce_error.py', start=0, end=-1, thought='', action='read', security_risk=None)
+    action2 = FileWriteAction(path='/workspace/reproduce_error.py', content="import os\nimport django\nfrom django.conf import settings\nfrom django.db import models\n\nsettings.configure(\n    INSTALLED_APPS=['django.contrib.contenttypes'],\n    DATABASES={'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': ':memory:'}},\n    LOCAL_FILE_DIR='/tmp',  # Example directory\n    SECRET_KEY = 'test'\n   )\ndjango.setup()\n\n\nclass LocalFiles(models.Model):\n    name = models.CharField(max_length=255)\n    file = models.FilePathField(path=os.path.join(settings.LOCAL_FILE_DIR, 'example_dir'))\n\nif __name__ == '__main__':\n    from django.core.management import call_command\n    call_command('makemigrations')\n    from django.db import migrations\n    target_migration = migrations.Migration('0001_initial', 'test_app')\n    operation = target_migration.operations[0]\n    print (operation)", start=0, end=-1, thought='', action='write', security_risk=None)
+    # action3 = CmdRunAction(command='mkdir -p /workspace/test_app && mkdir -p /workspace/test_app/migrations', keep_prompt=False)
+    # action3 = CmdRunAction(command='python /workspace/reproduce_error.py', keep_prompt=False)
+    action3 = CmdRunAction(command='ls', keep_prompt=False)
+    
+    session = requests.Session()
+    # response = send_request_with_retry(
+    #     session,
+    #     'POST',
+    #     f'http://localhost:30396/execute_action',
+    #     json={'action': event_to_dict(action)},
+    #     timeout=60,
+    # )
+    def run_action(action):
+        action_dict = event_to_dict(action)
+        action_dict['timeout'] = 10
+        response = session.request(
+            'POST', 
+            'http://localhost:31773/execute_action',
+            json={'action': action_dict}
+        )
+        print(response.content)
+    
+    # run_action(action1)
+    run_action(action3)
+    
+    # run_action(action2)
+    # for i in range(10):
+    #     run_action(action3)
+    # run_action(action1)
+
+def test_bashsession():
+    from openhands.events.action import (
+        ActionConfirmationStatus,
+        BrowseInteractiveAction,
+        BrowseURLAction,
+        CmdRunAction,
+        FileEditAction,
+        FileReadAction,
+        FileWriteAction,
+        IPythonRunCellAction,
+    )
+    from openhands.runtime.utils.bash import BashSession
+    # bash_session = BashSession(
+    #     work_dir='/workspace',
+    #     username='root',
+    # )
+    bash_session = BashSession(
+        work_dir='/hdd2/zzr/OpenHands-fn-calling',
+        username='zzr',
+    )
+    command = 'asd\nwefa\nrtfgsdf\nefdsedf(\n\n\nasdaef'
+    # command = 'ls'
+    # bash_session._execute_bash(command, timeout=60, keep_prompt=False)
+    # import pdb; pdb.set_trace()
+    action3 = CmdRunAction(command=command, keep_prompt=False)
+    bash_session.run(action3)
+    bash_session.shell.sendline('ls')
+    
+    bash_session._continue_bash(
+        timeout=600, keep_prompt=False, kill_on_timeout=False
+    )
+    print(bash_session.workdir)
+    # bash_session._execute_bash(command, timeout=60, keep_prompt=False)
+    
 if __name__ == '__main__':
-    test_gemini_api()
+    # test_gemini_api()
     # test_litellm()
     # test_openrouter()
     # test_gemini()
@@ -702,3 +786,5 @@ if __name__ == '__main__':
     # test_message_post_processing()
     # test_clustering()
     # test_parameter_parsing()
+    # test_action()
+    test_bashsession()

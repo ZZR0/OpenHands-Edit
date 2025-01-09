@@ -33,6 +33,11 @@ if __name__ == '__main__':
                     remove_instance_ids.append(
                         log_file.split('.')[0].replace('instance_', '')
                     )
+                elif 'Error during action execution:' in log_content:
+                    os.remove(os.path.join(output_log_dir, log_file))
+                    remove_instance_ids.append(
+                        log_file.split('.')[0].replace('instance_', '')
+                    )
 
     error_instance_ids = []
     empty_patch_instance_ids = []

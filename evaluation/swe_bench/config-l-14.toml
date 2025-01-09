@@ -1,0 +1,16 @@
+selected_ids = [
+    'django__django-13933', 
+    'django__django-11583', 
+    'django__django-14915', 
+    'django__django-14017', 
+    'matplotlib__matplotlib-25332', 
+    'django__django-13230', 
+    'django__django-11422', 
+    'django__django-15498', 
+    'django__django-11001', 
+    'django__django-12700', 
+    'astropy__astropy-12907', 
+    'matplotlib__matplotlib-25498', 
+    'matplotlib__matplotlib-25442', 
+    'django__django-10924'
+]

@@ -330,6 +330,7 @@ class AgentMemController:
         elif isinstance(action, AgentFinishAction):
             self.state.outputs = action.outputs
             self.state.metrics.merge(self.state.local_metrics)
+            # self.state.extra_data['finish_output'] = action.thought
             await self.set_agent_state_to(AgentState.FINISHED)
         elif isinstance(action, AgentRejectAction):
             self.state.outputs = action.outputs
@@ -534,9 +535,12 @@ class AgentMemController:
         # check if agent got stuck before taking any action
         if self._is_stuck():
             # This need to go BEFORE report_error to sync metrics
-            self.event_stream.add_event(
-                FatalErrorObservation('Agent got stuck in a loop'), EventSource.USER
-            )
+            # self.event_stream.add_event(
+            #     FatalErrorObservation('Agent got stuck in a loop'), EventSource.USER
+            # )
+            await self.report_error('Agent got stuck in a loop')
+            action = self.agent.finish(self.state)
+            self.event_stream.add_event(action, EventSource.AGENT)
             return
 
         if self.delegate is not None:
@@ -558,13 +562,18 @@ class AgentMemController:
             stop_step = await self._handle_traffic_control(
                 'iteration', self.state.iteration, self.state.max_iterations
             )
+            stop_error_text = f'Agent reached maximum iteration, task stopped. Current iteration: {self.state.iteration}, max iteration: {self.state.max_iterations}'
+            await self.report_error(stop_error_text)
         if self.max_budget_per_task is not None:
             current_cost = self.state.metrics.accumulated_cost
             if current_cost > self.max_budget_per_task:
-                stop_step = await self._handle_traffic_control(
-                    'budget', current_cost, self.max_budget_per_task
-                )
+                stop_step = True
+                stop_error_text = f'Agent reached maximum budget, task paused. Current budget: {current_cost:.2f}, max budget: {self.max_budget_per_task:.2f}. {TRAFFIC_CONTROL_REMINDER}'
+                await self.report_error(stop_error_text)
         if stop_step:
+            # import pdb; pdb.set_trace()
+            action = self.agent.finish(self.state, finish_reason=stop_error_text)
+            self.event_stream.add_event(action, EventSource.AGENT)
             return
 
         # last_user_event_so_far = 0
@@ -592,7 +601,7 @@ class AgentMemController:
         #     self.state.extra_data.get("prior_output_token_count", 0) + self.state.extra_data.get("prior_input_token_count", 0) > 28000
         # ):
         # if last_user_event_so_far > 20:
-        if agent_event_so_far >= 20:
+        if agent_event_so_far >= 2000:
             # import pdb; pdb.set_trace()
             # git_diff = get_git_diff(runtime=self.runtime)
             git_diff = ''
@@ -627,7 +636,14 @@ class AgentMemController:
             action = self.agent.step(self.state)  # type: ignore
             if action is None:
                 raise LLMNoActionError('No action was returned')
-        except (LLMMalformedActionError, LLMNoActionError, LLMResponseError) as e:
+        except LLMMalformedActionError as e:
+            action = MessageAction(content=e.action_str)
+            self.event_stream.add_event(action, EventSource.AGENT)
+            await self.update_state_after_step()
+            logger.info(action, extra={'msg_type': 'ACTION'})
+            await self.report_error(str(e))
+            return
+        except (LLMNoActionError, LLMResponseError) as e:
             # report to the user
             # and send the underlying exception to the LLM for self-correction
             await self.report_error(str(e))
@@ -648,7 +664,14 @@ class AgentMemController:
                 )
             self._pending_action = action
 
-        if not isinstance(action, NullAction):
+        if isinstance(action, AgentFinishAction):
+            # import pdb; pdb.set_trace()
+            message_action = MessageAction(content=action.outputs.get('thought', ''))
+            await self.event_stream.async_add_event(message_action, EventSource.AGENT)
+            await self.update_state_after_step()
+            finish_action = self.agent.finish(self.state)
+            self.event_stream.add_event(finish_action, EventSource.AGENT)
+        elif not isinstance(action, NullAction):
             if (
                 hasattr(action, 'confirmation_state')
                 and action.confirmation_state

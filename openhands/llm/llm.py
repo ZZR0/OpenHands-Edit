@@ -1,5 +1,6 @@
 import copy
 import os
+import random
 import time
 import warnings
 from functools import partial
@@ -239,8 +240,18 @@ class LLM(RetryMixin, DebugMixin):
                     }
 
             try:
+                api_key = self.config.api_key
+                api_keys = []
+                for i in range(0, 100):
+                    if hasattr(self.config, f'api_key{i}'):
+                        api_keys.append(getattr(self.config, f'api_key{i}'))
+                    else:
+                        continue
+                if len(api_keys) > 0:
+                    api_key = random.choice(api_keys)
+                # print(api_key, api_keys)
                 # we don't support streaming here, thus we get a ModelResponse
-                resp: ModelResponse = completion_unwrapped(*args, **kwargs)
+                resp: ModelResponse = completion_unwrapped(api_key=api_key, *args, **kwargs)
                 # log for evals or other scripts that need the raw completion
                 if self.config.log_completions:
                     assert self.config.log_completions_folder is not None
@@ -268,7 +279,8 @@ class LLM(RetryMixin, DebugMixin):
                                 },
                             )
                         )
-
+                if not len(resp['choices']) > 0:
+                    print(resp)
                 message_back: str = resp['choices'][0]['message']['content']
 
                 # log the LLM response
@@ -283,6 +295,8 @@ class LLM(RetryMixin, DebugMixin):
                     raise CloudFlareBlockageError(
                         'Request blocked by CloudFlare'
                     ) from e
+                raise
+            except IndexError as e:
                 raise
 
         self._completion = wrapper

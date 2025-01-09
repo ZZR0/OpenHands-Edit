@@ -74,6 +74,7 @@ class BashSession:
 
         self.shell = pexpect.spawn(
             f'su {username}',
+            env={"TERM": "dumb"},
             encoding='utf-8',
             codec_errors='replace',
             echo=False,
@@ -236,9 +237,11 @@ class BashSession:
 
     def _parse_exit_code(self, output: str) -> int:
         try:
+            if output.startswith('echo $?'):
+                output = output.replace('echo $?', '')
             exit_code = int(output.strip().split()[0])
         except Exception:
-            logger.error('Error getting exit code from bash script')
+            logger.error(f'Error getting exit code from bash script: {output}')
             # If we try to run an invalid shell script the output sometimes includes error text
             # rather than the error code - we assume this is an error
             exit_code = 2
@@ -277,9 +280,8 @@ class BashSession:
 
     def run(self, action: CmdRunAction) -> CmdOutputObservation | FatalErrorObservation:
         try:
-            assert (
-                action.timeout is not None
-            ), f'Timeout argument is required for CmdRunAction: {action}'
+            if action.timeout is None:
+                action.timeout = 60
             commands = split_bash_commands(action.command)
             all_output = ''
             python_interpreter = ''

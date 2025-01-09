@@ -230,7 +230,7 @@ def get_llm_config_arg(
     model = 'gpt-3.5-turbo'
     api_key = '...'
     temperature = 0.5
-    num_retries = 8
+    num_retries = 10
     ...
     ```
 

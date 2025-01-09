@@ -39,6 +39,10 @@ HERE IS THE OLD VERSION OF THE FILE:
 ```
 {old_contents}
 ```
+HERE IS THE THOUGHT OF THE AGENT:
+```
+{thought}
+```
 
 HERE IS THE DRAFT OF THE NEW VERSION OF THE FILE:
 ```
@@ -61,7 +65,7 @@ def _extract_code(string):
 
 
 def get_new_file_contents(
-    llm: LLM, old_contents: str, draft_changes: str, num_retries: int = 3
+    llm: LLM, old_contents: str, draft_changes: str, thought: str, num_retries: int = 3
 ) -> str | None:
     while num_retries > 0:
         messages = [
@@ -69,7 +73,7 @@ def get_new_file_contents(
             {
                 'role': 'user',
                 'content': USER_MSG.format(
-                    old_contents=old_contents, draft_changes=draft_changes
+                    old_contents=old_contents, draft_changes=draft_changes, thought=thought
                 ),
             },
         ]
@@ -96,7 +100,7 @@ class FileEditRuntimeInterface(ABC):
 class FileEditRuntimeMixin(FileEditRuntimeInterface):
     # Most LLMs have output token limit of 4k tokens.
     # This restricts the number of lines we can edit to avoid exceeding the token limit.
-    MAX_LINES_TO_EDIT = 300
+    MAX_LINES_TO_EDIT = 30000
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -209,7 +213,7 @@ class FileEditRuntimeMixin(FileEditRuntimeInterface):
             )
             # directly write the new content
             obs = self.write(
-                FileWriteAction(path=action.path, content=action.content.strip())
+                FileWriteAction(path=action.path, content=action.content.strip(), thought=action.thought)
             )
             if isinstance(obs, ErrorObservation):
                 return obs
@@ -228,9 +232,10 @@ class FileEditRuntimeMixin(FileEditRuntimeInterface):
             return FatalErrorObservation(
                 f'Fatal Runtime in editing: Expected FileReadObservation, got {type(obs)}: {str(obs)}'
             )
-
         original_file_content = obs.content
         old_file_lines = original_file_content.split('\n')
+        if action.end != -1 and action.end > len(old_file_lines):
+            action.end = len(old_file_lines)
         # NOTE: start and end are 1-indexed
         start = action.start
         end = action.end
@@ -257,7 +262,7 @@ class FileEditRuntimeMixin(FileEditRuntimeInterface):
                 if error_obs is not None:
                     return error_obs
 
-            obs = self.write(FileWriteAction(path=action.path, content=updated_content))
+            obs = self.write(FileWriteAction(path=action.path, content=updated_content, thought=action.thought))
             return FileEditObservation(
                 content=diff,
                 path=action.path,
@@ -309,7 +314,7 @@ class FileEditRuntimeMixin(FileEditRuntimeInterface):
         content_to_edit = '\n'.join(old_file_lines[start_idx:end_idx])
         self.draft_editor_llm.reset()
         _edited_content = get_new_file_contents(
-            self.draft_editor_llm, content_to_edit, action.content
+            self.draft_editor_llm, content_to_edit, action.content, action.thought
         )
         if _edited_content is None:
             ret_err = ErrorObservation(
@@ -338,7 +343,7 @@ class FileEditRuntimeMixin(FileEditRuntimeInterface):
                 error_obs.llm_metrics = self.draft_editor_llm.metrics
                 return error_obs
 
-        obs = self.write(FileWriteAction(path=action.path, content=updated_content))
+        obs = self.write(FileWriteAction(path=action.path, content=updated_content, thought=action.thought))
         ret_obs = FileEditObservation(
             content=diff,
             path=action.path,

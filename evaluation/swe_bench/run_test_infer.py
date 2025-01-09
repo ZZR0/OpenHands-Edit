@@ -117,143 +117,31 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             "Your thinking should be thorough and so it's fine if it's very long.\n"
         )
     else:
-        # instruction = (
-        #     '<uploaded_files>\n'
-        #     f'/workspace/{workspace_dir_name}\n'
-        #     '</uploaded_files>\n'
-        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-        #     f'<pr_description>\n'
-        #     f'{instance.problem_statement}\n'
-        #     '</pr_description>\n\n'
-        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-        #     'Follow these steps to resolve the issue:\n'
-        #     '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
-        #     '2. Create a script to reproduce the error and execute it with `python <filename.py>` using the BashTool, to confirm the error\n'
-        #     '3. Edit the sourcecode of the repo to resolve the issue\n'
-        #     '4. Rerun your reproduce script and confirm that the error is fixed!\n'
-        #     '5. Think about edgecases and make sure your fix handles them as well\n'
-        #     "Your thinking should be thorough and so it's fine if it's very long.\n"
-        # )
-        # instruction = (
-        #     '<uploaded_files>\n'
-        #     f'/workspace/{workspace_dir_name}\n'
-        #     '</uploaded_files>\n'
-        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-        #     f'<pr_description>\n'
-        #     f'{instance.problem_statement}\n'
-        #     '</pr_description>\n\n'
-        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-        #     '### Follow These Steps to Resolve the Issue:\n'
-        #     '1. **Familiarize Yourself with the Repository**:\n'
-        #     '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
-        #     '2. **Analyze the Problem**:\n'
-        #     '   - Identify the specific areas of the codebase that require changes.\n'
-        #     '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
-        #     '3. **Implement the Fix**:\n'
-        #     '   - Edit the source code in the identified locations to resolve the issue.\n'
-        #     '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
-        #     '4. **Handle Edge Cases**:\n'
-        #     '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
-        #     '5. **Rerun Your Patch**:\n'
-        #     '   - After making the necessary changes, rerun your patch to verify its functionality. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
-        #     '### Additional Notes:\n'
-        #     '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
-        #     '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
-        # )
-        # instruction = (
-        #     '<uploaded_files>\n'
-        #     f'/workspace/{workspace_dir_name}\n'
-        #     '</uploaded_files>\n'
-        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-        #     f'<pr_description>\n'
-        #     f'{instance.problem_statement}\n'
-        #     '</pr_description>\n\n'
-        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-        #     '### Follow These Steps to Resolve the Issue:\n'
-        #     '1. **Familiarize Yourself with the Repository**:\n'
-        #     '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
-        #     '2. **Analyze the Problem**:\n'
-        #     '   - Identify the specific areas of the codebase that require changes.\n'
-        #     '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
-        #     '3. **Implement the Fix**:\n'
-        #     '   - Edit the source code in the identified locations to resolve the issue.\n'
-        #     '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
-        #     '4. **Handle Edge Cases**:\n'
-        #     '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
-        #     '5. **Return Your Patch**:\n'
-        #     '   - After making the necessary changes, return the patch. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
-        #     '### Additional Notes:\n'
-        #     '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
-        #     '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
-        # )
-        # instruction = (
-        #     '<uploaded_files>\n'
-        #     f'/workspace/{workspace_dir_name}\n'
-        #     '</uploaded_files>\n'
-        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-        #     f'<pr_description>\n'
-        #     f'{instance.problem_statement}\n'
-        #     '</pr_description>\n\n'
-        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-        #     '### Follow These Steps to Resolve the Issue:\n'
-        #     '1. **Familiarize Yourself with the Repository**:\n'
-        #     '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
-        #     '2. **Analyze the Problem**:\n'
-        #     '   - Identify the specific areas of the codebase that require changes.\n'
-        #     '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
-        #     '3. **Implement the Fix**:\n'
-        #     '   - Edit the source code in the identified locations to resolve the issue.\n'
-        #     '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
-        #     '4. **Handle Edge Cases**:\n'
-        #     '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
-        #     '5. **Verify Your Patch**:\n'
-        #     '   - Create a script to reproduce the error described in the `<pr_description>`.\n'
-        #     '   - Do not run the pre-existing test script in the repository, such as `pytest`, but instead run the test script you created with `python <filename.py>` using the BashTool.\n'
-        #     '   - Execute the script with `python <filename.py>` using the BashTool to confirm that your changes resolve the issue.\n'
-        #     '   - Once the error is fixed, rerun your patch to verify its functionality.\n\n'
-        #     '### Additional Notes:\n'
-        #     '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
-        #     '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
-        # )
         instruction = (
-            '<uploaded_files>\n'
-            f'/workspace/{workspace_dir_name}\n'
-            '</uploaded_files>\n'
-            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-            f'<pr_description>\n'
-            f'{instance.problem_statement}\n'
-            '</pr_description>\n\n'
-            'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-            "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-            'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-            '### Follow These Steps to Resolve the Issue:\n'
-            '1. **Familiarize Yourself with the Repository**:\n'
-            '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
-            '2. **Analyze the Problem**:\n'
-            '   - Identify the specific areas of the codebase that require changes.\n'
-            '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
-            '   - If the PR description provides a script to reproduce the error, extract the script from the PR description to a `/workspace/reproduce_error.py` file.\n'
-            '   - Execute the extracted script with `python /workspace/reproduce_error.py` using the BashTool, to confirm the error.\n'
-            '   - If the PR description does not provide a script to reproduce the error, do not create a `/workspace/reproduce_error.py` file.\n'
-            '3. **Implement the Fix**:\n'
-            '   - Edit the source code in the identified locations to resolve the issue.\n'
-            '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
-            '4. **Handle Edge Cases**:\n'
-            '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
-            '5. **Return Your Patch**:\n'
-            '   - If the PR description provides a script to reproduce the error, execute the script with `python /workspace/reproduce_error.py` using the BashTool, to confirm the error is fixed.\n'
-            '   - If the PR description does not provide a script to reproduce the error, return the patch. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
-            '### Additional Notes:\n'
-            '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
-            '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
+            "<uploaded_files>\n"
+            f"/workspace/{workspace_dir_name}\n"
+            "</uploaded_files>\n\n"
+            f"I've uploaded a Python code repository located in the directory `{workspace_dir_name}`. Below is the description of a pull request (PR):\n\n"
+            "<pr_description>\n"
+            f"{instance.problem_statement}\n"
+            "</pr_description>\n\n"
+            "Your task is to create a script named `reproduce_error.py` that reproduces the error described in the PR. Please follow these steps:\n\n"
+            "### Steps to Complete the Task:\n"
+            "1. **Understand the Repository**:\n"
+            "   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables related to the `<pr_description>`.\n\n"
+            "2. **Analyze the Problem**:\n"
+            "   - Carefully review the PR description to understand the error and its context.\n\n"
+            "3. **Implement the `reproduce_error.py` Script**:\n"
+            "   - Create the script as `/workspace/reproduce_error.py`.\n"
+            "   - Ensure the script reproduces the error described in the PR when executed with the command:\n"
+            "     ```bash\n"
+            "     python /workspace/reproduce_error.py\n"
+            "     ```\n"
+            "   - Include an `assert` statement or raise an exception in the script to confirm the error.\n\n"
+            "4. **Submit the Script**:\n"
+            "   - Once the script is complete and tested, return the `reproduce_error.py` file.\n\n"
+            "### Additional Notes:\n"
+            '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it correctly implements the `reproduce_error.py` script.\n'
         )
 
     return instruction
@@ -547,10 +435,19 @@ def complete_runtime(
 
     assert_and_raise(git_patch is not None, 'Failed to get git diff (None)')
 
+    action = CmdRunAction(command=f'cat /workspace/reproduce_error.py', keep_prompt=False)
+    action.timeout = 600
+    logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)
+    logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    assert_and_raise(obs.exit_code == 0, f'Failed to cat /workspace/reproduce_error.py: {str(obs)}')
+    reproduce_error_script = obs.content.strip()
+    assert_and_raise(reproduce_error_script is not None, 'Failed to get reproduce_error.py (None)')
+
     logger.info('-' * 30)
     logger.info('END Runtime Completion Fn')
     logger.info('-' * 30)
-    return {'git_patch': git_patch}
+    return {'git_patch': git_patch, 'test_script': reproduce_error_script}
 
 
 def load_docker_image(base_container_image: str):
@@ -631,89 +528,103 @@ def process_instance(
     metadata: EvalMetadata,
     reset_logger: bool = True,
 ) -> EvalOutput:
-    time.sleep(random.randint(1, 10))
-    # import pdb; pdb.set_trace()
-    config = get_config(instance, metadata)
-
-    # Setup the logger properly, so you can run multi-processing to parallelize the evaluation
-    if reset_logger:
-        log_dir = os.path.join(metadata.eval_output_dir, 'infer_logs')
-        reset_logger_for_multiprocessing(logger, instance.instance_id, log_dir)
-    else:
-        logger.info(f'Starting evaluation for instance {instance.instance_id}.')
-
-    current_time = datetime.now().strftime('%Y%m%d%H%M%S')
-    # dockerpull.org/xingyaoww/sweb.eval.x86_64.django_s_django-15781
-    load_docker_image(config.sandbox.base_container_image)
-    runtime = create_runtime(config, sid=f'{instance.instance_id}_{current_time}')
-    call_async_from_sync(runtime.connect)
-
     try:
-        initialize_runtime(runtime, instance)
+        time.sleep(random.randint(1, 10))
+        # import pdb; pdb.set_trace()
+        config = get_config(instance, metadata)
 
-        instruction = get_instruction(instance, metadata)
+        # Setup the logger properly, so you can run multi-processing to parallelize the evaluation
+        if reset_logger:
+            log_dir = os.path.join(metadata.eval_output_dir, 'infer_logs')
+            reset_logger_for_multiprocessing(logger, instance.instance_id, log_dir)
+        else:
+            logger.info(f'Starting evaluation for instance {instance.instance_id}.')
 
-        # Here's how you can run the agent (similar to the `main` function) and get the final task state
-        state: State | None = asyncio.run(
-            run_controller(
-                config=config,
-                initial_user_action=MessageAction(content=instruction),
-                runtime=runtime,
-                fake_user_response_fn=AGENT_CLS_TO_FAKE_USER_RESPONSE_FN[
-                    metadata.agent_class
-                ],
+        current_time = datetime.now().strftime('%Y%m%d%H%M%S')
+        # dockerpull.org/xingyaoww/sweb.eval.x86_64.django_s_django-15781
+        load_docker_image(config.sandbox.base_container_image)
+        runtime = create_runtime(config, sid=f'{instance.instance_id}_{current_time}')
+        call_async_from_sync(runtime.connect)
+
+        try:
+            initialize_runtime(runtime, instance)
+
+            instruction = get_instruction(instance, metadata)
+
+            # Here's how you can run the agent (similar to the `main` function) and get the final task state
+            state: State | None = asyncio.run(
+                run_controller(
+                    config=config,
+                    initial_user_action=MessageAction(content=instruction),
+                    runtime=runtime,
+                    fake_user_response_fn=AGENT_CLS_TO_FAKE_USER_RESPONSE_FN[
+                        metadata.agent_class
+                    ],
+                )
             )
+
+            # if fatal error, throw EvalError to trigger re-run
+            if (
+                state.last_error
+                and 'fatal error during agent execution' in state.last_error
+                and 'stuck in a loop' not in state.last_error
+            ):
+                raise EvalException('Fatal error detected: ' + state.last_error)
+
+            # ======= THIS IS SWE-Bench specific =======
+            # Get git patch
+            return_val = complete_runtime(runtime, instance)
+            git_patch = return_val['git_patch']
+            test_script = return_val['test_script']
+            logger.info(
+                f'Got git diff for instance {instance.instance_id}:\n--------\n{git_patch}\n--------'
+            )
+        finally:
+            runtime.close(rm_all_containers=False)
+        # ==========================================
+
+        # ======= Attempt to evaluate the agent's edits =======
+        # we use eval_infer.sh to evaluate the agent's edits, not here
+        # because the agent may alter the environment / testcases
+        test_result = {
+            'git_patch': git_patch,
+            'final_tests': [{"test": test_script, "resolved_before": False}],
+        }
+
+        # If you are working on some simpler benchmark that only evaluates the final model output (e.g., in a MessageAction)
+        # You can simply get the LAST `MessageAction` from the returned `state.history` and parse it for evaluation.
+        if state is None:
+            raise ValueError('State should not be None.')
+
+        histories = [event_to_dict(event) for event in state.history.get_events()]
+        metrics = state.metrics.get() if state.metrics else None
+
+        # Save the output
+        output = EvalOutput(
+            instance_id=instance.instance_id,
+            instruction=instruction,
+            instance=instance.to_dict(),  # SWE Bench specific
+            test_result=test_result,
+            metadata=metadata,
+            history=histories,
+            metrics=metrics,
+            error=state.last_error if state and state.last_error else None,
         )
 
-        # if fatal error, throw EvalError to trigger re-run
-        if (
-            state.last_error
-            and 'fatal error during agent execution' in state.last_error
-            and 'stuck in a loop' not in state.last_error
-        ):
-            raise EvalException('Fatal error detected: ' + state.last_error)
-
-        # ======= THIS IS SWE-Bench specific =======
-        # Get git patch
-        return_val = complete_runtime(runtime, instance)
-        git_patch = return_val['git_patch']
-        logger.info(
-            f'Got git diff for instance {instance.instance_id}:\n--------\n{git_patch}\n--------'
+        remove_docker_image(config.sandbox.base_container_image)
+        return output
+    except Exception as e:
+        logger.error(f'Error occurred: {e}')
+        return EvalOutput(
+            instance_id="",
+            instruction="",
+            instance={},  # SWE Bench specific
+            test_result={},
+            metadata=metadata,
+            history=[],
+            metrics=None,
+            error=str(e),
         )
-    finally:
-        runtime.close(rm_all_containers=False)
-    # ==========================================
-
-    # ======= Attempt to evaluate the agent's edits =======
-    # we use eval_infer.sh to evaluate the agent's edits, not here
-    # because the agent may alter the environment / testcases
-    test_result = {
-        'git_patch': git_patch,
-    }
-
-    # If you are working on some simpler benchmark that only evaluates the final model output (e.g., in a MessageAction)
-    # You can simply get the LAST `MessageAction` from the returned `state.history` and parse it for evaluation.
-    if state is None:
-        raise ValueError('State should not be None.')
-
-    histories = [event_to_dict(event) for event in state.history.get_events()]
-    metrics = state.metrics.get() if state.metrics else None
-
-    # Save the output
-    output = EvalOutput(
-        instance_id=instance.instance_id,
-        instruction=instruction,
-        instance=instance.to_dict(),  # SWE Bench specific
-        test_result=test_result,
-        metadata=metadata,
-        history=histories,
-        metrics=metrics,
-        error=state.last_error if state and state.last_error else None,
-    )
-
-    remove_docker_image(config.sandbox.base_container_image)
-    return output
-
 
 def filter_dataset(dataset: pd.DataFrame, filter_column: str) -> pd.DataFrame:
     file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.toml')

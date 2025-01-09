@@ -52,24 +52,24 @@ class CodeActResponseParser(ResponseParser):
             if f'</execute_{lang}' in action and f'</execute_{lang}>' not in action:
                 action = action.replace(f'</execute_{lang}', f'</execute_{lang}>')
             # special handling for Gemini: it has stop-word bug and returns </execute_ipython></file_edit> instead of </execute_ipython>
-            if (
-                f'<execute_{lang}>' in action
-                and f'</execute_{lang}></file_edit>' in action
-            ):
-                action = action.replace(
-                    f'</execute_{lang}></file_edit>', f'</execute_{lang}>'
-                )
-            if f'<execute_{lang}>' in action and f'</execute_{lang}>' not in action:
-                action += f'</execute_{lang}>'
+            # if (
+            #     f'<execute_{lang}>' in action
+            #     and f'</execute_{lang}></file_edit>' in action
+            # ):
+            #     action = action.replace(
+            #         f'</execute_{lang}></file_edit>', f'</execute_{lang}>'
+            #     )
+            # if f'<execute_{lang}>' in action and f'</execute_{lang}>' not in action:
+            #     action += f'</execute_{lang}>'
 
-        if (
-            '<file_edit' in action
-            and '</file_edit>' not in action
-            and not any(
-                f'</execute_{lang}>' in action for lang in ['bash', 'ipython', 'browse']
-            )
-        ):
-            action += '</file_edit>'
+        # if (
+        #     '<file_edit' in action
+        #     and '</file_edit>' not in action
+        #     and not any(
+        #         f'</execute_{lang}>' in action for lang in ['bash', 'ipython', 'browse']
+        #     )
+        # ):
+        #     action += '</file_edit>'
         return action
 
     def parse_action(self, action_str: str) -> Action:
@@ -115,7 +115,7 @@ class CodeActActionParserFinish(ActionParser):
             self.finish_command is not None
         ), 'self.finish_command should not be None when parse is called'
         thought = action_str.replace(self.finish_command.group(0), '').strip()
-        return AgentFinishAction(thought=thought)
+        return AgentFinishAction(outputs={'thought': thought}, thought=thought)
 
 
 class CodeActActionParserCmdRun(ActionParser):
@@ -244,19 +244,22 @@ class CodeActActionParserFileEdit(ActionParser):
         # Updated regex to make start and end optional
         self.file_edit_match = re.search(
             r'<file_edit\s+path=(["\']?)(.*?)\1(?:\s+start=(["\']?)(.*?)\3)?(?:\s+end=(["\']?)(.*?)\5)?\s*>(.*?)</file_edit>',
+            # r'<file_edit\s+path=(["\']?)(.*?)\1\s+start=(["\']?)(.*?)\3\s+end=(["\']?)(.*?)\5\s*>(.*?)</file_edit>',
             action_str,
             re.DOTALL,
         )
 
         if self.file_edit_match is None:
-            logger.error(
-                f'FileEditAction detected but the format is incorrect. Unable to match for <file_edit> in:\n{"-" * 80}\n{action_str}\n{"-" * 80}'
-            )
+            # logger.error(
+            #     f'FileEditAction detected but the format is incorrect. Unable to match for <file_edit> in:\n{"-" * 80}\n{action_str}\n{"-" * 80}'
+            # )
+            # import pdb; pdb.set_trace()
             raise LLMMalformedActionError(
-                'FileEditAction detected but the format is incorrect. Usage:\n'
-                '<file_edit path="[path]" start=[start_line] end=[end_line]>\n'
+                message='FileEditAction detected but the format is incorrect. Usage:\n'
+                '<file_edit path="[path]" start=[start_line or -1] end=[end_line or -1]>\n'
                 '[content_to_edit]\n'
-                '</file_edit>\n'
+                '</file_edit>\n',
+                action_str=action_str,
             )
 
         path = self.file_edit_match.group(2)

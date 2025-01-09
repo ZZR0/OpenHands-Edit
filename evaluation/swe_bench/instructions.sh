@@ -54,4 +54,27 @@ poetry run python evaluation/swe_bench/run_select.py \
                 /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_iter20_4-run_1/output.jsonl \
                 /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_iter20_5-run_1/output.jsonl
 
+poetry run python evaluation/swe_bench/run_select.py \
+  --llm-config llm.gemini-2.0-flash-exp \
+  --dataset princeton-nlp/SWE-bench_Lite \
+  --split test \
+  --patch-files /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Lite-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_best4_s5_iter20-run_1/output.jsonl \
+                /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Lite-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_best4_s5_iter20-run_2/output.jsonl \
+                /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Lite-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_best4_s5_iter20-run_3/output.jsonl \
+
+
+
 docker builder prune
+
+export DOCKER_IMAGE_DIR=/hdd1/zzr/docker_images/
+export DOCKER_IMAGE_DIR=/hdd2/zzr/docker_images/
+
+/openhands/micromamba/bin/micromamba run -n openhands poetry run python ./test.py
+
+
+./evaluation/swe_bench/scripts/eval_test_infer.sh /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-testagent_v1-run_1/output.jsonl "princeton-nlp/SWE-bench_Verified"
+
+
+
+EXP_NAME="testagent_debug" ./evaluation/swe_bench/scripts/run_test_infer.sh llm.gemini-2.0-flash-exp HEAD CodeActAgentEdit 500 2 4 'princeton-nlp/SWE-bench_Verified' 'test' 1
+

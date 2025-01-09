@@ -56,6 +56,7 @@ def _generate_dockerfile(
         build_from_versioned=build_from == BuildFromImageType.VERSIONED,
         extra_deps=extra_deps if extra_deps is not None else '',
     )
+    dockerfile_content = dockerfile_content.replace('dockerpull.org/xingyaoww/', 'cjie.eu.org/xingyaoww/')
     return dockerfile_content
 
 

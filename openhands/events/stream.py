@@ -115,10 +115,12 @@ class EventStream:
 
     def subscribe(self, id: EventStreamSubscriber, callback: Callable, append=False):
         if id in self._subscribers:
-            if append:
-                self._subscribers[id].append(callback)
-            else:
-                raise ValueError('Subscriber already exists: ' + id)
+            self.unsubscribe(id)
+            self._subscribers[id] = [callback]
+            # if append:
+            #     self._subscribers[id].append(callback)
+            # else:
+            #     raise ValueError('Subscriber already exists: ' + id)
         else:
             self._subscribers[id] = [callback]
 

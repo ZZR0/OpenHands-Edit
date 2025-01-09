@@ -119,6 +119,7 @@ class CodeActAgentEdit(Agent):
             self.initial_user_message = None
         else:
             # Non-function-calling mode
+            # import pdb; pdb.set_trace()
             self.action_parser = CodeActResponseParser()
             self.prompt_manager = PromptManager(
                 prompt_dir=os.path.join(os.path.dirname(__file__)),
@@ -127,8 +128,9 @@ class CodeActAgentEdit(Agent):
             )
             self.system_prompt = self.prompt_manager.system_message
             self.initial_user_message = self.prompt_manager.initial_user_message
-
-        self.best_of_n = 4
+        logger.info(f'System prompt: {self.system_prompt}')
+        logger.info(f'Initial user message: {self.initial_user_message}')
+        self.best_of_n = 1
         if self.best_of_n > 1:
             from openai import OpenAI
 
@@ -366,12 +368,13 @@ class CodeActAgentEdit(Agent):
         if self.config.function_calling:
             params['tools'] = self.tools
         else:
-            params['stop'] = [
-                '</execute_ipython>',
-                '</execute_bash>',
-                '</execute_browse>',
-                '</file_edit>',
-            ]
+            pass
+            # params['stop'] = [
+            #     '</execute_ipython>',
+            #     '</execute_bash>',
+            #     '</execute_browse>',
+            #     '</file_edit>',
+            # ]
 
         if (
             len(messages) > 4
@@ -432,6 +435,71 @@ class CodeActAgentEdit(Agent):
             return self.pending_actions.popleft()
         else:
             return self.action_parser.parse(response)
+
+    def finish(self, state: State, finish_reason: str = None) -> Action:
+        # prepare what we want to send to the LLM
+        messages = self._get_messages(state)
+        messages = self._post_process_messages(messages)
+        if finish_reason:
+            finish_prompt = (
+                f"You are required to stop your work due to: \n<stop_reason>\n{finish_reason}\n</stop_reason>\n\n"
+                "Before exiting, please provide a detailed and structured summary of your work. Your summary should include the following components:\n\n"
+                "1. **Reason for Stopping**: Briefly explain the reason for stopping the task, as specified by <stop_reason>, and how it impacted your progress or completion of the task. \n\n"
+                "2. **Overview of Work Completed**:\n"
+                "   - Summarize the objectives of your work and the progress made so far.\n"
+                "   - Clearly state what has been fully completed, partially completed, or left unaddressed.\n\n"
+                "3. **Code Changes**:\n"
+                "   - List all the files you have worked on.\n"
+                "   - Specify the line numbers or sections where changes were made.\n"
+                "   - Provide a brief explanation of each change, including its purpose and functionality.\n"
+                "   - Provide the exact code you have edited with the file name and line number in the format of ```\n<code>\n```, so that the next engineer can directly know what you have done.\n\n"
+                "4. **Relevant Code**:\n"
+                "   - Identify any additional code, files, or modules (even if unedited) that are relevant to your work.\n"
+                "   - Include file names and line numbers, and explain their significance in the context of your task.\n"
+                "   - Provide the exact relevant code with the file name and line number in the format of ```\n<code>\n```, so that the next engineer can directly see the code.\n\n"
+                "5. **Challenges or Issues**:\n"
+                "   - Highlight any challenges, blockers, or unresolved issues encountered during your work.\n"
+                "   - If applicable, provide suggestions or potential solutions for these issues.\n\n"
+                "6. **Next Steps for Engineers**:\n"
+                "   - Provide recommendations for the next engineer who will continue this work.\n"
+                "   - Include guidance on how to pick up where you left off, any warnings or caveats, and potential areas for improvement or optimization.\n\n"
+                "Be as thorough and detailed as possible to ensure a smooth transition and clear understanding of your work."
+            )
+        else:
+            finish_prompt = (
+                "Your task is complete. Please provide a detailed summary of your work before exiting. Your summary should include the following:\n\n"
+                "1. **Overview of the Work**: Provide a clear and concise explanation of what you were tasked with, the goals you aimed to achieve, and the context of your work.\n\n"
+                "2. **Code Changes**:\n"
+                "   - List all the files you have worked on.\n"
+                "   - Specify the line numbers or sections where changes were made.\n"
+                "   - Provide a brief explanation of each change, including its purpose and functionality.\n"
+                "   - Provide the exact code you have edited with the file name and line number in the format of ```\n<code>\n```, so that the next engineer can directly know what you have done.\n\n"
+                "3. **Relevant Code**:\n"
+                "   - Identify any additional code, files, or modules (even if unedited) that are relevant to your work.\n"
+                "   - Include file names and line numbers, and explain their significance in the context of your task.\n"
+                "   - Provide the exact relevant code with the file name and line number in the format of ```\n<code>\n```, so that the next engineer can directly see the code.\n\n"
+                "4 **Next Steps for Engineers**: Provide guidance for the next engineer who will work on this project, including:\n"
+                "   - Any unresolved issues or potential areas for improvement.\n"
+                "   - Suggestions for future development or maintenance.\n"
+                "   - Any specific instructions or warnings about the code or system.\n\n"
+                "Be as thorough and detailed as possible to ensure a smooth handoff to the next engineer."
+            )
+            
+        if messages[-1].role == 'user':
+            messages[-1].content[0].text += '\n\n' + finish_prompt
+        else:
+            messages.append(Message(role='user', content=[TextContent(text=finish_prompt)]))
+            
+        params: dict = {
+            'messages': self.llm.format_messages_for_llm(messages),
+        }
+    
+        response = self.llm.completion(**params)
+        self.extra_data['input_tokens'] = response.usage.get('prompt_tokens')
+        self.extra_data['output_tokens'] = response.usage.get('completion_tokens')
+        
+        thought = response.choices[0].message.content.replace(finish_prompt, '').strip()
+        return AgentFinishAction(outputs={'thought': thought}, thought=thought)
 
     def choices_selection_llm(
         self, question: str, response: ModelResponse

@@ -2,10 +2,11 @@ import asyncio
 import json
 import os
 import random
+import re
 import tempfile
 import time
 from datetime import datetime
-from typing import Any
+from typing import Any, List
 
 import docker
 import pandas as pd
@@ -35,6 +36,7 @@ from openhands.core.config import (
 )
 from openhands.core.logger import openhands_logger as logger
 from openhands.core.main import create_runtime, run_controller
+from openhands.core.message import Message, TextContent
 from openhands.events.action import CmdRunAction, MessageAction
 from openhands.events.observation import CmdOutputObservation, ErrorObservation
 from openhands.events.serialization.event import event_to_dict
@@ -258,6 +260,144 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
 
     return instruction
 
+def get_agent_instruction(instance: pd.Series, metadata: EvalMetadata, messages: List[Message], state: State):
+    def extract_task_instruction(content: str) -> str:
+        """Extracts the content within <task_instruction>...</task_instruction> tags."""
+        match = re.search(r'<task_instruction>(.*?)</task_instruction>', content, re.DOTALL)
+        if match:
+            return match.group(1).strip()
+        else:
+            raise ValueError("Task instruction tags not found in the content.")
+    logger.info(f'{"=" * 10} Start Agent Instruction {"=" * 10}')
+    logger.info(f'State: {state}')
+    workspace_dir_name = _get_swebench_workspace_dir_name(instance)
+    llm = LLM(config=metadata.llm_config)
+    first_task = True if len(messages) == 0 else False
+    if first_task:
+        instruction = (
+            '<uploaded_files>\n'
+            f'/workspace/{workspace_dir_name}\n'
+            '</uploaded_files>\n'
+            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+            f'<pr_description>\n'
+            f'{instance.problem_statement}\n'
+            '</pr_description>\n\n'
+            'You are a software engineer tasked with ensuring that the requirements specified in the `<pr_description>` are fully implemented in the repository. However, note the following:\n'
+            '1. **You are not responsible for modifying any test files.** All changes to test files mentioned in the `<pr_description>` have already been handled. Therefore, you must **not alter any testing logic or test files** in any way.\n'
+            '2. Your task is to make **minimal changes** to the non-test files in the `/workspace` directory to ensure the requirements in the `<pr_description>` are satisfied.\n'
+            'However, you are acting as a **team manager** in this scenario. Your responsibilities are as follows:\n'
+            '1. **Task Breakdown and Planning:**\n'
+            '   - Analyze the requirements in <pr_description> and break them into no more than 5 concise, actionable tasks.\n'
+            '   - Create a clear and detailed plan for each task.\n'
+            '2. **Task Assignment:** Assign the tasks to individual engineers in your team, ensuring that each task is clearly defined and includes all necessary instructions and requirements.\n'
+            '3. **Feedback Integration:** Based on feedback from the assigned engineers, summarize the current status of the tasks and provide a clear next-step action plan.\n'
+            '4. **Information Handoff:** Ensure that all relevant and useful information is documented and passed on to the next engineer for seamless collaboration.\n'
+            'Now, based on the `<pr_description>`, please create a **task breakdown and planning** for the implementation. Follow these formatting guidelines:\n'
+            '1. Write the tasks as a **markdown list**, with each task clearly structured and detailed.\n'
+            '2. If the PR description provides a script to reproduce the error, is a good idea to extract the script from the PR description to a `/workspace/reproduce_error.py` file and confirm the error.\n'
+            'Now, proceed to create a task breakdown and planning document in the specified format.\n'
+        )
+        
+        messages.append(Message(role='user', content=[TextContent(text=instruction)]))
+        logger.info(f'Task Start Instruction: {instruction}')
+        response = llm.completion(
+            messages=llm.format_messages_for_llm(messages), temperature=1.0, n=1
+        )
+        
+        response = response.choices[0].message.content
+        messages.append(Message(role='user', content=[TextContent(text=response)]))
+        logger.info(f'Task Start Response: {response}')
+        instruction = (
+            'Now, generate a detailed and comprehensive **task instruction** for the first task, ensuring it includes all necessary requirements for the assigned engineer to proceed efficiently. Follow these guidelines when creating the task instruction:\n'
+            '1. **Do not repeat** information already provided in `<uploaded_files>` and `<pr_description>`, as this content will automatically be appended to the beginning of the task instruction.\n'
+            '2. The **task instruction** should be specifically intended for another engineer to implement, so ensure it is clear, actionable, and precise.\n'
+            '3. Include all relevant details, steps, and context required to complete the task without ambiguity or unnecessary back-and-forth communication.\n'
+            '4. Wrap the **task instruction** in `<task_instruction>...</task_instruction>` tags to ensure it can be properly parsed by the system.\n'
+            '5. Use a conversational and approachable style to make the instructions easy to follow. For example, use phrases like "You are..." and "Your task is..." to directly address the engineer.\n'
+            f'6. If reproducing an error is required, include instructions to write a `reproduce_error.py` file in the `/workspace/{workspace_dir_name}` directory. Use the `BashTool` to run the script for error reproduction.\n'
+            '7. Avoid using `pdb` or similar debugging tools in the task.\n'
+            'Remember, the goal is to provide the engineer with everything they need to start and complete the task efficiently.\n'
+        )
+        # do not use pdb here
+        # if you want to reproduce the error, please write the reproduce_error.py file in the /workspace/{workspace_dir_name} directory, and use the BashTool to run the script.
+    else:
+        instruction = (
+            'The following is the what the previous engineer has done:\n'
+            '<progress_of_previous_engineer>\n'
+            f'{state.outputs["thought"]}\n'
+            '</progress_of_previous_engineer>\n'
+            'Now, generate a detailed and comprehensive **task instruction** for the next task, ensuring it includes all necessary requirements for the assigned engineer to proceed efficiently. Follow these guidelines when creating the task instruction:\n'
+            '1. **Do not repeat** information already provided in `<uploaded_files>` and `<pr_description>`, as this content will automatically be appended to the beginning of the task instruction.\n'
+            '2. The **task instruction** should be specifically intended for another engineer to implement, so ensure it is clear, actionable, and precise.\n'
+            '3. Include all relevant details, steps, and context required to complete the task without ambiguity or unnecessary back-and-forth communication.\n'
+            '4. Wrap the **task instruction** in `<task_instruction>...</task_instruction>` tags to ensure it can be properly parsed by the system.\n'
+            '5. Use a conversational and approachable style to make the instructions easy to follow. For example, use phrases like "You are..." and "Your task is..." to directly address the engineer.\n'
+            f'6. If reproducing an error is required, include instructions to write a `reproduce_error.py` file in the `/workspace/{workspace_dir_name}` directory. Use the `BashTool` to run the script for error reproduction.\n'
+            '7. Avoid using `pdb` or similar debugging tools in the task.\n'
+            'Remember, the goal is to provide the engineer with everything they need to start and complete the task efficiently.\n'
+        )
+        
+        check_finish_instruction = (
+            'The following is the what the previous engineer has done:\n'
+            '<progress_of_previous_engineer>\n'
+            f'{state.outputs["thought"]}\n'
+            '</progress_of_previous_engineer>\n'
+            'Please first analyze the progress of the previous engineer.\n'
+            'Then, determine if the sub-task is completed. If it is, please return [[SUBTASK_FINISH]] in the response. Otherwise, return [[SUBTASK_CONTINUE]].\n'
+            'Finally, determine if all tasks are completed. If it is, please return [[ALLTASKS_FINISH]] in the response. Otherwise, return [[ALLTASKS_CONTINUE]].'
+        )
+        logger.info(f'Check Finish Instruction: {check_finish_instruction}')
+        check_finish_response = llm.completion(
+            messages=llm.format_messages_for_llm(messages + [Message(role='user', content=[TextContent(text=check_finish_instruction)])]), temperature=1.0, n=1
+        )
+        check_finish_response = check_finish_response.choices[0].message.content
+        logger.info(f'Check Finish Response: {check_finish_response}')
+        if '[[ALLTASKS_FINISH]]' in check_finish_response:
+            return messages, '[[ALLTASKS_FINISH]]', True
+
+    messages.append(Message(role='user', content=[TextContent(text=instruction)]))
+    logger.info(f'Task Instruction: {instruction}')
+    while True:
+        try:
+            response = llm.completion(
+                messages=llm.format_messages_for_llm(messages), temperature=1.0, n=1
+            )
+            response = response.choices[0].message.content
+            logger.info(f'Task Response: {response}')
+            task_instruction = extract_task_instruction(response)
+            break
+        except Exception as e:
+            logger.error(f'Failed to extract task instruction: {e}')
+            continue
+    if first_task:
+        final_task_instruction = (
+            '<uploaded_files>\n'
+            f'/workspace/{workspace_dir_name}\n'
+            '</uploaded_files>\n\n'
+            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+            f'<pr_description>\n'
+            f'{instance.problem_statement}\n'
+            '</pr_description>\n\n'
+            f'{task_instruction}\n'
+        )
+    else:
+        final_task_instruction = (
+            '<uploaded_files>\n'
+            f'/workspace/{workspace_dir_name}\n'
+            '</uploaded_files>\n\n'
+            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+            f'<pr_description>\n'
+            f'{instance.problem_statement}\n'
+            '</pr_description>\n\n'
+            'The following is the what the previous engineer has done:\n'
+            '<progress_of_previous_engineer>\n'
+            f'{state.outputs["thought"]}\n'
+            '</progress_of_previous_engineer>\n\n'
+            f'{task_instruction}\n'
+        )
+        
+    logger.info(f'{"=" * 10} End Agent Instruction {"=" * 10}')
+    return messages, final_task_instruction, False
 
 # TODO: migrate all swe-bench docker to ghcr.io/openhands
 DOCKER_IMAGE_PREFIX = os.environ.get('EVAL_DOCKER_IMAGE_PREFIX', 'docker.io/xingyaoww/')
@@ -632,8 +772,9 @@ def process_instance(
     reset_logger: bool = True,
 ) -> EvalOutput:
     time.sleep(random.randint(1, 10))
-    # import pdb; pdb.set_trace()
+    
     config = get_config(instance, metadata)
+    # print(metadata.llm_config.api_key)
 
     # Setup the logger properly, so you can run multi-processing to parallelize the evaluation
     if reset_logger:
@@ -648,30 +789,40 @@ def process_instance(
     runtime = create_runtime(config, sid=f'{instance.instance_id}_{current_time}')
     call_async_from_sync(runtime.connect)
 
+    max_steps = 5
     try:
         initialize_runtime(runtime, instance)
-
-        instruction = get_instruction(instance, metadata)
-
-        # Here's how you can run the agent (similar to the `main` function) and get the final task state
-        state: State | None = asyncio.run(
-            run_controller(
-                config=config,
-                initial_user_action=MessageAction(content=instruction),
-                runtime=runtime,
-                fake_user_response_fn=AGENT_CLS_TO_FAKE_USER_RESPONSE_FN[
-                    metadata.agent_class
-                ],
+        print(runtime.api_url)
+        # import pdb; pdb.set_trace()
+        state = None
+        messages = []
+        for i_step in range(max_steps):
+            # import pdb; pdb.set_trace()
+            messages, instruction, finished = get_agent_instruction(instance, metadata, messages, state)
+            if finished:
+                logger.info(f'Task {instance.instance_id} finished.')
+                break
+            # Here's how you can run the agent (similar to the `main` function) and get the final task state
+            # runtime.event_stream.clear()
+            state: State | None = asyncio.run(
+                run_controller(
+                    config=config,
+                    initial_user_action=MessageAction(content=instruction),
+                    runtime=runtime,
+                    fake_user_response_fn=AGENT_CLS_TO_FAKE_USER_RESPONSE_FN[
+                        metadata.agent_class
+                    ],
+                )
             )
-        )
+            logger.info(f'State: {state}')
 
-        # if fatal error, throw EvalError to trigger re-run
-        if (
-            state.last_error
-            and 'fatal error during agent execution' in state.last_error
-            and 'stuck in a loop' not in state.last_error
-        ):
-            raise EvalException('Fatal error detected: ' + state.last_error)
+            # if fatal error, throw EvalError to trigger re-run
+            if (
+                state.last_error
+                and 'fatal error during agent execution' in state.last_error
+                and 'stuck in a loop' not in state.last_error
+            ):
+                raise EvalException('Fatal error detected: ' + state.last_error)
 
         # ======= THIS IS SWE-Bench specific =======
         # Get git patch

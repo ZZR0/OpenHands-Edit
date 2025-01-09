@@ -7,7 +7,7 @@ import uuid
 from typing import Callable, Protocol, Type
 
 import openhands.agenthub  # noqa F401 (we import this to get the agents registered)
-from openhands.controller import AgentMemController
+from openhands.controller import AgentController, AgentMemController
 from openhands.controller.agent import Agent
 from openhands.controller.state.state import State
 from openhands.core.config import (

@@ -51,8 +51,9 @@ class BrowserUnavailableException(Exception):
 # This exception gets sent back to the LLM
 # It might be malformed JSON
 class LLMMalformedActionError(Exception):
-    def __init__(self, message='Malformed response'):
+    def __init__(self, message='Malformed response', action_str=None):
         self.message = message
+        self.action_str = action_str
         super().__init__(message)
 
     def __str__(self):
