@@ -5,6 +5,7 @@ This is similar to the functionality of `CodeActResponseParser`.
 
 import json
 import warnings
+from typing import Any
 
 import numpy as np
 from litellm import (
@@ -15,6 +16,8 @@ from litellm import (
 from sklearn.cluster import DBSCAN, OPTICS, KMeans
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.metrics import silhouette_score
+from swebench.harness.test_spec import MAP_REPO_VERSION_TO_SPECS
+from swebench.harness.utils import get_test_directives
 
 from openhands.core.logger import openhands_logger as logger
 from openhands.events.action import (
@@ -25,6 +28,8 @@ from openhands.events.action import (
     FileEditAction,
     IPythonRunCellAction,
     MessageAction,
+    RunRegressionAction,
+    UnknownAction,
 )
 from openhands.events.tool import ToolCallMetadata
 
@@ -302,6 +307,22 @@ BrowserDelegationTool = ChatCompletionToolParam(
     ),
 )
 
+_REGRESSION_DESCRIPTION = """Run regression tests if you think you have made a preliminary change that can resolve this issue.
+"""
+
+RegressionTool = ChatCompletionToolParam(
+    type='function',
+    function=ChatCompletionToolParamFunctionChunk(
+        name='run_regression',
+        description=_REGRESSION_DESCRIPTION,
+        parameters={
+            'type': 'object',
+            'properties': {},
+            'required': [],
+        },
+    ),
+)
+
 _FINISH_DESCRIPTION = """Finish the interaction when the task is complete OR if the assistant cannot proceed further with the task."""
 
 FinishTool = ChatCompletionToolParam(
@@ -348,7 +369,11 @@ def get_all_key_values(d):
     return items
 
 
-def response_to_actions(response: ModelResponse) -> list[Action]:
+def response_to_actions(
+    response: ModelResponse,
+    instance: dict[str, Any] | None = None,
+    tool_list: list[ChatCompletionToolParam] | None = None,
+) -> list[Action]:
     actions: list[Action] = []
     assert len(response.choices) == 1, 'Only one choice is supported for now'
     assistant_msg = response.choices[0].message
@@ -417,8 +442,44 @@ def response_to_actions(response: ModelResponse) -> list[Action]:
                     f'TOOL CALL: str_replace_editor -> file_editor with code: {code}'
                 )
                 action = IPythonRunCellAction(code=code, include_extra=False)
+            elif tool_call.function.name == 'run_regression':
+                # raise NotImplementedError('Regression tool is not implemented yet')
+
+                assert (
+                    instance
+                ), 'Instance metadata must be set if regression is enabled.'
+                instance_id = instance['instance_id']
+
+                # Convert e.g. "logs/scikit-learn__scikit-learn-12421/test_output.txt" to "scikit-learn/scikit-learn"
+                repo = '-'.join(
+                    instance_id.replace('__', '/').split('-')[:-1]
+                )  # e.g. scikit-learn/scikit-learn
+
+                test_command = ' '.join(
+                    [
+                        MAP_REPO_VERSION_TO_SPECS[instance['repo']][
+                            instance['version']
+                        ]['test_cmd'],
+                        *get_test_directives(instance),
+                    ]
+                )
+                if 'pytest ' in test_command:
+                    test_command = test_command.replace('-rA ', '-rA -s ')
+
+                action = RunRegressionAction(
+                    repo=repo,
+                    version=instance['version'],
+                    test_command=test_command,
+                    testcases=instance['initial_passed_tests'],
+                )
             else:
-                raise RuntimeError(f'Unknown tool call: {tool_call.function.name}')
+                if not tool_list:
+                    raise RuntimeError(f'Unknown tool call: {tool_call.function.name}')
+                tool_str_list = [tool['function']['name'] for tool in tool_list]
+                action = UnknownAction(
+                    tool_name=tool_call.function.name, tool_list=tool_str_list
+                )
+                # raise RuntimeError(f'Unknown tool call: {tool_call.function.name}')
 
             # We only add thought to the first action
             if i == 0:
@@ -444,8 +505,11 @@ def get_tools(
     codeact_enable_browsing_delegate: bool = False,
     codeact_enable_llm_editor: bool = False,
     codeact_enable_jupyter: bool = False,
+    codeact_enable_regression: bool = False,
 ) -> list[ChatCompletionToolParam]:
     tools = [CmdRunTool, FinishTool]
+    if codeact_enable_regression:
+        tools.append(RegressionTool)
     if codeact_enable_browsing_delegate:
         tools.append(BrowserDelegationTool)
     if codeact_enable_jupyter:

@@ -1,4 +1,5 @@
 from dataclasses import dataclass, fields
+from typing import Any
 
 from openhands.core.config.config_utils import get_field_info
 
@@ -22,10 +23,17 @@ class AgentConfig:
     codeact_enable_browsing_delegate: bool = False
     codeact_enable_llm_editor: bool = False
     codeact_enable_jupyter: bool = False
+    codeact_enable_regression: bool = False
     micro_agent_name: str | None = None
     memory_enabled: bool = False
     memory_max_threads: int = 3
     llm_config: str | None = None
+    instance: dict[str, Any] | None = None
+
+    def __post_init__(self):
+        assert (
+            not self.codeact_enable_regression or self.instance
+        ), 'Instance metadata must be set if regression is enabled.'
 
     def defaults_to_dict(self) -> dict:
         """Serialize fields to a dict for the frontend, including type hints, defaults, and whether it's optional."""

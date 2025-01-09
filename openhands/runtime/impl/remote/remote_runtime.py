@@ -19,12 +19,15 @@ from openhands.events.action import (
     FileReadAction,
     FileWriteAction,
     IPythonRunCellAction,
+    RunRegressionAction,
+    UnknownAction,
 )
 from openhands.events.action.action import Action
 from openhands.events.observation import (
     FatalErrorObservation,
     NullObservation,
     Observation,
+    UnknownActionObservation,
 )
 from openhands.events.serialization import event_to_dict, observation_from_dict
 from openhands.events.serialization.action import ACTION_TYPE_TO_CLASS
@@ -347,6 +350,8 @@ class RemoteRuntime(Runtime):
         if isinstance(action, FileEditAction):
             return self.edit(action)
         with self.action_semaphore:
+            if isinstance(action, UnknownAction):
+                return UnknownActionObservation(action.message)
             if not action.runnable:
                 return NullObservation('')
             action_type = action.action  # type: ignore[attr-defined]
@@ -398,6 +403,9 @@ class RemoteRuntime(Runtime):
         return self.run_action(action)
 
     def run_ipython(self, action: IPythonRunCellAction) -> Observation:
+        return self.run_action(action)
+
+    def run_regression(self, action: RunRegressionAction) -> Observation:
         return self.run_action(action)
 
     def read(self, action: FileReadAction) -> Observation:

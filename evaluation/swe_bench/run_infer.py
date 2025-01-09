@@ -11,6 +11,8 @@ import docker
 import pandas as pd
 import toml
 from datasets import load_dataset
+from swebench.harness.test_spec import MAP_REPO_VERSION_TO_SPECS
+from swebench.harness.utils import get_test_directives
 
 import openhands.agenthub
 from evaluation.swe_bench.prompt import CODEACT_SWE_PROMPT
@@ -35,8 +37,11 @@ from openhands.core.config import (
 )
 from openhands.core.logger import openhands_logger as logger
 from openhands.core.main import create_runtime, run_controller
-from openhands.events.action import CmdRunAction, MessageAction
-from openhands.events.observation import CmdOutputObservation, ErrorObservation
+from openhands.events.action import CmdRunAction, MessageAction, RunRegressionAction
+from openhands.events.observation import (
+    CmdOutputObservation,
+    ErrorObservation,
+)
 from openhands.events.serialization.event import event_to_dict
 from openhands.llm.llm import LLM
 from openhands.runtime.base import Runtime
@@ -248,9 +253,15 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
             '4. **Handle Edge Cases**:\n'
             '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
-            '5. **Return Your Patch**:\n'
+            '5. **Rerun Your Patch**:\n'
             '   - If the PR description provides a script to reproduce the error, execute the script with `python /workspace/reproduce_error.py` using the BashTool, to confirm the error is fixed.\n'
-            '   - If the PR description does not provide a script to reproduce the error, return the patch. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
+            '   - If the PR description does not provide a script to reproduce the error, do not create a `/workspace/reproduce_error.py` file.\n'
+            '6. **Run regression test**:\n'
+            '   - Run regression tests to ensure that your changes do not introduce new issues or regressions.\n'
+            '   - You can use the tool `<run_regression></run_regression>` we provided.\n'
+            '   - If regression tests fail, try to fix the issue and rerun the regression tests.\n'
+            '7. **Return Your Patch**:\n'
+            '   - After making the necessary changes, return the patch. Note that you do not need to run any other tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
             '### Additional Notes:\n'
             '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
             '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
@@ -324,6 +335,8 @@ def get_config(
         codeact_enable_jupyter=False,
         codeact_enable_browsing_delegate=False,
         codeact_enable_llm_editor=False,
+        codeact_enable_regression=True,
+        instance=instance.to_dict(),
     )
     config.set_agent_config(agent_config)
     return config
@@ -332,6 +345,7 @@ def get_config(
 def initialize_runtime(
     runtime: Runtime,
     instance: pd.Series,  # this argument is not required
+    config: AppConfig,
 ):
     """Initialize the runtime for the agent.
 
@@ -469,9 +483,52 @@ def initialize_runtime(
     logger.info(obs, extra={'msg_type': 'OBSERVATION'})
     assert_and_raise(obs.exit_code == 0, f'Failed to remove git remotes: {str(obs)}')
 
+    # Get initial passed tests
+    instance_id = instance['instance_id']
+    # Convert e.g. "logs/scikit-learn__scikit-learn-12421/test_output.txt" to "scikit-learn/scikit-learn"
+    repo = '-'.join(
+        instance_id.replace('__', '/').split('-')[:-1]
+    )  # e.g. scikit-learn/scikit-learn
+    test_command = ' '.join(
+        [
+            MAP_REPO_VERSION_TO_SPECS[instance['repo']][instance['version']][
+                'test_cmd'
+            ],
+            *get_test_directives(instance),
+        ]
+    )
+    action = RunRegressionAction(
+        repo=repo,
+        version=instance['version'],
+        test_command=test_command,
+    )
+    logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)
+    logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    assert_and_raise(obs.exit_code == 0, f'Failed to run initial tests: {str(obs)}')
+    report = obs.report
+    passed_tests = [test for test, status in report.items() if status == 'PASSED']
+    config.agents['agent'].instance['initial_passed_tests'] = passed_tests
+
+    # action = RunRegressionAction(
+    #     repo = repo,
+    #     version = instance["version"],
+    #     test_command = test_command,
+    #     testcases=passed_tests,
+    # )
+    # logger.info(action, extra={'msg_type': 'ACTION'})
+    # obs = runtime.run_action(action)
+    # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    # assert_and_raise(obs.exit_code == 0, f'Failed to run initial tests: {str(obs)}')
+    # report = obs.report
+    # print(report)
+    # exit(0)
+
     logger.info('-' * 30)
     logger.info('END Runtime Initialization Fn')
     logger.info('-' * 30)
+
+    # exit(0)
 
 
 def complete_runtime(
@@ -649,7 +706,7 @@ def process_instance(
     call_async_from_sync(runtime.connect)
 
     try:
-        initialize_runtime(runtime, instance)
+        initialize_runtime(runtime, instance, config)
 
         instruction = get_instruction(instance, metadata)
 

@@ -24,7 +24,6 @@ toml = "*"
 uvicorn = "*"
 types-toml = "*"
 numpy = "*"
-scikit-learn = "*"
 json-repair = "*"
 browsergym = "0.10.2" # integrate browsergym as the browsing interface
 html2text = "*"
@@ -86,12 +85,6 @@ openai = "*"
 opencv-python = "*"
 pandas = "*"
 reportlab = "*"
-
-
-[[tool.poetry.source]]
-name = "mirrors"
-url = "https://mirrors.aliyun.com/pypi/simple/"
-priority = "primary"
 
 [tool.coverage.run]
 concurrency = ["gevent"]

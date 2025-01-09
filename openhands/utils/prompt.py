@@ -29,6 +29,7 @@ class PromptManager:
         self.agent_skills_docs: str = agent_skills_docs
 
         self.system_template: Template = self._load_template('system_prompt')
+        self.system_template_edit: Template = self._load_template('system_prompt_edit')
         self.user_template: Template = self._load_template('user_prompt')
         self.micro_agent: MicroAgent | None = micro_agent
 
@@ -42,6 +43,13 @@ class PromptManager:
     @property
     def system_message(self) -> str:
         rendered = self.system_template.render(
+            agent_skills_docs=self.agent_skills_docs,
+        ).strip()
+        return rendered
+
+    @property
+    def system_message_edit(self) -> str:
+        rendered = self.system_template_edit.render(
             agent_skills_docs=self.agent_skills_docs,
         ).strip()
         return rendered

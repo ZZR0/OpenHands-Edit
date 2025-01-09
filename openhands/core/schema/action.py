@@ -36,6 +36,10 @@ class ActionTypeSchema(BaseModel):
     """Runs a IPython cell.
     """
 
+    RUN_REGRESSION: str = Field(default='run_regression')
+    """Runs a regression test.
+    """
+
     BROWSE: str = Field(default='browse')
     """Opens a web page.
     """
@@ -85,6 +89,10 @@ class ActionTypeSchema(BaseModel):
 
     SEND_PR: str = Field(default='send_pr')
     """Send a PR to github."""
+
+    UNKNOWN: str = Field(default='unknown')
+    """Unknown action.
+    """
 
 
 ActionType = ActionTypeSchema()

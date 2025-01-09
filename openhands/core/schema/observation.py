@@ -24,6 +24,10 @@ class ObservationTypeSchema(BaseModel):
     """Runs a IPython cell.
     """
 
+    RUN_REGRESSION: str = Field(default='run_regression')
+    """Runs a regression test.
+    """
+
     CHAT: str = Field(default='chat')
     """A message from the user
     """
@@ -43,6 +47,8 @@ class ObservationTypeSchema(BaseModel):
     AGENT_STATE_CHANGED: str = Field(default='agent_state_changed')
 
     USER_REJECTED: str = Field(default='user_rejected')
+
+    UNKNOWN: str = Field(default='unknown')
 
 
 ObservationType = ObservationTypeSchema()
