@@ -12,6 +12,7 @@ python agentless/libro/reproduce_eval.py \
     --num_threads 10 \
     --output_folder results/test_agent \
     --skip_existing \
+    --timeout 600 \
     --run_id test_agent
 
 output_folder=$(dirname $tests_file)

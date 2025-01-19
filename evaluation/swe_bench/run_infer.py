@@ -70,21 +70,8 @@ def _get_swebench_workspace_dir_name(instance: pd.Series) -> str:
     return f'{instance.repo}__{instance.version}'.replace('/', '__')
 
 
-def get_instruction(instance: pd.Series, metadata: EvalMetadata):
-    llm = LLM(config=metadata.llm_config)
-    # instruction = (
-    #         '<uploaded_files>\n'
-    #         f'/workspace/{workspace_dir_name}\n'
-    #         '</uploaded_files>\n'
-    #         f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-    #         f'<pr_description>\n'
-    #         f'{instance.problem_statement}\n'
-    #         '</pr_description>\n\n'
-    #         'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-    #         "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-    #         'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-    #         '### Follow These Steps to Resolve the Issue:\n'
-    # )
+def get_instruction(config, instance: pd.Series, metadata: EvalMetadata):
+    # import pdb; pdb.set_trace()
     workspace_dir_name = _get_swebench_workspace_dir_name(instance)
     # Prepare instruction
     if metadata.agent_class == 'CodeActSWEAgent':
@@ -102,7 +89,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
     elif metadata.agent_class == 'CodeActAgent':
         # Instruction based on Anthropic's official trajectory
         # https://github.com/eschluntz/swe-bench-experiments/tree/main/evaluation/verified/20241022_tools_claude-3-5-sonnet-updated/trajs
-        instruction = (
+        instruction_original = (
             '<uploaded_files>\n'
             f'/workspace/{workspace_dir_name}\n'
             '</uploaded_files>\n'
@@ -121,114 +108,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '5. Think about edgecases and make sure your fix handles them as well\n'
             "Your thinking should be thorough and so it's fine if it's very long.\n"
         )
-    else:
-        # instruction = (
-        #     '<uploaded_files>\n'
-        #     f'/workspace/{workspace_dir_name}\n'
-        #     '</uploaded_files>\n'
-        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-        #     f'<pr_description>\n'
-        #     f'{instance.problem_statement}\n'
-        #     '</pr_description>\n\n'
-        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-        #     'Follow these steps to resolve the issue:\n'
-        #     '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
-        #     '2. Create a script to reproduce the error and execute it with `python <filename.py>` using the BashTool, to confirm the error\n'
-        #     '3. Edit the sourcecode of the repo to resolve the issue\n'
-        #     '4. Rerun your reproduce script and confirm that the error is fixed!\n'
-        #     '5. Think about edgecases and make sure your fix handles them as well\n'
-        #     "Your thinking should be thorough and so it's fine if it's very long.\n"
-        # )
-        # instruction = (
-        #     '<uploaded_files>\n'
-        #     f'/workspace/{workspace_dir_name}\n'
-        #     '</uploaded_files>\n'
-        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-        #     f'<pr_description>\n'
-        #     f'{instance.problem_statement}\n'
-        #     '</pr_description>\n\n'
-        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-        #     '### Follow These Steps to Resolve the Issue:\n'
-        #     '1. **Familiarize Yourself with the Repository**:\n'
-        #     '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
-        #     '2. **Analyze the Problem**:\n'
-        #     '   - Identify the specific areas of the codebase that require changes.\n'
-        #     '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
-        #     '3. **Implement the Fix**:\n'
-        #     '   - Edit the source code in the identified locations to resolve the issue.\n'
-        #     '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
-        #     '4. **Handle Edge Cases**:\n'
-        #     '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
-        #     '5. **Rerun Your Patch**:\n'
-        #     '   - After making the necessary changes, rerun your patch to verify its functionality. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
-        #     '### Additional Notes:\n'
-        #     '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
-        #     '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
-        # )
-        # instruction = (
-        #     '<uploaded_files>\n'
-        #     f'/workspace/{workspace_dir_name}\n'
-        #     '</uploaded_files>\n'
-        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-        #     f'<pr_description>\n'
-        #     f'{instance.problem_statement}\n'
-        #     '</pr_description>\n\n'
-        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-        #     '### Follow These Steps to Resolve the Issue:\n'
-        #     '1. **Familiarize Yourself with the Repository**:\n'
-        #     '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
-        #     '2. **Analyze the Problem**:\n'
-        #     '   - Identify the specific areas of the codebase that require changes.\n'
-        #     '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
-        #     '3. **Implement the Fix**:\n'
-        #     '   - Edit the source code in the identified locations to resolve the issue.\n'
-        #     '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
-        #     '4. **Handle Edge Cases**:\n'
-        #     '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
-        #     '5. **Return Your Patch**:\n'
-        #     '   - After making the necessary changes, return the patch. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
-        #     '### Additional Notes:\n'
-        #     '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
-        #     '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
-        # )
-        # instruction = (
-        #     '<uploaded_files>\n'
-        #     f'/workspace/{workspace_dir_name}\n'
-        #     '</uploaded_files>\n'
-        #     f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
-        #     f'<pr_description>\n'
-        #     f'{instance.problem_statement}\n'
-        #     '</pr_description>\n\n'
-        #     'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
-        #     "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
-        #     'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
-        #     '### Follow These Steps to Resolve the Issue:\n'
-        #     '1. **Familiarize Yourself with the Repository**:\n'
-        #     '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
-        #     '2. **Analyze the Problem**:\n'
-        #     '   - Identify the specific areas of the codebase that require changes.\n'
-        #     '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
-        #     '3. **Implement the Fix**:\n'
-        #     '   - Edit the source code in the identified locations to resolve the issue.\n'
-        #     '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
-        #     '4. **Handle Edge Cases**:\n'
-        #     '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
-        #     '5. **Verify Your Patch**:\n'
-        #     '   - Create a script to reproduce the error described in the `<pr_description>`.\n'
-        #     '   - Do not run the pre-existing test script in the repository, such as `pytest`, but instead run the test script you created with `python <filename.py>` using the BashTool.\n'
-        #     '   - Execute the script with `python <filename.py>` using the BashTool to confirm that your changes resolve the issue.\n'
-        #     '   - Once the error is fixed, rerun your patch to verify its functionality.\n\n'
-        #     '### Additional Notes:\n'
-        #     '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
-        #     '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
-        # )
-        instruction = (
+        instruction_selectiontest = (
             '<uploaded_files>\n'
             f'/workspace/{workspace_dir_name}\n'
             '</uploaded_files>\n'
@@ -245,17 +125,161 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '2. **Analyze the Problem**:\n'
             '   - Identify the specific areas of the codebase that require changes.\n'
             '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
-            '   - If the PR description provides a script to reproduce the error, extract the script from the PR description to a `/workspace/reproduce_error.py` file.\n'
-            '   - Execute the extracted script with `python /workspace/reproduce_error.py` using the BashTool, to confirm the error.\n'
-            '   - If the PR description does not provide a script to reproduce the error, do not create a `/workspace/reproduce_error.py` file.\n'
+            f'   - If the PR description provides a script to reproduce the issue, extract the script from the PR description to a `/workspace/{workspace_dir_name}/reproduce_error.py` file.\n'
+            f'   - Execute the extracted script with `python /workspace/{workspace_dir_name}/reproduce_error.py` using the BashTool, to confirm the error.\n'
+            f'   - If the PR description does not provide a script to reproduce the error, do not create a `/workspace/{workspace_dir_name}/reproduce_error.py` file.\n'
             '3. **Implement the Fix**:\n'
             '   - Edit the source code in the identified locations to resolve the issue.\n'
             '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
             '4. **Handle Edge Cases**:\n'
             '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
-            '5. **Rerun Your Patch**:\n'
-            '   - If the PR description provides a script to reproduce the error, execute the script with `python /workspace/reproduce_error.py` using the BashTool, to confirm the error is fixed.\n'
-            '   - If the PR description does not provide a script to reproduce the error, do not create a `/workspace/reproduce_error.py` file.\n'
+            '5. **Return Your Patch**:\n'
+            f'   - If the PR description provides a script to reproduce the error, execute the script with `python /workspace/{workspace_dir_name}/reproduce_error.py` using the BashTool, to confirm the error is fixed.\n'
+            '   - If the PR description does not provide a script to reproduce the error, return the patch. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
+            '### Additional Notes:\n'
+            '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
+            '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
+        )
+        instruction = instruction_selectiontest
+    else:
+        instruction_original = (
+            '<uploaded_files>\n'
+            f'/workspace/{workspace_dir_name}\n'
+            '</uploaded_files>\n'
+            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+            f'<pr_description>\n'
+            f'{instance.problem_statement}\n'
+            '</pr_description>\n\n'
+            'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
+            "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
+            'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
+            'Follow these steps to resolve the issue:\n'
+            '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
+            '2. Create a script to reproduce the error and execute it with `python <filename.py>` using the BashTool, to confirm the error\n'
+            '3. Edit the sourcecode of the repo to resolve the issue\n'
+            '4. Rerun your reproduce script and confirm that the error is fixed!\n'
+            '5. Think about edgecases and make sure your fix handles them as well\n'
+            "Your thinking should be thorough and so it's fine if it's very long.\n"
+        )
+        instruction_notest = (
+            '<uploaded_files>\n'
+            f'/workspace/{workspace_dir_name}\n'
+            '</uploaded_files>\n'
+            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+            f'<pr_description>\n'
+            f'{instance.problem_statement}\n'
+            '</pr_description>\n\n'
+            'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
+            "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
+            'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
+            '### Follow These Steps to Resolve the Issue:\n'
+            '1. **Familiarize Yourself with the Repository**:\n'
+            '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
+            '2. **Analyze the Problem**:\n'
+            '   - Identify the specific areas of the codebase that require changes.\n'
+            '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
+            '3. **Implement the Fix**:\n'
+            '   - Edit the source code in the identified locations to resolve the issue.\n'
+            '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
+            '4. **Handle Edge Cases**:\n'
+            '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
+            '5. **Return Your Patch**:\n'
+            '   - After making the necessary changes, return the patch. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
+            '### Additional Notes:\n'
+            '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
+            '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
+        )
+        instruction_withtest = (
+            '<uploaded_files>\n'
+            f'/workspace/{workspace_dir_name}\n'
+            '</uploaded_files>\n'
+            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+            f'<pr_description>\n'
+            f'{instance.problem_statement}\n'
+            '</pr_description>\n\n'
+            'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
+            "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
+            'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
+            '### Follow These Steps to Resolve the Issue:\n'
+            '1. **Familiarize Yourself with the Repository**:\n'
+            '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
+            '2. **Analyze the Problem**:\n'
+            '   - Identify the specific areas of the codebase that require changes.\n'
+            '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
+            '3. **Implement the Fix**:\n'
+            '   - Edit the source code in the identified locations to resolve the issue.\n'
+            '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
+            '4. **Handle Edge Cases**:\n'
+            '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
+            '5. **Verify Your Patch**:\n'
+            '   - Create a script to reproduce the error described in the `<pr_description>`.\n'
+            '   - Do not run the pre-existing test script in the repository, such as `pytest`, but instead run the test script you created with `python <filename.py>` using the BashTool.\n'
+            '   - Execute the script with `python <filename.py>` using the BashTool to confirm that your changes resolve the issue.\n'
+            '   - Once the error is fixed, rerun your patch to verify its functionality.\n\n'
+            '### Additional Notes:\n'
+            '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
+            '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
+        )
+        instruction_selectiontest = (
+            '<uploaded_files>\n'
+            f'/workspace/{workspace_dir_name}\n'
+            '</uploaded_files>\n'
+            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+            f'<pr_description>\n'
+            f'{instance.problem_statement}\n'
+            '</pr_description>\n\n'
+            'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
+            "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
+            'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
+            '### Follow These Steps to Resolve the Issue:\n'
+            '1. **Familiarize Yourself with the Repository**:\n'
+            '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
+            '2. **Analyze the Problem**:\n'
+            '   - Identify the specific areas of the codebase that require changes.\n'
+            '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
+            f'   - If the PR description provides a script to reproduce the issue, extract the script from the PR description to a `/workspace/{workspace_dir_name}/reproduce_error.py` file.\n'
+            f'   - Execute the extracted script with `python /workspace/{workspace_dir_name}/reproduce_error.py` using the BashTool, to confirm the error.\n'
+            f'   - If the PR description does not provide a script to reproduce the error, do not create a `/workspace/{workspace_dir_name}/reproduce_error.py` file.\n'
+            '3. **Implement the Fix**:\n'
+            '   - Edit the source code in the identified locations to resolve the issue.\n'
+            '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
+            '4. **Handle Edge Cases**:\n'
+            '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
+            '5. **Return Your Patch**:\n'
+            f'   - If the PR description provides a script to reproduce the error, execute the script with `python /workspace/{workspace_dir_name}/reproduce_error.py` using the BashTool, to confirm the error is fixed.\n'
+            '   - If the PR description does not provide a script to reproduce the error, return the patch. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n'
+            '### Additional Notes:\n'
+            '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
+            '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
+        )
+        instruction_regression = (
+            '<uploaded_files>\n'
+            f'/workspace/{workspace_dir_name}\n'
+            '</uploaded_files>\n'
+            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following PR description:\n\n"
+            f'<pr_description>\n'
+            f'{instance.problem_statement}\n'
+            '</pr_description>\n\n'
+            'Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\n'
+            "I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
+            'Your task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n'
+            '### Follow These Steps to Resolve the Issue:\n'
+            '1. **Familiarize Yourself with the Repository**:\n'
+            '   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n'
+            '2. **Analyze the Problem**:\n'
+            '   - Identify the specific areas of the codebase that require changes.\n'
+            '   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n'
+            '   - If the PR description provides a script to reproduce the error, extract the script from the PR description to a `/workspace/{workspace_dir_name}/reproduce_error.py` file.\n'
+            '   - Execute the extracted script with `python /workspace/{workspace_dir_name}/reproduce_error.py` using the BashTool, to confirm the error.\n'
+            '   - If the PR description does not provide a script to reproduce the error, do not create a `/workspace/{workspace_dir_name}/reproduce_error.py` file.\n'
+            '3. **Implement the Fix**:\n'
+            '   - Edit the source code in the identified locations to resolve the issue.\n'
+            '   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n'
+            '4. **Handle Edge Cases**:\n'
+            '   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n'
+            '5. **Verify Your Patch**:\n'
+            '   - If the PR description provides a script to reproduce the error, execute the script with `python /workspace/{workspace_dir_name}/reproduce_error.py` using the BashTool, to confirm the error is fixed.\n'
+            '   - If the PR description does not provide a script to reproduce the error, do not create a `/workspace/{workspace_dir_name}/reproduce_error.py` file.\n'
             '6. **Run regression test**:\n'
             '   - Run regression tests to ensure that your changes do not introduce new issues or regressions.\n'
             '   - You can use the tool `<run_regression></run_regression>` we provided.\n'
@@ -266,7 +290,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n'
             '   - Clearly document your reasoning, approach, and the changes made to the codebase.\n'
         )
-
+        instruction = instruction_selectiontest
     return instruction
 
 
@@ -505,7 +529,13 @@ def initialize_runtime(
     logger.info(action, extra={'msg_type': 'ACTION'})
     obs = runtime.run_action(action)
     logger.info(obs, extra={'msg_type': 'OBSERVATION'})
-    assert_and_raise(obs.exit_code == 0, f'Failed to run initial tests: {str(obs)}')
+    config.agents['agent'].instance['regression_passed'] = True
+    # import pdb; pdb.set_trace()
+    if obs.exit_code != 0:
+        logger.error(f'Failed to run initial tests: {str(obs)}')
+        config.agents['agent'].instance['regression_passed'] = False
+    if "Some tests failed." in obs.content:
+        config.agents['agent'].instance['regression_passed'] = False
     report = obs.report
     passed_tests = [test for test, status in report.items() if status == 'PASSED']
     config.agents['agent'].instance['initial_passed_tests'] = passed_tests
@@ -667,20 +697,23 @@ def load_docker_image(base_container_image: str):
 
 def remove_docker_image(base_container_image: str):
     # import pdb; pdb.set_trace()
-    runtime_image_repo, _ = get_runtime_image_repo_and_tag(base_container_image)
-    lock_tag = f'oh_v{oh_version}_{get_hash_for_lock_files(base_container_image)}'
-    source_tag = f'{lock_tag}_{get_hash_for_source_files()}'
-    docker_client = docker.from_env(timeout=120)
-    lock_image_name = f'{runtime_image_repo}:{lock_tag}'
-    source_image_name = f'{runtime_image_repo}:{source_tag}'
-    image_path = f'{DOCKER_IMAGE_DIR}/{runtime_image_repo}:{lock_tag}.tar'
-    logger.info(f'Removing docker image: {source_image_name}')
-    docker_client.images.remove(source_image_name, force=True)
-    if os.path.exists(image_path):
-        logger.info(f'Removing docker image: {lock_image_name}')
-        docker_client.images.remove(lock_image_name, force=True)
-    else:
-        logger.info(f'Docker image {lock_image_name} will be kept.')
+    try:
+        runtime_image_repo, _ = get_runtime_image_repo_and_tag(base_container_image)
+        lock_tag = f'oh_v{oh_version}_{get_hash_for_lock_files(base_container_image)}'
+        source_tag = f'{lock_tag}_{get_hash_for_source_files()}'
+        docker_client = docker.from_env(timeout=120)
+        lock_image_name = f'{runtime_image_repo}:{lock_tag}'
+        source_image_name = f'{runtime_image_repo}:{source_tag}'
+        image_path = f'{DOCKER_IMAGE_DIR}/{runtime_image_repo}:{lock_tag}.tar'
+        logger.info(f'Removing docker image: {source_image_name}')
+        docker_client.images.remove(source_image_name, force=True)
+        if os.path.exists(image_path):
+            logger.info(f'Removing docker image: {lock_image_name}')
+            docker_client.images.remove(lock_image_name, force=True)
+        else:
+            logger.info(f'Docker image {lock_image_name} will be kept.')
+    except Exception as e:
+        logger.error(f'Failed to remove docker image: {e}')
 
 
 def process_instance(
@@ -708,7 +741,7 @@ def process_instance(
     try:
         initialize_runtime(runtime, instance, config)
 
-        instruction = get_instruction(instance, metadata)
+        instruction = get_instruction(config, instance, metadata)
 
         # Here's how you can run the agent (similar to the `main` function) and get the final task state
         state: State | None = asyncio.run(
@@ -737,6 +770,21 @@ def process_instance(
         logger.info(
             f'Got git diff for instance {instance.instance_id}:\n--------\n{git_patch}\n--------'
         )
+        # If you are working on some simpler benchmark that only evaluates the final model output (e.g., in a MessageAction)
+        # You can simply get the LAST `MessageAction` from the returned `state.history` and parse it for evaluation.
+        if state is None:
+            raise ValueError('State should not be None.')
+        
+        histories = [event_to_dict(event) for event in state.history.get_events()]
+        metrics = state.metrics.get() if state.metrics else None
+        error = state.last_error if state and state.last_error else None
+    except Exception as e:
+        logger.error(f'Failed to process instance {instance.instance_id}: {e}')
+        instruction = ''
+        git_patch = ''
+        histories = []
+        metrics = None
+        error = None
     finally:
         runtime.close(rm_all_containers=False)
     # ==========================================
@@ -748,14 +796,6 @@ def process_instance(
         'git_patch': git_patch,
     }
 
-    # If you are working on some simpler benchmark that only evaluates the final model output (e.g., in a MessageAction)
-    # You can simply get the LAST `MessageAction` from the returned `state.history` and parse it for evaluation.
-    if state is None:
-        raise ValueError('State should not be None.')
-
-    histories = [event_to_dict(event) for event in state.history.get_events()]
-    metrics = state.metrics.get() if state.metrics else None
-
     # Save the output
     output = EvalOutput(
         instance_id=instance.instance_id,
@@ -765,7 +805,7 @@ def process_instance(
         metadata=metadata,
         history=histories,
         metrics=metrics,
-        error=state.last_error if state and state.last_error else None,
+        error=error,
     )
 
     remove_docker_image(config.sandbox.base_container_image)

@@ -13,9 +13,9 @@ fi
 
 # If instance_id is empty, it means we want to eval on the whole $PROCESS_FILEPATH
 # otherwise, we want to eval on the instance_id
-INSTANCE_ID=$2
-DATASET_NAME=${3:-"princeton-nlp/SWE-bench_Lite"}
-SPLIT=${4:-"test"}
+INSTANCE_ID=""
+DATASET_NAME=${2:-"princeton-nlp/SWE-bench_Lite"}
+SPLIT=${3:-"test"}
 
 echo "INSTANCE_ID: $INSTANCE_ID"
 echo "DATASET_NAME: $DATASET_NAME"
@@ -87,7 +87,7 @@ if [ -z "$INSTANCE_ID" ]; then
         --dataset_name "$DATASET_NAME" \
         --split "$SPLIT" \
         --predictions_path $SWEBENCH_FORMAT_JSONL \
-        --timeout 1800 \
+        --timeout 600 \
         --cache_level instance \
         --max_workers $N_PROCESS \
         --run_id $RUN_ID
@@ -133,7 +133,7 @@ else
         --dataset_name "$DATASET_NAME" \
         --split "$SPLIT" \
         --predictions_path $SWEBENCH_FORMAT_JSONL \
-        --timeout 1800 \
+        --timeout 600 \
         --instance_ids $INSTANCE_ID \
         --cache_level instance \
         --max_workers $N_PROCESS \

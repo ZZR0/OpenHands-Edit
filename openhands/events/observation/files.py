@@ -39,6 +39,7 @@ class FileEditObservation(Observation):
     old_content: str
     new_content: str
     observation: str = ObservationType.EDIT
+    error_msg: str = ""
 
     @property
     def message(self) -> str:
@@ -119,7 +120,11 @@ class FileEditObservation(Observation):
             result.append(f'(content after {op_type})')
             result.extend(cur_edit_group['after_edits'])
             result.append(f'[end of {op_type} {i+1} / {len(edit_groups)}]')
-        return '\n'.join(result)
+        
+        report = '\n'.join(result)
+        if change_applied and self.error_msg != "":
+            report += '\n' + self.error_msg
+        return report
 
     def __str__(self) -> str:
         ret = ''

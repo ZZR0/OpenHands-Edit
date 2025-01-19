@@ -29,8 +29,12 @@ class PromptManager:
         self.agent_skills_docs: str = agent_skills_docs
 
         self.system_template: Template = self._load_template('system_prompt')
-        self.system_template_edit: Template = self._load_template('system_prompt_edit')
+        self.system_template_regression: Template = self._load_template('system_prompt_regression')
         self.user_template: Template = self._load_template('user_prompt')
+        self.user_template_strreplace: Template = self._load_template('user_prompt_strreplace')
+        self.system_template_strreplace: Template = self._load_template('system_prompt_strreplace')
+        self.system_template_strreplace_regression: Template = self._load_template('system_prompt_strreplace_regression')
+        
         self.micro_agent: MicroAgent | None = micro_agent
 
     def _load_template(self, template_name: str) -> Template:
@@ -48,12 +52,22 @@ class PromptManager:
         return rendered
 
     @property
-    def system_message_edit(self) -> str:
-        rendered = self.system_template_edit.render(
+    def system_message_regression(self) -> str:
+        rendered = self.system_template_regression.render(
             agent_skills_docs=self.agent_skills_docs,
         ).strip()
         return rendered
 
+    @property
+    def system_message_strreplace(self) -> str:
+        rendered = self.system_template_strreplace.render().strip()
+        return rendered
+    
+    @property
+    def system_message_strreplace_regression(self) -> str:
+        rendered = self.system_template_strreplace_regression.render().strip()
+        return rendered
+    
     @property
     def initial_user_message(self) -> str:
         """This is the initial user message provided to the agent
@@ -66,6 +80,22 @@ class PromptManager:
         into a more specialized agent that is tailored to the user's task.
         """
         rendered = self.user_template.render(
+            micro_agent=self.micro_agent.content if self.micro_agent else None
+        )
+        return rendered.strip()
+    
+    @property
+    def initial_user_message_strreplace(self) -> str:
+        """This is the initial user message provided to the agent
+        before *actual* user instructions are provided.
+
+        It is used to provide a demonstration of how the agent
+        should behave in order to solve the user's task. And it may
+        optionally contain some additional context about the user's task.
+        These additional context will convert the current generic agent
+        into a more specialized agent that is tailored to the user's task.
+        """
+        rendered = self.user_template_strreplace.render(
             micro_agent=self.micro_agent.content if self.micro_agent else None
         )
         return rendered.strip()

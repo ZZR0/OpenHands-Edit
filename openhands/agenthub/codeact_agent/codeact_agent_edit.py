@@ -98,7 +98,11 @@ class CodeActAgentEdit(Agent):
             if config.micro_agent_name
             else None
         )
-        self.config.function_calling = False
+        regression_passed = self.config.instance.get('regression_passed', False)
+        logger.info(f'Initial Regression Passed: {regression_passed}')
+        # import pdb; pdb.set_trace()
+        if 'gemini-2.0-flash-exp' in self.llm.config.model:
+            self.config.function_calling = False
         if (
             self.config.function_calling
             and not self.llm.config.supports_function_calling
@@ -130,8 +134,16 @@ class CodeActAgentEdit(Agent):
                 agent_skills_docs=AgentSkillsRequirement.documentation,
                 micro_agent=self.micro_agent,
             )
-            self.system_prompt = self.prompt_manager.system_message_edit
-            self.initial_user_message = self.prompt_manager.initial_user_message
+            
+            # self.system_prompt = self.prompt_manager.system_message + '\n\n' + self.prompt_manager.initial_user_message
+            self.system_prompt = self.prompt_manager.system_message_strreplace + '\n\n' + self.prompt_manager.initial_user_message_strreplace
+            if regression_passed:
+                # import pdb; pdb.set_trace()
+                self.system_prompt = self.prompt_manager.system_message_strreplace_regression + '\n\n' + self.prompt_manager.initial_user_message_strreplace
+                
+            self.initial_user_message = None
+            # self.system_prompt = self.prompt_manager.system_message_regression
+            # self.initial_user_message = self.prompt_manager.initial_user_message
         logger.info(f'System prompt: {self.system_prompt}')
         logger.info(f'Initial user message: {self.initial_user_message}')
         self.best_of_n = 1
@@ -393,8 +405,7 @@ class CodeActAgentEdit(Agent):
             # ]
 
         if (
-            len(messages) > 4
-            and messages[-1].role == 'user'
+            messages[-1].role == 'user'
             and "You've been working on this task for a while."
             in messages[-1].content[0].text
         ):
@@ -622,9 +633,7 @@ class CodeActAgentEdit(Agent):
             if message.role == opservation_role:
                 first_opservation_index = i
                 break
-        if first_opservation_index == -1:
-            return messages
-
+        if opservation_role == 'assistant': first_opservation_index += 1
         summary_user_message_index = []
         for i in range(len(messages)):
             if (
@@ -809,7 +818,8 @@ class CodeActAgentEdit(Agent):
                         and message.role != 'tool'
                     ):
                         # messages[-1].content.extend(message.content)
-                        messages[-1].content = message.content
+                        # import pdb; pdb.set_trace()
+                        messages[-1].content[0].text += "\n\n" + message.content[0].text
                     else:
                         messages.append(message)
 

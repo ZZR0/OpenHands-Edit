@@ -137,11 +137,6 @@ print(MyClass().y)
 
 
 {% endset %}
-{% set BROWSING_PREFIX %}
-The assistant can browse the Internet with <execute_browse> and </execute_browse>.
-For example, <execute_browse> Tell me the usa's president using google search </execute_browse>.
-Or <execute_browse> Tell me what is in http://example.com </execute_browse>.
-{% endset %}
 {% set PIP_INSTALL_PREFIX %}
 The assistant can install Python packages using the %pip magic command in an IPython environment by using the following syntax: <execute_ipython> %pip install [package needed] </execute_ipython> and should always import packages and define variables before starting to use them.
 {% endset %}

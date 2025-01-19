@@ -40,62 +40,12 @@ def analysis_reproduce():
     print(easy_file_list)
     print(len(easy_file_list))
     
-
 def analysis_verified_fix():
-    selected_ids = [  # type: ignore
-        'astropy__astropy-14182',
-        'astropy__astropy-14995',
-        'astropy__astropy-7606',
-        'django__django-10880',
-        'django__django-11119',
-        'django__django-11133',
-        'django__django-11138',
-        'django__django-11239',
-        'django__django-11265',
-        'django__django-11740',
-        'django__django-11848',
-        'django__django-12406',
-        'django__django-12419',
-        'django__django-12708',
-        'django__django-12741',
-        'django__django-13023',
-        'django__django-13028',
-        'django__django-13089',
-        'django__django-13109',
-        'django__django-13279',
-        'django__django-13297',
-        'django__django-13363',
-        'django__django-13670',
-        'django__django-13794',
-        'django__django-13964',
-        'django__django-14007',
-        'django__django-14140',
-        'django__django-14155',
-        'django__django-14404',
-        'django__django-14559',
-        'django__django-14752',
-        'django__django-14855',
-        'django__django-15098',
-        'django__django-15128',
-        'django__django-15277',
-        'django__django-15503',
-        'django__django-15569',
-        'django__django-15731',
-        'django__django-15851',
-        'django__django-16333',
-        'django__django-16661',
-        'django__django-16877',
-        'django__django-16950',
-        'django__django-17087',
-        'django__django-9296',
-        'matplotlib__matplotlib-22865',
-        'matplotlib__matplotlib-22871',
-        'matplotlib__matplotlib-23314',
-        'matplotlib__matplotlib-24177',
-        'matplotlib__matplotlib-24570',
-        'matplotlib__matplotlib-26208',
-        'mwaskom__seaborn-3187',
-    ]
+    # selected_ids = '/hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-500.toml'
+    # selected_ids = '/hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-52.toml'
+    selected_ids = '/hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-rd-100.toml'
+    # selected_ids = '/hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-ez-100.toml'
+    selected_ids = eval(open(selected_ids, 'r').read().replace('selected_ids = ', ''))
 
     result_dict = {
         'autocoderover': '/hdd2/zzr/experiments/evaluation/verified/20240628_autocoderover-v20240620/results/results.json',
@@ -257,9 +207,9 @@ def analysis_lite_fix():
     
 def analysis_merge_result():
     result_list = [
-        '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Lite-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_best4_s5_iter20-run_1/report.json',
-        '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Lite-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_best4_s5_iter20-run_2/report.json',
-        '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Lite-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-reproduce_best4_s5_iter20-run_3/report.json',
+        '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_50_N_v2.1-no-hint-selectiontest_strreplace_view_v1-run_1/report.json',
+        '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-selectiontest_strreplace_view_v1-run_1/report.json',
+        '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-selectiontest_strreplace_view_v1-run_1/report.json',
     ]
     resolved_ids = set()
     for result in result_list:
@@ -267,9 +217,80 @@ def analysis_merge_result():
         resolved_ids.update(result['resolved_ids'])
     print(len(resolved_ids))
 
+def analysis_step():
+    from statistics import mean
+    def get_step_count(log_dir, sids):
+        step_count_list = []
+        for id in sids:
+            log_file = f'instance_{id}.log'
+            with open(os.path.join(log_dir, log_file), 'r') as f:
+                content = f.read()
+                step_count = content.count('GLOBAL STEP')
+                step_count_list.append(step_count)
+        return step_count_list
+        
+    result_dir = '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgent/claude-3-5-sonnet-20241022_maxiter_100_N_v2.1-no-hint-selectiontest-run_1/'
+    report_path = os.path.join(result_dir, 'report.json')
+    report = json.load(open(report_path, 'r'))
+    
+    resolved_ids = report['resolved_ids']
+    unresolved_ids = report['unresolved_ids']
+    log_dir = os.path.join(result_dir, 'infer_logs')
+    
+    step_count_list = get_step_count(log_dir, resolved_ids)
+    print("resolved_ids", len(step_count_list), mean(step_count_list), max(step_count_list), min(step_count_list))
+    step_count_list = get_step_count(log_dir, unresolved_ids)
+    print("unresolved_ids", len(step_count_list), mean(step_count_list), max(step_count_list), min(step_count_list))
+
+def sample():
+    import random
+    # result_dict = {
+    #     'autocoderover': '/hdd2/zzr/experiments/evaluation/verified/20240628_autocoderover-v20240620/results/results.json',
+    #     'marscode': '/hdd2/zzr/experiments/evaluation/verified/20241125_marscode-agent-dev/results/results.json',
+    #     'solver': '/hdd2/zzr/experiments/evaluation/verified/20241028_solver/results/results.json',
+    #     'gru': '/hdd2/zzr/experiments/evaluation/verified/20240824_gru/results/results.json',
+    # }
+    # all_resolved_ids = []
+    # for key, value in result_dict.items():
+    #     result = json.load(open(value, 'r'))
+    #     all_resolved_ids.extend(result['resolved'])
+    
+    all_resolved_ids = []
+    
+    verified_ids = '/hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-500.toml'
+    verified_ids = eval(open(verified_ids, 'r').read().replace('selected_ids = ', ''))
+    all_resolved_ids = verified_ids
+    
+    all_resolved_ids = set(all_resolved_ids)
+    print(len(all_resolved_ids))
+    print(random.sample(list(all_resolved_ids), 100))
+
+def check_image_exist():
+    verified_ids = '/hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-500.toml'
+    verified_ids = eval(open(verified_ids, 'r').read().replace('selected_ids = ', ''))
+    images_dict = json.load(open('/hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/scripts/docker/images_dict.json', 'r'))
+    for key, value in images_dict.items():
+        if key in verified_ids:
+            if not os.path.exists(value['image_path']):
+                print(key, value['image_path'])
+
+def analysis_output():
+    result_dir = '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-selectiontest_strreplace_view_v1-run_1/'
+    output_path = os.path.join(result_dir, 'output.jsonl')
+    output = open(output_path, 'r').readlines()
+    for line in output:
+        line = json.loads(line)
+        if 'error' in line and line['error'] is not None:
+            print(line['instance_id'], line['error'])
+        # exit()
+
 
 if __name__ == '__main__':
-    analysis_reproduce()
+    # analysis_reproduce()
     # analysis_verified_fix()
     # analysis_lite_fix()
     # analysis_merge_result()
+    # analysis_step()
+    # sample()
+    # check_image_exist()
+    analysis_output()

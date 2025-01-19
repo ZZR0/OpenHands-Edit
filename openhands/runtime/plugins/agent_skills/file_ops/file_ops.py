@@ -18,7 +18,7 @@ from openhands.linter import DefaultLinter, LintResult
 
 CURRENT_FILE: str | None = None
 CURRENT_LINE = 1
-WINDOW = 100
+WINDOW = 50
 
 # This is also used in unit tests!
 MSG_FILE_UPDATED = '[File updated (edited at line {line_number}). Please review the changes and make sure they are correct (correct indentation, no duplicate lines, etc). Edit the file again if necessary.]'
@@ -192,6 +192,7 @@ def open_file(
     # Override WINDOW with context_lines
     if context_lines is None or context_lines < 1:
         context_lines = WINDOW
+    context_lines = context_lines*2
 
     output = _cur_file_header(CURRENT_FILE, total_lines)
     output += _print_window(

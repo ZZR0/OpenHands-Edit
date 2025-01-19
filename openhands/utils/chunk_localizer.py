@@ -16,7 +16,7 @@ class Chunk(BaseModel):
 
     def visualize(self) -> str:
         lines = self.text.split('\n')
-        assert len(lines) == self.line_range[1] - self.line_range[0] + 1
+        assert len(lines) == self.line_range[1] - self.line_range[0] + 1, f'self.line_range: {self.line_range}\nlen(lines): {len(lines)}'
         ret = ''
         for i, line in enumerate(lines):
             ret += f'{self.line_range[0] + i}|{line}\n'

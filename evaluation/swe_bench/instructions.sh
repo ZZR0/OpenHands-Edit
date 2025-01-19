@@ -1,6 +1,6 @@
 export https_proxy=http://127.0.0.1:10809 # 注意只能设置 https_proxy，如果设置了 all 或者 http 会导致把 localhost 的请求也走代理
 export no_proxy=localhost,127.0.0.1,local,.local
-export EVAL_DOCKER_IMAGE_PREFIX=dockerpull.org/xingyaoww/
+export EVAL_DOCKER_IMAGE_PREFIX=cjie.eu.org/xingyaoww/
 export DOCKER_USE_PROXY=1
 
 export PYTHON_KEYRING_BACKEND=keyring.backends.fail.Keyring # 如果 make build 之后就报错
@@ -85,3 +85,6 @@ EXP_NAME="testagent_debug" ./evaluation/swe_bench/scripts/run_test_infer.sh llm.
 
 
 ./evaluation/swe_bench/scripts/run_infer.sh llm.gpt-4o-2024-05-13 HEAD CodeActAgent 1 100 1 'princeton-nlp/SWE-bench_Verified' 'test' 1
+
+
+EXP_NAME="original" ./evaluation/swe_bench/scripts/run_infer.sh llm.claude-3-5-sonnet-20241022 HEAD CodeActAgent 500 100 1 'princeton-nlp/SWE-bench_Verified' 'test' 1

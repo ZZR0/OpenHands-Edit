@@ -298,6 +298,7 @@ def truncate_hash(hash: str) -> str:
 
 def get_hash_for_lock_files(base_image: str):
     openhands_source_dir = Path(openhands.__file__).parent
+    # openhands_source_dir = Path('/hdd1/zzr/OpenHands-Edit')
     md5 = hashlib.md5()
     md5.update(base_image.encode())
     for file in ['pyproject.toml', 'poetry.lock']:

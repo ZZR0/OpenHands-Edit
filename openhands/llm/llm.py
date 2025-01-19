@@ -297,7 +297,19 @@ class LLM(RetryMixin, DebugMixin):
                     ) from e
                 raise
             except IndexError as e:
-                raise
+                raise APIError(
+                        status_code=0,
+                        message='IndexError: No response from the model',
+                        llm_provider='litellm',
+                        model=self.config.model
+                    ) from e
+            except litellm.BadRequestError as e:
+                raise APIError(
+                        status_code=0,
+                        message=f'BadRequestError: No response from the model:\n {e}',
+                        llm_provider='litellm',
+                        model=self.config.model
+                    ) from e
 
         self._completion = wrapper
 

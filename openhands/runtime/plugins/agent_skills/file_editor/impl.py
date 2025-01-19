@@ -4,7 +4,7 @@ from typing import Literal, get_args
 
 from .base import CLIResult, ToolError, ToolResult
 from .flake8_utils import flake8, format_flake8_output  # type: ignore
-from .run import maybe_truncate, run
+from .run import maybe_truncate, run, TRUNCATED_MESSAGE, MAX_RESPONSE_LEN
 
 Command = Literal[
     'view',
@@ -197,8 +197,13 @@ class EditTool:
             else:
                 file_content = '\n'.join(file_lines[init_line - 1 : final_line])
 
+        output = self._make_output(file_content, str(path), init_line=init_line)
+        if '<response clipped>' in output:
+            end_line = output.split('<response clipped>')[0].splitlines()[-1]
+            end_line_index = int(end_line.split('\t')[0])
+            output += f'[You can use print(file_editor(command="view", path="{path}", view_range=[{end_line_index-4}, -1])) to view the next part of the file.]'
         return CLIResult(
-            output=self._make_output(file_content, str(path), init_line=init_line)
+            output=output
         )
 
     def str_replace(self, path: Path, old_str: str, new_str: str | None):
@@ -375,7 +380,11 @@ class EditTool:
         expand_tabs: bool = True,
     ):
         """Generate output for the CLI based on the content of a file."""
-        file_content = maybe_truncate(file_content)
+        truncated = False
+        total_lines = len(file_content.split('\n'))
+        if len(file_content) > MAX_RESPONSE_LEN:
+            file_content = file_content[:MAX_RESPONSE_LEN]
+            truncated = True
         if expand_tabs:
             file_content = file_content.expandtabs()
         file_content = '\n'.join(
@@ -384,6 +393,10 @@ class EditTool:
                 for i, line in enumerate(file_content.split('\n'))
             ]
         )
+        
+        if truncated:
+            file_content = file_content + TRUNCATED_MESSAGE + f'[File: {file_descriptor} has total {total_lines} lines]'
+
         return (
             f"Here's the result of running `cat -n` on {file_descriptor}:\n"
             + file_content

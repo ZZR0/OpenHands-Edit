@@ -84,6 +84,56 @@ def get_new_file_contents(
         num_retries -= 1
     return None
 
+def get_start_end_range(llm: LLM, thought: str) -> tuple[int, int]:
+    # Define the system and user messages
+    sys_msg = (
+        "You are an assistant designed to extract the start and end line numbers of a code edit based on a provided thought. The thought contains an explanation or context about the code changes. "
+        "Your task is to analyze the thought, identify the lines that are being edited, and return the start and end line numbers of the code edit. Please format the result as [START:<index>] for the start line number and [END:<index>] for the end line number, making it easy to parse programmatically. "
+        "If no line numbers are found, return [START:-1] and [END:-1]."
+    )
+    
+    user_msg = (
+        "The draft contains one component: the thought. The thought provides context or explanation about the code changes. \n"   
+        "Please extract the start and end line numbers from the thought, and return them in the format [START:index] and [END:index], where `index` is the corresponding line number. This will make it easier for me to parse. \n"
+        f"Here is the agent's thought: \n{thought}"
+    )
+
+    messages = [
+        {'role': 'system', 'content': sys_msg},
+        {'role': 'user', 'content': user_msg},
+    ]
+    
+    resp = llm.completion(messages=messages)
+    start_pattern = r'\[START:(-?\d+)\]'
+    end_pattern = r'\[END:(-?\d+)\]'
+    start_match = re.search(start_pattern, resp['choices'][0]['message']['content'])
+    end_match = re.search(end_pattern, resp['choices'][0]['message']['content'])
+    if start_match and end_match:
+        return int(start_match.group(1)), int(end_match.group(1))
+    return None, None
+
+def get_relevant_snippets(action: FileEditAction, original_file_content: str, max_lines_to_edit: int) -> str:
+    # search for relevant ranges to hint the agent
+    topk_chunks: list[Chunk] = get_top_k_chunk_matches(
+        text=original_file_content,
+        query=action.content,  # edit draft as query
+        k=3,
+        max_chunk_size=20,  # lines
+    )
+    error_msg = (
+        'Here are some snippets that maybe relevant to the provided edit.\n'
+    )
+    for i, chunk in enumerate(topk_chunks):
+        error_msg += f'[begin relevant snippet {i+1}. Line range: L{chunk.line_range[0]}-L{chunk.line_range[1]}. Similarity: {chunk.normalized_lcs}]\n'
+        error_msg += f'[Browse around it via `open_file("{action.path}", {(chunk.line_range[0] + chunk.line_range[1]) // 2})`]\n'
+        error_msg += chunk.visualize() + '\n'
+        error_msg += f'[end relevant snippet {i+1}]\n'
+        error_msg += '-' * 40 + '\n'
+
+    error_msg += 'Consider using `open_file` to explore around the relevant snippets if needed.\n'
+    error_msg += f'**IMPORTANT**: Please REDUCE the range of edits to less than {max_lines_to_edit} lines by setting `start` and `end` in the edit action (e.g. `<file_edit path="{action.path}" start=[PUT LINE NUMBER HERE] end=[PUT LINE NUMBER HERE] />`). '
+    return error_msg
+
 
 class FileEditRuntimeInterface(ABC):
     config: AppConfig
@@ -100,7 +150,7 @@ class FileEditRuntimeInterface(ABC):
 class FileEditRuntimeMixin(FileEditRuntimeInterface):
     # Most LLMs have output token limit of 4k tokens.
     # This restricts the number of lines we can edit to avoid exceeding the token limit.
-    MAX_LINES_TO_EDIT = 30000
+    MAX_LINES_TO_EDIT = 600
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -284,33 +334,45 @@ class FileEditRuntimeMixin(FileEditRuntimeInterface):
         # Get the range of lines to edit - reject if too long
         length_of_range = end_idx - start_idx
         if length_of_range > self.MAX_LINES_TO_EDIT + 1:
+            logger.info(f'Edit range too long: {length_of_range} lines. Getting new start and end line numbers.')
+            try:
+                start, end = get_start_end_range(self.draft_editor_llm, action.thought)
+            except Exception as e:
+                logger.error(f'Failed to get start and end line numbers: {e}')
+                start, end = None, None
+            logger.info(f'New start and end line numbers: {start}, {end}')
+            if isinstance(start, int) and isinstance(end, int):
+                start_idx = start if start != -1 else start_idx
+                end_idx = end if end != -1 else end_idx
+                
+        length_of_range = end_idx - start_idx
+        if length_of_range > self.MAX_LINES_TO_EDIT + 1:
             error_msg = (
                 f'[Edit error: The range of lines to edit is too long.]\n'
                 f'[The maximum number of lines allowed to edit at once is {self.MAX_LINES_TO_EDIT}. '
                 f'Got (L{start_idx + 1}-L{end_idx}) {length_of_range} lines.]\n'  # [start_idx, end_idx), so no need to + 1
+                f'[Please use the start and end line numbers for the edit action to specify the range of lines to edit: `<file_edit path=str start=int end=int>code here</file_edit>`]'
             )
-            # search for relevant ranges to hint the agent
-            topk_chunks: list[Chunk] = get_top_k_chunk_matches(
-                text=original_file_content,
-                query=action.content,  # edit draft as query
-                k=3,
-                max_chunk_size=20,  # lines
-            )
-            error_msg += (
-                'Here are some snippets that maybe relevant to the provided edit.\n'
-            )
-            for i, chunk in enumerate(topk_chunks):
-                error_msg += f'[begin relevant snippet {i+1}. Line range: L{chunk.line_range[0]}-L{chunk.line_range[1]}. Similarity: {chunk.normalized_lcs}]\n'
-                error_msg += f'[Browse around it via `open_file("{action.path}", {(chunk.line_range[0] + chunk.line_range[1]) // 2})`]\n'
-                error_msg += chunk.visualize() + '\n'
-                error_msg += f'[end relevant snippet {i+1}]\n'
-                error_msg += '-' * 40 + '\n'
-
-            error_msg += 'Consider using `open_file` to explore around the relevant snippets if needed.\n'
-            error_msg += f'**IMPORTANT**: Please REDUCE the range of edits to less than {self.MAX_LINES_TO_EDIT} lines by setting `start` and `end` in the edit action (e.g. `<file_edit path="{action.path}" start=[PUT LINE NUMBER HERE] end=[PUT LINE NUMBER HERE] />`). '
-
+            error_msg += get_relevant_snippets(action, original_file_content, self.MAX_LINES_TO_EDIT)
             return ErrorObservation(error_msg)
-
+        
+        # 找到第一个空行作为分界
+        new_start_idx = max(0, start_idx - 50) # 902-5 = 897
+        while new_start_idx < max(0, start_idx-10):
+            if old_file_lines[new_start_idx].strip() == '':
+                break
+            else:
+                new_start_idx += 1
+        new_end_idx = min(len(old_file_lines)-1, end_idx + 100) # 920+5 = 925
+        while new_end_idx > min(len(old_file_lines)-1, end_idx+20):
+            if old_file_lines[new_end_idx].strip() == '':
+                break
+            else:
+                new_end_idx -= 1
+                
+        start_idx = max(0, new_start_idx)
+        end_idx = min(len(old_file_lines)-1, new_end_idx)
+        
         content_to_edit = '\n'.join(old_file_lines[start_idx:end_idx])
         self.draft_editor_llm.reset()
         _edited_content = get_new_file_contents(
@@ -332,6 +394,22 @@ class FileEditRuntimeMixin(FileEditRuntimeInterface):
         )
         updated_content = '\n'.join(updated_lines)
         diff = get_diff(original_file_content, updated_content, action.path)
+        error_msg = ""
+        if diff.strip() == '' or "".join(original_file_content.splitlines()) == "".join(updated_content.splitlines()):
+            text = "\n".join(old_file_lines[start_idx:end_idx])
+            edit_chunk = Chunk(text=text, line_range=(start_idx+1, start_idx+1+len(text.split('\n'))-1))
+            error_msg = (
+                "The edit did not produce any useful code changes. Please try again.\n"
+                "Below is the code snippet you attempted to edit, but no changes were made:\n"
+                f"[Begin Snippet: Lines {edit_chunk.line_range[0]}-{edit_chunk.line_range[1]}]\n"
+                f"Browse the file around this snippet using: `open_file(\"{action.path}\", {(edit_chunk.line_range[0] + edit_chunk.line_range[1]) // 2})`\n"
+                f"{edit_chunk.visualize()}\n"
+                "[End Snippet]\n"
+                + "-" * 40 + "\n"
+                "Please edit the code in the snippet as needed.\n"
+                "**IMPORTANT**: Reduce the edit range to fewer than {self.MAX_LINES_TO_EDIT} lines by specifying `start` and `end` in your edit action, "
+                "e.g., `<file_edit path=\"{action.path}\" start=[PUT LINE NUMBER HERE] end=[PUT LINE NUMBER HERE] />`."
+            )
 
         # Lint the updated content
         if self.config.sandbox.enable_auto_lint:
@@ -350,6 +428,7 @@ class FileEditRuntimeMixin(FileEditRuntimeInterface):
             prev_exist=True,
             old_content=original_file_content,
             new_content=updated_content,
+            error_msg=error_msg,
         )
         ret_obs.llm_metrics = self.draft_editor_llm.metrics
         return ret_obs

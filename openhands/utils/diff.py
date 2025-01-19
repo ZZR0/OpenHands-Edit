@@ -6,8 +6,8 @@ import whatthepatch
 def get_diff(old_contents: str, new_contents: str, filepath: str = 'file') -> str:
     diff = list(
         difflib.unified_diff(
-            old_contents.split('\n'),
-            new_contents.split('\n'),
+            old_contents.strip().split('\n'),
+            new_contents.strip().split('\n'),
             fromfile=filepath,
             tofile=filepath,
             # do not output unchange lines

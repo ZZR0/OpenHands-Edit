@@ -1,0 +1,3537 @@
+{
+    "astropy__astropy-12907": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8zv6sudxhuyz0wh1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8zv6sudxhuyz0wh1.tar"
+    },
+    "astropy__astropy-13033": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_06k2r1izuovd33ph",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_06k2r1izuovd33ph.tar"
+    },
+    "astropy__astropy-13236": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_yp75kmpwa5j5ogzh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_yp75kmpwa5j5ogzh.tar"
+    },
+    "astropy__astropy-13398": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_2ewjhlgnxq2opncn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_2ewjhlgnxq2opncn.tar"
+    },
+    "astropy__astropy-13453": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8cs1pc8wjev8x7sh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8cs1pc8wjev8x7sh.tar"
+    },
+    "astropy__astropy-13579": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_13o8joc3lqmjr97o",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_13o8joc3lqmjr97o.tar"
+    },
+    "astropy__astropy-13977": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_01r07rxywwsx42w4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_01r07rxywwsx42w4.tar"
+    },
+    "astropy__astropy-14096": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_x7elbjgr4jv8r022",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_x7elbjgr4jv8r022.tar"
+    },
+    "astropy__astropy-14182": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fh5k3zam9j8tyudk",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fh5k3zam9j8tyudk.tar"
+    },
+    "astropy__astropy-14309": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zn2i09ph8hx0wxk9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zn2i09ph8hx0wxk9.tar"
+    },
+    "astropy__astropy-14365": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_p24okqnzy45yisor",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_p24okqnzy45yisor.tar"
+    },
+    "astropy__astropy-14369": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3sze27al63lo73dz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3sze27al63lo73dz.tar"
+    },
+    "astropy__astropy-14508": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_7wtfpwv6qfd9nqeo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_7wtfpwv6qfd9nqeo.tar"
+    },
+    "astropy__astropy-14539": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qlmqtanv2zzgv97q",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qlmqtanv2zzgv97q.tar"
+    },
+    "astropy__astropy-14598": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0jkckf1n41r31txw",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0jkckf1n41r31txw.tar"
+    },
+    "astropy__astropy-14995": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_a5ex7ktncxgx2fpa",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_a5ex7ktncxgx2fpa.tar"
+    },
+    "astropy__astropy-7166": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_iw7n1b04uwn8t3qb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_iw7n1b04uwn8t3qb.tar"
+    },
+    "astropy__astropy-7336": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_dnpya68qccfzb169",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_dnpya68qccfzb169.tar"
+    },
+    "astropy__astropy-7606": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6s25vww2xnz3x73a",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6s25vww2xnz3x73a.tar"
+    },
+    "astropy__astropy-7671": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6p2wpyr2zgbchm5u",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6p2wpyr2zgbchm5u.tar"
+    },
+    "astropy__astropy-8707": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hdzhrlu8oorgx6pp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hdzhrlu8oorgx6pp.tar"
+    },
+    "astropy__astropy-8872": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xr7vv71uo6mbp81c",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xr7vv71uo6mbp81c.tar"
+    },
+    "django__django-10097": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_64rsc2h0fhgiwq4c",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_64rsc2h0fhgiwq4c.tar"
+    },
+    "django__django-10554": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ndwk5e4s8z7suoro",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ndwk5e4s8z7suoro.tar"
+    },
+    "django__django-10880": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xw9omnubp5ry2a6d",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xw9omnubp5ry2a6d.tar"
+    },
+    "django__django-10914": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0r0bdv5iinuourr8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0r0bdv5iinuourr8.tar"
+    },
+    "django__django-10973": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wrd8k569vm6ze0h2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wrd8k569vm6ze0h2.tar"
+    },
+    "django__django-10999": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_7xorlns8lzy8cw4l",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_7xorlns8lzy8cw4l.tar"
+    },
+    "django__django-11066": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vzsu9z3j86fz358s",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vzsu9z3j86fz358s.tar"
+    },
+    "django__django-11087": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_v3jh27nmuvsjl5og",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_v3jh27nmuvsjl5og.tar"
+    },
+    "django__django-11095": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vpsux1qyhpwll755",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vpsux1qyhpwll755.tar"
+    },
+    "django__django-11099": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9wcg5bixjimrn4np",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9wcg5bixjimrn4np.tar"
+    },
+    "django__django-11119": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_g7zmdo5yg3fd98r6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_g7zmdo5yg3fd98r6.tar"
+    },
+    "django__django-11133": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_2mrz8mqydt0hcst5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_2mrz8mqydt0hcst5.tar"
+    },
+    "django__django-11138": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_q59vz6pafkhgmsru",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_q59vz6pafkhgmsru.tar"
+    },
+    "django__django-11141": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_p4qcns1ezc2lqo45",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_p4qcns1ezc2lqo45.tar"
+    },
+    "django__django-11149": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_p6zf989uv0xp13ul",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_p6zf989uv0xp13ul.tar"
+    },
+    "django__django-11163": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rzoefyy6cerk2356",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rzoefyy6cerk2356.tar"
+    },
+    "django__django-11179": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_nejmbvgzo5temiq5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_nejmbvgzo5temiq5.tar"
+    },
+    "django__django-11206": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lc8uzlkhq3mpygno",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lc8uzlkhq3mpygno.tar"
+    },
+    "django__django-11211": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6068y5ocsssdcnj3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6068y5ocsssdcnj3.tar"
+    },
+    "django__django-11239": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_p3ge5as4miuv690z",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_p3ge5as4miuv690z.tar"
+    },
+    "django__django-11265": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_q5238bnm1cw05to5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_q5238bnm1cw05to5.tar"
+    },
+    "django__django-11276": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3set157u7tsyl3kt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3set157u7tsyl3kt.tar"
+    },
+    "django__django-11292": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fa334jsmhoo0dwhf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fa334jsmhoo0dwhf.tar"
+    },
+    "django__django-11299": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8umbtu7o0hv1hjh8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8umbtu7o0hv1hjh8.tar"
+    },
+    "django__django-11333": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4h0jea5qvkwo57cx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4h0jea5qvkwo57cx.tar"
+    },
+    "django__django-11400": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_klzwf4fj9b05a1i3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_klzwf4fj9b05a1i3.tar"
+    },
+    "django__django-11433": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kobrfbqg3l43al8m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kobrfbqg3l43al8m.tar"
+    },
+    "django__django-11451": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_h440enzhd7bpgsg4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_h440enzhd7bpgsg4.tar"
+    },
+    "django__django-11477": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_udmngiisw9ck5vyx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_udmngiisw9ck5vyx.tar"
+    },
+    "django__django-11490": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_13afyk8i8eqvy54r",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_13afyk8i8eqvy54r.tar"
+    },
+    "django__django-11532": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_et35b93pudnhv7sg",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_et35b93pudnhv7sg.tar"
+    },
+    "django__django-11551": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kz3iuoq42jsdipjs",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kz3iuoq42jsdipjs.tar"
+    },
+    "django__django-11555": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kcilzobxoqw0e3ew",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kcilzobxoqw0e3ew.tar"
+    },
+    "django__django-11603": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_awodrng19amn4jh7",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_awodrng19amn4jh7.tar"
+    },
+    "django__django-11728": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_psm10mzr7nvlkuih",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_psm10mzr7nvlkuih.tar"
+    },
+    "django__django-11734": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_oslo6xdva9bbjpky",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_oslo6xdva9bbjpky.tar"
+    },
+    "django__django-11740": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bbz3ox3vgbdtk3ka",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bbz3ox3vgbdtk3ka.tar"
+    },
+    "django__django-11749": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vevbwk1n06mt6v9m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vevbwk1n06mt6v9m.tar"
+    },
+    "django__django-11790": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_stts7o5m659sgplb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_stts7o5m659sgplb.tar"
+    },
+    "django__django-11815": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_an7ve275gfwcd46g",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_an7ve275gfwcd46g.tar"
+    },
+    "django__django-11820": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_pozg155pjxnfuv49",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_pozg155pjxnfuv49.tar"
+    },
+    "django__django-11848": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_j4w3seih8zdy5fky",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_j4w3seih8zdy5fky.tar"
+    },
+    "django__django-11880": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_y0di82qycsy5u37p",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_y0di82qycsy5u37p.tar"
+    },
+    "django__django-11885": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_a6br8bkqscczc0su",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_a6br8bkqscczc0su.tar"
+    },
+    "django__django-11951": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u0r9kpexsfnysidp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u0r9kpexsfnysidp.tar"
+    },
+    "django__django-11964": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lf2h2j4x4o26qx52",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lf2h2j4x4o26qx52.tar"
+    },
+    "django__django-11999": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_io15nyfkjnuulx0m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_io15nyfkjnuulx0m.tar"
+    },
+    "django__django-12039": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ifygz0zo7q7zby5t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ifygz0zo7q7zby5t.tar"
+    },
+    "django__django-12050": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_2ot1r49v24i9hagv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_2ot1r49v24i9hagv.tar"
+    },
+    "django__django-12125": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_d1enil6b0m4gf9rn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_d1enil6b0m4gf9rn.tar"
+    },
+    "django__django-12143": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_muw5urm7n462slyr",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_muw5urm7n462slyr.tar"
+    },
+    "django__django-12155": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_37svn38mmymi2x4a",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_37svn38mmymi2x4a.tar"
+    },
+    "django__django-12193": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_byjedc74hdoaof7w",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_byjedc74hdoaof7w.tar"
+    },
+    "django__django-12209": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5n3foyc7m5dkvufx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5n3foyc7m5dkvufx.tar"
+    },
+    "django__django-12262": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6k9i93a5wsgl3601",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6k9i93a5wsgl3601.tar"
+    },
+    "django__django-12273": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_omrtbzletb7u0lnf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_omrtbzletb7u0lnf.tar"
+    },
+    "django__django-12276": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xm7am26m2cuf17zh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xm7am26m2cuf17zh.tar"
+    },
+    "django__django-12304": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tyrxrwdqfyozf3al",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tyrxrwdqfyozf3al.tar"
+    },
+    "django__django-12308": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_h3i1rkfvw7m0qrxa",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_h3i1rkfvw7m0qrxa.tar"
+    },
+    "django__django-12325": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vnvfoh6h8wz3qd3f",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vnvfoh6h8wz3qd3f.tar"
+    },
+    "django__django-12406": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_anl4tbf0inr6qmvj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_anl4tbf0inr6qmvj.tar"
+    },
+    "django__django-12419": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3z4g5bgtlfy8qpp8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3z4g5bgtlfy8qpp8.tar"
+    },
+    "django__django-12663": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mzubp95zh9iekndk",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mzubp95zh9iekndk.tar"
+    },
+    "django__django-12708": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sx7p1wnohmmg4vqr",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sx7p1wnohmmg4vqr.tar"
+    },
+    "django__django-12713": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_02tv855lflbrarf4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_02tv855lflbrarf4.tar"
+    },
+    "django__django-12741": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vzayeqgc7fq4g37g",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vzayeqgc7fq4g37g.tar"
+    },
+    "django__django-12754": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_i51skyizcl3wilj6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_i51skyizcl3wilj6.tar"
+    },
+    "django__django-12774": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_y0szeah2710e1oqj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_y0szeah2710e1oqj.tar"
+    },
+    "django__django-12858": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3t2xgqqltunhh7pb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3t2xgqqltunhh7pb.tar"
+    },
+    "django__django-12965": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u0xdnrpv82mw4eoj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u0xdnrpv82mw4eoj.tar"
+    },
+    "django__django-13012": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_oz2g3d66znmzrm28",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_oz2g3d66znmzrm28.tar"
+    },
+    "django__django-13023": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_nbcr14ypmaziyzj1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_nbcr14ypmaziyzj1.tar"
+    },
+    "django__django-13028": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_51u1n5g0psfsnyvn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_51u1n5g0psfsnyvn.tar"
+    },
+    "django__django-13033": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lm4kl7xzik764tt3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lm4kl7xzik764tt3.tar"
+    },
+    "django__django-13089": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0oi922esuwgrhdq9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0oi922esuwgrhdq9.tar"
+    },
+    "django__django-13109": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_t7lhsaw2qoqc6hcf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_t7lhsaw2qoqc6hcf.tar"
+    },
+    "django__django-13112": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_z8eqr1bqlewk270t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_z8eqr1bqlewk270t.tar"
+    },
+    "django__django-13121": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ba6k58dfjwd03chf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ba6k58dfjwd03chf.tar"
+    },
+    "django__django-13128": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_f20p6vcgiah7oho6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_f20p6vcgiah7oho6.tar"
+    },
+    "django__django-13158": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_n0pa1tpsf6hzklh9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_n0pa1tpsf6hzklh9.tar"
+    },
+    "django__django-13195": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5lfvv5z61s4ypqe9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5lfvv5z61s4ypqe9.tar"
+    },
+    "django__django-13212": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1vvt5i7dx7qq5vvs",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1vvt5i7dx7qq5vvs.tar"
+    },
+    "django__django-13279": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ll3uladjzz01a9d8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ll3uladjzz01a9d8.tar"
+    },
+    "django__django-13297": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wvt7mcnoof52lkfr",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wvt7mcnoof52lkfr.tar"
+    },
+    "django__django-13315": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5to8y8crqhijwxyd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5to8y8crqhijwxyd.tar"
+    },
+    "django__django-13343": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rq832cj1d19g9znx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rq832cj1d19g9znx.tar"
+    },
+    "django__django-13344": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lx6y5xswkgd2mh3p",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lx6y5xswkgd2mh3p.tar"
+    },
+    "django__django-13346": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_22xzppswhfocole2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_22xzppswhfocole2.tar"
+    },
+    "django__django-13363": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xfgae1oykvalziz1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xfgae1oykvalziz1.tar"
+    },
+    "django__django-13401": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5hxpy13o5hwcyxpl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5hxpy13o5hwcyxpl.tar"
+    },
+    "django__django-13406": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_t36rme8sivhvxuab",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_t36rme8sivhvxuab.tar"
+    },
+    "django__django-13410": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_a1wrs6c5u3o243jp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_a1wrs6c5u3o243jp.tar"
+    },
+    "django__django-13417": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hjdq3f5b22pxjmhh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hjdq3f5b22pxjmhh.tar"
+    },
+    "django__django-13449": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_gta2eut7bfah5z2f",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_gta2eut7bfah5z2f.tar"
+    },
+    "django__django-13512": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ig64e3p7rssctlpc",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ig64e3p7rssctlpc.tar"
+    },
+    "django__django-13513": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9lkk4v4sfc2tlkbu",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9lkk4v4sfc2tlkbu.tar"
+    },
+    "django__django-13516": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_f8blouebovc1yv7s",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_f8blouebovc1yv7s.tar"
+    },
+    "django__django-13551": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_yraecvda5lonjhps",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_yraecvda5lonjhps.tar"
+    },
+    "django__django-13568": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_x5zr0ii65r6pksk5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_x5zr0ii65r6pksk5.tar"
+    },
+    "django__django-13569": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_7n2ywwznfqo5axii",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_7n2ywwznfqo5axii.tar"
+    },
+    "django__django-13590": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jw46dr28srt38wzy",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jw46dr28srt38wzy.tar"
+    },
+    "django__django-13658": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0rg4fzcq1cyw6h03",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0rg4fzcq1cyw6h03.tar"
+    },
+    "django__django-13670": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_2efrvzsvtxkne190",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_2efrvzsvtxkne190.tar"
+    },
+    "django__django-13741": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_d37inqf9bk2oi2tx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_d37inqf9bk2oi2tx.tar"
+    },
+    "django__django-13786": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hwww2o65jyqj6a06",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hwww2o65jyqj6a06.tar"
+    },
+    "django__django-13794": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cyvaiw0i4kxm5l3a",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cyvaiw0i4kxm5l3a.tar"
+    },
+    "django__django-13807": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_w27a8t7euk18xtue",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_w27a8t7euk18xtue.tar"
+    },
+    "django__django-13809": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hxq4vpq66tjbtqrh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hxq4vpq66tjbtqrh.tar"
+    },
+    "django__django-13810": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_nqjhwibbbe7c3wb1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_nqjhwibbbe7c3wb1.tar"
+    },
+    "django__django-13820": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_454uyow4d156uue2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_454uyow4d156uue2.tar"
+    },
+    "django__django-13821": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vg2qc0k3ejvdgl89",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vg2qc0k3ejvdgl89.tar"
+    },
+    "django__django-13837": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_93kikm3bk99ucscn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_93kikm3bk99ucscn.tar"
+    },
+    "django__django-13925": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_10wtb4gd6wh3tzhj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_10wtb4gd6wh3tzhj.tar"
+    },
+    "django__django-13933": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_d2hn01m1e2iu7kf8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_d2hn01m1e2iu7kf8.tar"
+    },
+    "django__django-13964": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_plktzisk6rij8w51",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_plktzisk6rij8w51.tar"
+    },
+    "django__django-14007": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_a0l49di9w5v0ndnn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_a0l49di9w5v0ndnn.tar"
+    },
+    "django__django-14011": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6hqwsgqlmngkferl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6hqwsgqlmngkferl.tar"
+    },
+    "django__django-14017": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_yoqxiz75yu5olmki",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_yoqxiz75yu5olmki.tar"
+    },
+    "django__django-14034": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8nwsxignzu2dyurd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8nwsxignzu2dyurd.tar"
+    },
+    "django__django-14053": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_dv5f7zmjx8nsgh91",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_dv5f7zmjx8nsgh91.tar"
+    },
+    "django__django-14089": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_19p8etnxcy54eupc",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_19p8etnxcy54eupc.tar"
+    },
+    "django__django-14122": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5vmpy9p66bq8xs7n",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5vmpy9p66bq8xs7n.tar"
+    },
+    "django__django-14140": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bzp5q4kgrylj5vpa",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bzp5q4kgrylj5vpa.tar"
+    },
+    "django__django-14155": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_onx9pljwxmglouzt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_onx9pljwxmglouzt.tar"
+    },
+    "django__django-14170": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_z61jnc3vw90h0hbc",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_z61jnc3vw90h0hbc.tar"
+    },
+    "django__django-14238": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9yiyvvarueubbduw",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9yiyvvarueubbduw.tar"
+    },
+    "django__django-14311": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_s8xqqcpx4ptewo24",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_s8xqqcpx4ptewo24.tar"
+    },
+    "django__django-14315": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_7ptfer9tnc4v7hw5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_7ptfer9tnc4v7hw5.tar"
+    },
+    "django__django-14349": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tzxe4cqucg3hnnra",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tzxe4cqucg3hnnra.tar"
+    },
+    "django__django-14351": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_eg6dqlab562nug16",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_eg6dqlab562nug16.tar"
+    },
+    "django__django-14373": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_12yfveg073zaclmj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_12yfveg073zaclmj.tar"
+    },
+    "django__django-14376": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_40fmv8yhyd8gnpd0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_40fmv8yhyd8gnpd0.tar"
+    },
+    "django__django-14404": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_87tsmm1en45utsli",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_87tsmm1en45utsli.tar"
+    },
+    "django__django-14434": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cb3iwp8iscnqd5j4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cb3iwp8iscnqd5j4.tar"
+    },
+    "django__django-14493": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hze5n6q8f64myjp5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hze5n6q8f64myjp5.tar"
+    },
+    "django__django-14500": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_c3ene8ecq4jbo57i",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_c3ene8ecq4jbo57i.tar"
+    },
+    "django__django-14534": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kavsnul4o1v6e8k3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kavsnul4o1v6e8k3.tar"
+    },
+    "django__django-14539": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tgr3ojcv7xt7hgb2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tgr3ojcv7xt7hgb2.tar"
+    },
+    "django__django-14559": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4bliamvt5bkuxu45",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4bliamvt5bkuxu45.tar"
+    },
+    "django__django-14580": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sc9ybgy4qems4f6m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sc9ybgy4qems4f6m.tar"
+    },
+    "django__django-14608": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ut33g0vqzg7rwfgq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ut33g0vqzg7rwfgq.tar"
+    },
+    "django__django-14631": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_t9gxv0wrkes4liu7",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_t9gxv0wrkes4liu7.tar"
+    },
+    "django__django-14672": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mv10p8h7fqtzaqx2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mv10p8h7fqtzaqx2.tar"
+    },
+    "django__django-14725": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6ycaes13t9mizx0w",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6ycaes13t9mizx0w.tar"
+    },
+    "django__django-14752": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zgkdlly6w6mzah0n",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zgkdlly6w6mzah0n.tar"
+    },
+    "django__django-14765": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xr1rkgm8kyjxsvmd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xr1rkgm8kyjxsvmd.tar"
+    },
+    "django__django-14771": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_r9pzy1eu72wu1nxg",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_r9pzy1eu72wu1nxg.tar"
+    },
+    "django__django-14787": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_pzc06ve5odot1hda",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_pzc06ve5odot1hda.tar"
+    },
+    "django__django-14792": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_7xvbny059wycho59",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_7xvbny059wycho59.tar"
+    },
+    "django__django-14855": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wcu6dn5nmxvlslum",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wcu6dn5nmxvlslum.tar"
+    },
+    "django__django-14915": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mahahwlxeeifpkqo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mahahwlxeeifpkqo.tar"
+    },
+    "django__django-14999": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cp5xuhtb0kbxek1m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cp5xuhtb0kbxek1m.tar"
+    },
+    "django__django-15022": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ols9hsacwpa42cq7",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ols9hsacwpa42cq7.tar"
+    },
+    "django__django-15037": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_gwl3exc4kbwr48lz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_gwl3exc4kbwr48lz.tar"
+    },
+    "django__django-15098": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u795pe48swoaa8rh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u795pe48swoaa8rh.tar"
+    },
+    "django__django-15103": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_my5n9n5bv9vt9j6f",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_my5n9n5bv9vt9j6f.tar"
+    },
+    "django__django-15104": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fwfqvn85r6ky1szo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fwfqvn85r6ky1szo.tar"
+    },
+    "django__django-15127": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ug1nuvr30dewqitd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ug1nuvr30dewqitd.tar"
+    },
+    "django__django-15128": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xu8jymom2and8u33",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xu8jymom2and8u33.tar"
+    },
+    "django__django-15161": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vxc0ap064ok5516o",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vxc0ap064ok5516o.tar"
+    },
+    "django__django-15252": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xn3c92tqjg1kuaba",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xn3c92tqjg1kuaba.tar"
+    },
+    "django__django-15268": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xkyfgtd9z3o92pyq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xkyfgtd9z3o92pyq.tar"
+    },
+    "django__django-15277": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_z10279z7qssmdngj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_z10279z7qssmdngj.tar"
+    },
+    "django__django-15278": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tzw0jnsm4fztp5tt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tzw0jnsm4fztp5tt.tar"
+    },
+    "django__django-15280": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cucm0mnhvqzxbuik",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cucm0mnhvqzxbuik.tar"
+    },
+    "django__django-15315": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zj722oj0i2xkmuz0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zj722oj0i2xkmuz0.tar"
+    },
+    "django__django-15368": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_l6kls9xlpt97idfh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_l6kls9xlpt97idfh.tar"
+    },
+    "django__django-15375": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_gwdbtzjjvy6mmn7v",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_gwdbtzjjvy6mmn7v.tar"
+    },
+    "django__django-15380": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ycxnjaqy2jyugcux",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ycxnjaqy2jyugcux.tar"
+    },
+    "django__django-15382": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3xbcybvwkhxzcrtb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3xbcybvwkhxzcrtb.tar"
+    },
+    "django__django-15467": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ihy75l0siovtsx02",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ihy75l0siovtsx02.tar"
+    },
+    "django__django-15499": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bx9xhhshg2lspmtl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bx9xhhshg2lspmtl.tar"
+    },
+    "django__django-15503": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5vgebif1xvuhcsjy",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5vgebif1xvuhcsjy.tar"
+    },
+    "django__django-15525": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rqsuub6xzlpz4pp4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rqsuub6xzlpz4pp4.tar"
+    },
+    "django__django-15554": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_my6nh2ygh911jt3f",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_my6nh2ygh911jt3f.tar"
+    },
+    "django__django-15561": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ce8wt4to14jl95em",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ce8wt4to14jl95em.tar"
+    },
+    "django__django-15563": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_z1b2kk3svyxz6mql",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_z1b2kk3svyxz6mql.tar"
+    },
+    "django__django-15569": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jg48srn4ljb9s8jk",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jg48srn4ljb9s8jk.tar"
+    },
+    "django__django-15572": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vzmk11t33wdo4spi",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vzmk11t33wdo4spi.tar"
+    },
+    "django__django-15629": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_s6rw46f81cgdb61c",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_s6rw46f81cgdb61c.tar"
+    },
+    "django__django-15695": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1qbglgjjdvs3bxp9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1qbglgjjdvs3bxp9.tar"
+    },
+    "django__django-15731": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tax4hvmty9uq3gnn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tax4hvmty9uq3gnn.tar"
+    },
+    "django__django-15732": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5sgovko6o4yqp7r2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5sgovko6o4yqp7r2.tar"
+    },
+    "django__django-15741": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cx487335zchiikej",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cx487335zchiikej.tar"
+    },
+    "django__django-15814": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4194ogebkvfxu9pq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4194ogebkvfxu9pq.tar"
+    },
+    "django__django-15851": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3tg36og7znto1qap",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3tg36og7znto1qap.tar"
+    },
+    "django__django-15863": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3b062smtw2kadyxo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3b062smtw2kadyxo.tar"
+    },
+    "django__django-15916": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fvdvtddm7ld6kc89",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fvdvtddm7ld6kc89.tar"
+    },
+    "django__django-15930": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8x8fbb5x3fdy6qki",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8x8fbb5x3fdy6qki.tar"
+    },
+    "django__django-15957": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_87ao47ut5ijogh59",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_87ao47ut5ijogh59.tar"
+    },
+    "django__django-15973": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3x4cwy2urdsnx6if",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3x4cwy2urdsnx6if.tar"
+    },
+    "django__django-15987": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bmo8x7punguzc769",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bmo8x7punguzc769.tar"
+    },
+    "django__django-16032": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hcbcflgxg3fme8df",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hcbcflgxg3fme8df.tar"
+    },
+    "django__django-16082": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wqtncsoj5l09y4fm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wqtncsoj5l09y4fm.tar"
+    },
+    "django__django-16100": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_aiv9bcbwg7oadz16",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_aiv9bcbwg7oadz16.tar"
+    },
+    "django__django-16116": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wfzy0mbklvtmmdzm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wfzy0mbklvtmmdzm.tar"
+    },
+    "django__django-16136": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8qzenb04e4qojm2t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8qzenb04e4qojm2t.tar"
+    },
+    "django__django-16139": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u5hpwul0g5d4ueu6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u5hpwul0g5d4ueu6.tar"
+    },
+    "django__django-16145": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kn367cli8je3fhcd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kn367cli8je3fhcd.tar"
+    },
+    "django__django-16255": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9hxcq4hjb1pj8kxv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9hxcq4hjb1pj8kxv.tar"
+    },
+    "django__django-16256": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_j2fdse67zmdo1l8e",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_j2fdse67zmdo1l8e.tar"
+    },
+    "django__django-16263": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xnrfqv6va65w4s5m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xnrfqv6va65w4s5m.tar"
+    },
+    "django__django-16315": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3oi89xs3rqtw8w66",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3oi89xs3rqtw8w66.tar"
+    },
+    "django__django-16333": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tdt4ueo2f63o851p",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tdt4ueo2f63o851p.tar"
+    },
+    "django__django-16429": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_iucl4jbtz3hm0k9l",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_iucl4jbtz3hm0k9l.tar"
+    },
+    "django__django-16454": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_d7q2tckx28cyqjcm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_d7q2tckx28cyqjcm.tar"
+    },
+    "django__django-16485": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hric4ed1iipf85lc",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hric4ed1iipf85lc.tar"
+    },
+    "django__django-16493": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_crp3ymh8x3pbs7w1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_crp3ymh8x3pbs7w1.tar"
+    },
+    "django__django-16502": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sx1d9dl64vfowycy",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sx1d9dl64vfowycy.tar"
+    },
+    "django__django-16527": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5i0ur79hm6l57t00",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5i0ur79hm6l57t00.tar"
+    },
+    "django__django-16560": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_18vdlwju7g100ots",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_18vdlwju7g100ots.tar"
+    },
+    "django__django-16569": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kpdlko5n67d2ual9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kpdlko5n67d2ual9.tar"
+    },
+    "django__django-16595": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_g6gj9vlozsbsoic2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_g6gj9vlozsbsoic2.tar"
+    },
+    "django__django-16612": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_aityzs0c3s4a8qn6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_aityzs0c3s4a8qn6.tar"
+    },
+    "django__django-16631": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fl1gzarks09v8d2i",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fl1gzarks09v8d2i.tar"
+    },
+    "django__django-16642": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hf5bn821rtgox2je",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hf5bn821rtgox2je.tar"
+    },
+    "django__django-16661": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xw1ap6waylvta53d",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xw1ap6waylvta53d.tar"
+    },
+    "django__django-16662": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zfg9syqd3ug6hqtt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zfg9syqd3ug6hqtt.tar"
+    },
+    "django__django-16667": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_iwxpl3gphgeekqow",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_iwxpl3gphgeekqow.tar"
+    },
+    "django__django-16801": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_oz3ksj9pijt6gf5p",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_oz3ksj9pijt6gf5p.tar"
+    },
+    "django__django-16819": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tpczr5075wlpp7ve",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tpczr5075wlpp7ve.tar"
+    },
+    "django__django-16877": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_q8euo0o4ckznqr0u",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_q8euo0o4ckznqr0u.tar"
+    },
+    "django__django-16899": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_dm266yh5u7w0zd0e",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_dm266yh5u7w0zd0e.tar"
+    },
+    "django__django-16901": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tfhsozkask06w8ea",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tfhsozkask06w8ea.tar"
+    },
+    "django__django-16938": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_okmzualwq65ynd56",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_okmzualwq65ynd56.tar"
+    },
+    "django__django-16950": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_n0imzoes0ddoaq9z",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_n0imzoes0ddoaq9z.tar"
+    },
+    "django__django-17029": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_79fvulkt0niq9zme",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_79fvulkt0niq9zme.tar"
+    },
+    "django__django-17084": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ah645z3d7a6jwoxe",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ah645z3d7a6jwoxe.tar"
+    },
+    "django__django-17087": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bf3vvldi9fu3ea8l",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bf3vvldi9fu3ea8l.tar"
+    },
+    "django__django-7530": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_uer3mb0j9a56bf9b",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_uer3mb0j9a56bf9b.tar"
+    },
+    "django__django-9296": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9xsc87tz0a4l9nod",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9xsc87tz0a4l9nod.tar"
+    },
+    "matplotlib__matplotlib-13989": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9aww61i6h3iu35ti",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9aww61i6h3iu35ti.tar"
+    },
+    "matplotlib__matplotlib-14623": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ou9hchcbduj7csxs",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ou9hchcbduj7csxs.tar"
+    },
+    "matplotlib__matplotlib-20488": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4h9icz2yhlvzk10k",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4h9icz2yhlvzk10k.tar"
+    },
+    "matplotlib__matplotlib-20676": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_niwrz5eb3u9s4fte",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_niwrz5eb3u9s4fte.tar"
+    },
+    "matplotlib__matplotlib-20826": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_n80dc75wx83k07gf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_n80dc75wx83k07gf.tar"
+    },
+    "matplotlib__matplotlib-20859": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5orkorg54b65wgnd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5orkorg54b65wgnd.tar"
+    },
+    "matplotlib__matplotlib-21568": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jjh1qlncfh359ls0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jjh1qlncfh359ls0.tar"
+    },
+    "matplotlib__matplotlib-22719": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_02e5kfpik7c4b5mn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_02e5kfpik7c4b5mn.tar"
+    },
+    "matplotlib__matplotlib-22865": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6l5598jisxmmywph",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6l5598jisxmmywph.tar"
+    },
+    "matplotlib__matplotlib-22871": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_netbyz6zjaekaz2j",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_netbyz6zjaekaz2j.tar"
+    },
+    "matplotlib__matplotlib-23299": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_h0qp9jll07q10hpe",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_h0qp9jll07q10hpe.tar"
+    },
+    "matplotlib__matplotlib-23314": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vu8f550jxsgee3g2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vu8f550jxsgee3g2.tar"
+    },
+    "matplotlib__matplotlib-23412": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1gsn3k6atm0omuca",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1gsn3k6atm0omuca.tar"
+    },
+    "matplotlib__matplotlib-23476": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_m1k6ovq0vv4abud2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_m1k6ovq0vv4abud2.tar"
+    },
+    "matplotlib__matplotlib-24026": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ec73ehp9yf1u909v",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ec73ehp9yf1u909v.tar"
+    },
+    "matplotlib__matplotlib-24149": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1mc6fopzgrsrg9hd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1mc6fopzgrsrg9hd.tar"
+    },
+    "matplotlib__matplotlib-24177": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_84ifndnweoetqcen",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_84ifndnweoetqcen.tar"
+    },
+    "matplotlib__matplotlib-24570": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_d0szfr3vzz0jfrmj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_d0szfr3vzz0jfrmj.tar"
+    },
+    "matplotlib__matplotlib-24627": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bnw4hci4s4c9y2i2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bnw4hci4s4c9y2i2.tar"
+    },
+    "matplotlib__matplotlib-24637": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_n9wjx6jbaueqwqc0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_n9wjx6jbaueqwqc0.tar"
+    },
+    "matplotlib__matplotlib-24870": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_g8olqapab2w2fyun",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_g8olqapab2w2fyun.tar"
+    },
+    "matplotlib__matplotlib-24970": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lcg3ktpivqjvsz8i",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lcg3ktpivqjvsz8i.tar"
+    },
+    "matplotlib__matplotlib-25122": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sj9kov5x2eso1k5m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sj9kov5x2eso1k5m.tar"
+    },
+    "matplotlib__matplotlib-25287": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_euhamoun03dkktn6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_euhamoun03dkktn6.tar"
+    },
+    "matplotlib__matplotlib-25311": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5ceaozm1kkrcahs4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5ceaozm1kkrcahs4.tar"
+    },
+    "matplotlib__matplotlib-25332": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_h3wtvs3lmt1889gx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_h3wtvs3lmt1889gx.tar"
+    },
+    "matplotlib__matplotlib-25479": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_o3hggm5fz3rjgetz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_o3hggm5fz3rjgetz.tar"
+    },
+    "matplotlib__matplotlib-25775": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qiax06jpl0nep62t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qiax06jpl0nep62t.tar"
+    },
+    "matplotlib__matplotlib-25960": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kugummphwcr4yr0i",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kugummphwcr4yr0i.tar"
+    },
+    "matplotlib__matplotlib-26113": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jy2sijk6vo7dl9l2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jy2sijk6vo7dl9l2.tar"
+    },
+    "matplotlib__matplotlib-26208": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_q2ckjwtaut0fu6x6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_q2ckjwtaut0fu6x6.tar"
+    },
+    "matplotlib__matplotlib-26291": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vtf9o5c1q1zwln2h",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vtf9o5c1q1zwln2h.tar"
+    },
+    "matplotlib__matplotlib-26342": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cydvbmeb6ibucgsi",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cydvbmeb6ibucgsi.tar"
+    },
+    "matplotlib__matplotlib-26466": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lg4nlmkn4g9hlluk",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lg4nlmkn4g9hlluk.tar"
+    },
+    "mwaskom__seaborn-3069": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xplt65m84hj5pnrg",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xplt65m84hj5pnrg.tar"
+    },
+    "mwaskom__seaborn-3187": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_o2lubd7y3wyk0otp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_o2lubd7y3wyk0otp.tar"
+    },
+    "pallets__flask-5014": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_j1shfeyoi37fi0f0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_j1shfeyoi37fi0f0.tar"
+    },
+    "psf__requests-1142": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_khnwgju48pyjdtuq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_khnwgju48pyjdtuq.tar"
+    },
+    "psf__requests-1724": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8nbyfztq0b2bhrzm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8nbyfztq0b2bhrzm.tar"
+    },
+    "psf__requests-1766": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_t14ugo3jl5fgg9hz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_t14ugo3jl5fgg9hz.tar"
+    },
+    "psf__requests-1921": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_gqlx6svi0w33ze6c",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_gqlx6svi0w33ze6c.tar"
+    },
+    "psf__requests-2317": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_d5m7c3ul31egi43m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_d5m7c3ul31egi43m.tar"
+    },
+    "psf__requests-2931": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_89vno3po67reilnz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_89vno3po67reilnz.tar"
+    },
+    "psf__requests-5414": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_d9w2p4zy55p1yuw9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_d9w2p4zy55p1yuw9.tar"
+    },
+    "psf__requests-6028": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fb4pgaa5nufibzbp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fb4pgaa5nufibzbp.tar"
+    },
+    "pydata__xarray-2905": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mtqlf67l8qrf07b3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mtqlf67l8qrf07b3.tar"
+    },
+    "pydata__xarray-3095": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mz2g45b6f3jzupkq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mz2g45b6f3jzupkq.tar"
+    },
+    "pydata__xarray-3151": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9me1zth4di1mhx5y",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9me1zth4di1mhx5y.tar"
+    },
+    "pydata__xarray-3305": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3jogwdgj18p7idlk",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3jogwdgj18p7idlk.tar"
+    },
+    "pydata__xarray-3677": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rtnafoz01xrrlqer",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rtnafoz01xrrlqer.tar"
+    },
+    "pydata__xarray-3993": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qh5cexof320v6vxs",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qh5cexof320v6vxs.tar"
+    },
+    "pydata__xarray-4075": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_n2q2u94hg2a48u1r",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_n2q2u94hg2a48u1r.tar"
+    },
+    "pydata__xarray-4094": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vwv3rncy7ft3i0fl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vwv3rncy7ft3i0fl.tar"
+    },
+    "pydata__xarray-4356": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_uhrnuqr1du8hjgga",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_uhrnuqr1du8hjgga.tar"
+    },
+    "pydata__xarray-4629": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kwgqw60cvhlsis40",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kwgqw60cvhlsis40.tar"
+    },
+    "pydata__xarray-4687": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rzglhl5nv2r05d3o",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rzglhl5nv2r05d3o.tar"
+    },
+    "pydata__xarray-4695": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ypy0q2bmuhsv1i57",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ypy0q2bmuhsv1i57.tar"
+    },
+    "pydata__xarray-4966": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_y3oesbjyat96xtgh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_y3oesbjyat96xtgh.tar"
+    },
+    "pydata__xarray-6461": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9o5iza56egg3ka9n",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9o5iza56egg3ka9n.tar"
+    },
+    "pydata__xarray-6599": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u6boylx55emgenso",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u6boylx55emgenso.tar"
+    },
+    "pydata__xarray-6721": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_pe2fx2rrbp6vjqhj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_pe2fx2rrbp6vjqhj.tar"
+    },
+    "pydata__xarray-6744": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_j0qjamr0t8np8ium",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_j0qjamr0t8np8ium.tar"
+    },
+    "pydata__xarray-6938": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6c45o9lri1xf6io1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6c45o9lri1xf6io1.tar"
+    },
+    "pydata__xarray-6992": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_i36y3fb4zamarums",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_i36y3fb4zamarums.tar"
+    },
+    "pydata__xarray-7229": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_e2xweeg5icdib6jc",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_e2xweeg5icdib6jc.tar"
+    },
+    "pydata__xarray-7233": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jy80e14yrklgateo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jy80e14yrklgateo.tar"
+    },
+    "pydata__xarray-7393": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0j9ug9r1bv2h9eyt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0j9ug9r1bv2h9eyt.tar"
+    },
+    "pylint-dev__pylint-4551": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_63hx419wkov908fa",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_63hx419wkov908fa.tar"
+    },
+    "pylint-dev__pylint-4604": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_v12d4b30s12knm1t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_v12d4b30s12knm1t.tar"
+    },
+    "pylint-dev__pylint-4661": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wsnpf691qh6s8tid",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wsnpf691qh6s8tid.tar"
+    },
+    "pylint-dev__pylint-4970": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_b11z4oeu9eznq3lm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_b11z4oeu9eznq3lm.tar"
+    },
+    "pylint-dev__pylint-6386": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_36doplzrzw1m8aez",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_36doplzrzw1m8aez.tar"
+    },
+    "pylint-dev__pylint-6528": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9e28ujp11dqli3ua",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9e28ujp11dqli3ua.tar"
+    },
+    "pylint-dev__pylint-6903": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_06fpnqwffw28m38f",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_06fpnqwffw28m38f.tar"
+    },
+    "pylint-dev__pylint-7080": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tid01junbhhgerx6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tid01junbhhgerx6.tar"
+    },
+    "pylint-dev__pylint-7277": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wiqtragzh6k669ex",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wiqtragzh6k669ex.tar"
+    },
+    "pylint-dev__pylint-8898": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lkf11kx63j0cvzqy",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lkf11kx63j0cvzqy.tar"
+    },
+    "pytest-dev__pytest-10051": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lwfkgv6ti34wpgl9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lwfkgv6ti34wpgl9.tar"
+    },
+    "pytest-dev__pytest-10081": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4xpfabuq0lyszx6e",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4xpfabuq0lyszx6e.tar"
+    },
+    "pytest-dev__pytest-10356": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ek89wnjrk1nbgcdj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ek89wnjrk1nbgcdj.tar"
+    },
+    "pytest-dev__pytest-5262": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_g8nrjnjhszh93w4z",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_g8nrjnjhszh93w4z.tar"
+    },
+    "pytest-dev__pytest-5631": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_a5d6wvfpztc4hg9x",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_a5d6wvfpztc4hg9x.tar"
+    },
+    "pytest-dev__pytest-5787": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_yka2dijltb5y9ytl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_yka2dijltb5y9ytl.tar"
+    },
+    "pytest-dev__pytest-5809": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_aykwf2oo823x6vt4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_aykwf2oo823x6vt4.tar"
+    },
+    "pytest-dev__pytest-5840": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xwf985au61s7w2hh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xwf985au61s7w2hh.tar"
+    },
+    "pytest-dev__pytest-6197": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_2kyulrg0xr33hnxy",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_2kyulrg0xr33hnxy.tar"
+    },
+    "pytest-dev__pytest-6202": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_r3bkvth1wagi0dpz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_r3bkvth1wagi0dpz.tar"
+    },
+    "pytest-dev__pytest-7205": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ctujxozwywzjpity",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ctujxozwywzjpity.tar"
+    },
+    "pytest-dev__pytest-7236": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fo1cfzbc0nls7hhd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fo1cfzbc0nls7hhd.tar"
+    },
+    "pytest-dev__pytest-7324": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_t0vtmt38n4pkwna9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_t0vtmt38n4pkwna9.tar"
+    },
+    "pytest-dev__pytest-7432": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4xtfxjcuqgrgx1kn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4xtfxjcuqgrgx1kn.tar"
+    },
+    "pytest-dev__pytest-7490": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3qm9meosfsm6e9rn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3qm9meosfsm6e9rn.tar"
+    },
+    "pytest-dev__pytest-7521": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_j4pxhavcx5fcgrkz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_j4pxhavcx5fcgrkz.tar"
+    },
+    "pytest-dev__pytest-7571": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5n2a1hhm0uuordya",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5n2a1hhm0uuordya.tar"
+    },
+    "pytest-dev__pytest-7982": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ldwv03amw6my6ctq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ldwv03amw6my6ctq.tar"
+    },
+    "pytest-dev__pytest-8399": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5z2avojharb89rii",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5z2avojharb89rii.tar"
+    },
+    "scikit-learn__scikit-learn-10297": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0c2h4oq8pa1y9do4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0c2h4oq8pa1y9do4.tar"
+    },
+    "scikit-learn__scikit-learn-10844": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_pgco9adp90psh3fb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_pgco9adp90psh3fb.tar"
+    },
+    "scikit-learn__scikit-learn-10908": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_pg1a6i1lyb8zn35l",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_pg1a6i1lyb8zn35l.tar"
+    },
+    "scikit-learn__scikit-learn-11310": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ht9figoh951joo5u",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ht9figoh951joo5u.tar"
+    },
+    "scikit-learn__scikit-learn-11578": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_h6m9etd5ra59596d",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_h6m9etd5ra59596d.tar"
+    },
+    "scikit-learn__scikit-learn-12585": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ioh64rgpu5dgedml",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ioh64rgpu5dgedml.tar"
+    },
+    "scikit-learn__scikit-learn-12682": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_691gm6ghq5v5ddkh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_691gm6ghq5v5ddkh.tar"
+    },
+    "scikit-learn__scikit-learn-12973": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wkw6ntht3j5buun4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wkw6ntht3j5buun4.tar"
+    },
+    "scikit-learn__scikit-learn-13124": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_alcwah8kiq6aqmbc",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_alcwah8kiq6aqmbc.tar"
+    },
+    "scikit-learn__scikit-learn-13135": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_73ednurju8qxelqf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_73ednurju8qxelqf.tar"
+    },
+    "scikit-learn__scikit-learn-13142": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_pzp8ooueqtqa125r",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_pzp8ooueqtqa125r.tar"
+    },
+    "scikit-learn__scikit-learn-13328": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0x7jsann8zqx1uow",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0x7jsann8zqx1uow.tar"
+    },
+    "scikit-learn__scikit-learn-13439": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_r7j9y8eoud73hgdy",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_r7j9y8eoud73hgdy.tar"
+    },
+    "scikit-learn__scikit-learn-13496": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hng7nvm7mey0plgw",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hng7nvm7mey0plgw.tar"
+    },
+    "scikit-learn__scikit-learn-13779": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_a3s6nj01kdw8329d",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_a3s6nj01kdw8329d.tar"
+    },
+    "scikit-learn__scikit-learn-14053": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hqf9bqozczdposzg",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hqf9bqozczdposzg.tar"
+    },
+    "scikit-learn__scikit-learn-14087": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_123rohqvnlbdtmbt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_123rohqvnlbdtmbt.tar"
+    },
+    "scikit-learn__scikit-learn-14141": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_2epv7gw1j0i6nqcl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_2epv7gw1j0i6nqcl.tar"
+    },
+    "scikit-learn__scikit-learn-14496": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lg5gztwer29y31ph",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lg5gztwer29y31ph.tar"
+    },
+    "scikit-learn__scikit-learn-14629": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_2d1iew34fgr8av1v",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_2d1iew34fgr8av1v.tar"
+    },
+    "scikit-learn__scikit-learn-14710": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lz3vr1sm48s193zo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lz3vr1sm48s193zo.tar"
+    },
+    "scikit-learn__scikit-learn-14894": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cmjvl5ur7ldu3s1j",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cmjvl5ur7ldu3s1j.tar"
+    },
+    "scikit-learn__scikit-learn-14983": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ou7ufaj2n30fc36t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ou7ufaj2n30fc36t.tar"
+    },
+    "scikit-learn__scikit-learn-15100": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ptes0a8s127d0zb4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ptes0a8s127d0zb4.tar"
+    },
+    "scikit-learn__scikit-learn-25102": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4bq01h34fzas8ca2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4bq01h34fzas8ca2.tar"
+    },
+    "scikit-learn__scikit-learn-25232": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_m0flefqz1yfbm512",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_m0flefqz1yfbm512.tar"
+    },
+    "scikit-learn__scikit-learn-25747": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_54umhxtdj5pfgpti",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_54umhxtdj5pfgpti.tar"
+    },
+    "scikit-learn__scikit-learn-25931": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_70onrplor3ld9xgb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_70onrplor3ld9xgb.tar"
+    },
+    "scikit-learn__scikit-learn-25973": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sc03zxmhgo6wrr8n",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sc03zxmhgo6wrr8n.tar"
+    },
+    "scikit-learn__scikit-learn-26194": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1x5ydsn7ab2zdsqr",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1x5ydsn7ab2zdsqr.tar"
+    },
+    "scikit-learn__scikit-learn-26323": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_338aw3ixcejc2cn6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_338aw3ixcejc2cn6.tar"
+    },
+    "scikit-learn__scikit-learn-9288": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fvzx5lqmh6hyd122",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fvzx5lqmh6hyd122.tar"
+    },
+    "sphinx-doc__sphinx-10323": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_trucn4crt8rlt2u8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_trucn4crt8rlt2u8.tar"
+    },
+    "sphinx-doc__sphinx-10435": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_li2xa6adhn2e7082",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_li2xa6adhn2e7082.tar"
+    },
+    "sphinx-doc__sphinx-10449": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_smfwhe02jtzquppx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_smfwhe02jtzquppx.tar"
+    },
+    "sphinx-doc__sphinx-10466": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_l962e07x4er0bm0v",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_l962e07x4er0bm0v.tar"
+    },
+    "sphinx-doc__sphinx-10614": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wiqvmrfg2p3nomee",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wiqvmrfg2p3nomee.tar"
+    },
+    "sphinx-doc__sphinx-10673": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ltrjb5psyh4e0yqs",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ltrjb5psyh4e0yqs.tar"
+    },
+    "sphinx-doc__sphinx-11445": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_r9hhoq2bwuiqs6qb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_r9hhoq2bwuiqs6qb.tar"
+    },
+    "sphinx-doc__sphinx-11510": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_y2f35aqulkh2dp1y",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_y2f35aqulkh2dp1y.tar"
+    },
+    "sphinx-doc__sphinx-7440": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_au3owernt5y2qql4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_au3owernt5y2qql4.tar"
+    },
+    "sphinx-doc__sphinx-7454": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lbmhpets2lensemn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lbmhpets2lensemn.tar"
+    },
+    "sphinx-doc__sphinx-7462": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5fj21vf7o0e2bjio",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5fj21vf7o0e2bjio.tar"
+    },
+    "sphinx-doc__sphinx-7590": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tsgff59xczy4qb5s",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tsgff59xczy4qb5s.tar"
+    },
+    "sphinx-doc__sphinx-7748": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ghb6a0mpgh9twqxx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ghb6a0mpgh9twqxx.tar"
+    },
+    "sphinx-doc__sphinx-7757": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_35atu5gq0l2qt31n",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_35atu5gq0l2qt31n.tar"
+    },
+    "sphinx-doc__sphinx-7889": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kct957t6hkft89by",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kct957t6hkft89by.tar"
+    },
+    "sphinx-doc__sphinx-7910": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4j4qlhh4trr3g6ud",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4j4qlhh4trr3g6ud.tar"
+    },
+    "sphinx-doc__sphinx-7985": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_15sri52mwjg08pek",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_15sri52mwjg08pek.tar"
+    },
+    "sphinx-doc__sphinx-8035": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ig41ul1krqizqj34",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ig41ul1krqizqj34.tar"
+    },
+    "sphinx-doc__sphinx-8056": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jks7ejrobnt67evp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jks7ejrobnt67evp.tar"
+    },
+    "sphinx-doc__sphinx-8120": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bdtf1zx91lkqrs8h",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bdtf1zx91lkqrs8h.tar"
+    },
+    "sphinx-doc__sphinx-8265": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5t5efhtycsrgtbeq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5t5efhtycsrgtbeq.tar"
+    },
+    "sphinx-doc__sphinx-8269": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_k1c9n50d6dh3qzry",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_k1c9n50d6dh3qzry.tar"
+    },
+    "sphinx-doc__sphinx-8459": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jirhdw67b77wier9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jirhdw67b77wier9.tar"
+    },
+    "sphinx-doc__sphinx-8475": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_dho0e4ljlps6e0ap",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_dho0e4ljlps6e0ap.tar"
+    },
+    "sphinx-doc__sphinx-8548": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_76z9d4a0x45ie798",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_76z9d4a0x45ie798.tar"
+    },
+    "sphinx-doc__sphinx-8551": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8x3y7l8kmnwn3jnv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8x3y7l8kmnwn3jnv.tar"
+    },
+    "sphinx-doc__sphinx-8593": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_r4eau6n7o2heyj9t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_r4eau6n7o2heyj9t.tar"
+    },
+    "sphinx-doc__sphinx-8595": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fm41q1h732xfddem",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fm41q1h732xfddem.tar"
+    },
+    "sphinx-doc__sphinx-8621": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mcjtiu06dfy4whnq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mcjtiu06dfy4whnq.tar"
+    },
+    "sphinx-doc__sphinx-8638": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jeuwo9ijnhbl10f2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jeuwo9ijnhbl10f2.tar"
+    },
+    "sphinx-doc__sphinx-8721": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xc0ca0slbxczww26",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xc0ca0slbxczww26.tar"
+    },
+    "sphinx-doc__sphinx-9229": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_a5dvbqy0hdrmlrh3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_a5dvbqy0hdrmlrh3.tar"
+    },
+    "sphinx-doc__sphinx-9230": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6jk7q9iemw4bahn0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6jk7q9iemw4bahn0.tar"
+    },
+    "sphinx-doc__sphinx-9258": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fzyt2s4kdyogn3f8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fzyt2s4kdyogn3f8.tar"
+    },
+    "sphinx-doc__sphinx-9281": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ji9ewe8npu5j94ee",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ji9ewe8npu5j94ee.tar"
+    },
+    "sphinx-doc__sphinx-9320": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ojqd1ycj2vn64snu",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ojqd1ycj2vn64snu.tar"
+    },
+    "sphinx-doc__sphinx-9367": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_7qhuo0ylter3jqxn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_7qhuo0ylter3jqxn.tar"
+    },
+    "sphinx-doc__sphinx-9461": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rz5nxdw86g5m5d5i",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rz5nxdw86g5m5d5i.tar"
+    },
+    "sphinx-doc__sphinx-9591": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5gyjdeebloc9tfs2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5gyjdeebloc9tfs2.tar"
+    },
+    "sphinx-doc__sphinx-9602": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_t57harep9kyvvldz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_t57harep9kyvvldz.tar"
+    },
+    "sphinx-doc__sphinx-9658": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_b6lloddv17evwvxp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_b6lloddv17evwvxp.tar"
+    },
+    "sphinx-doc__sphinx-9673": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_g9h0cwi4rsyqhwtp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_g9h0cwi4rsyqhwtp.tar"
+    },
+    "sphinx-doc__sphinx-9698": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_x8em89o0q2ky1afn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_x8em89o0q2ky1afn.tar"
+    },
+    "sphinx-doc__sphinx-9711": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8sgxzefocr1m6zdl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8sgxzefocr1m6zdl.tar"
+    },
+    "sympy__sympy-11618": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3qph4ch86iaq83ip",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3qph4ch86iaq83ip.tar"
+    },
+    "sympy__sympy-12096": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_7pkjhsqp5w0ocebd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_7pkjhsqp5w0ocebd.tar"
+    },
+    "sympy__sympy-12419": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_gpp0ij2ihq4trynb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_gpp0ij2ihq4trynb.tar"
+    },
+    "sympy__sympy-12481": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rqu6ws5yk423bki7",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rqu6ws5yk423bki7.tar"
+    },
+    "sympy__sympy-12489": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_19byr1u2uy7lzi54",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_19byr1u2uy7lzi54.tar"
+    },
+    "sympy__sympy-13031": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5b92zwyks6a1gd0y",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5b92zwyks6a1gd0y.tar"
+    },
+    "sympy__sympy-13091": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9o1jt9fgh98heebx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9o1jt9fgh98heebx.tar"
+    },
+    "sympy__sympy-13372": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_dz6rcyj0h3jbeojf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_dz6rcyj0h3jbeojf.tar"
+    },
+    "sympy__sympy-13480": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_dt18dkj0v257usji",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_dt18dkj0v257usji.tar"
+    },
+    "sympy__sympy-13551": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0l1qs640wqlckjgf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0l1qs640wqlckjgf.tar"
+    },
+    "sympy__sympy-13615": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_e0t90rxi5552otbt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_e0t90rxi5552otbt.tar"
+    },
+    "sympy__sympy-13647": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u6ggzrmq8y0d11s8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u6ggzrmq8y0d11s8.tar"
+    },
+    "sympy__sympy-13757": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mb91c9cdt2xsn7v7",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mb91c9cdt2xsn7v7.tar"
+    },
+    "sympy__sympy-13798": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_p2owhvqla1myglx2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_p2owhvqla1myglx2.tar"
+    },
+    "sympy__sympy-13852": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_abrulf9vz65xl0cx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_abrulf9vz65xl0cx.tar"
+    },
+    "sympy__sympy-13877": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5jeryp18twjuyw55",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5jeryp18twjuyw55.tar"
+    },
+    "sympy__sympy-13878": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rr7zq68ijwu9fx58",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rr7zq68ijwu9fx58.tar"
+    },
+    "sympy__sympy-13974": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qgcob5e5mu84zgfx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qgcob5e5mu84zgfx.tar"
+    },
+    "sympy__sympy-14248": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_c6ueiywdgscryrpv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_c6ueiywdgscryrpv.tar"
+    },
+    "sympy__sympy-14531": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_g4sjnnbroti8k0qb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_g4sjnnbroti8k0qb.tar"
+    },
+    "sympy__sympy-14711": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0a7ay5bnv60z3gvm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0a7ay5bnv60z3gvm.tar"
+    },
+    "sympy__sympy-14976": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fpdgu0y2hox8m2nx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fpdgu0y2hox8m2nx.tar"
+    },
+    "sympy__sympy-15017": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vbq9wirhe8q6vcfd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vbq9wirhe8q6vcfd.tar"
+    },
+    "sympy__sympy-15345": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mle7vt684q5rqhh7",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mle7vt684q5rqhh7.tar"
+    },
+    "sympy__sympy-15349": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rhbf7ykgaq75gsxd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rhbf7ykgaq75gsxd.tar"
+    },
+    "sympy__sympy-15599": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_w8m17b1wbmm4ye4l",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_w8m17b1wbmm4ye4l.tar"
+    },
+    "sympy__sympy-15809": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9f4nfopeyzrjkjhp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9f4nfopeyzrjkjhp.tar"
+    },
+    "sympy__sympy-15875": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sjtkid57yffi6bmg",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sjtkid57yffi6bmg.tar"
+    },
+    "sympy__sympy-15976": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ztnkor133nqmjipx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ztnkor133nqmjipx.tar"
+    },
+    "sympy__sympy-16450": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cfugqboph58kqaqt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cfugqboph58kqaqt.tar"
+    },
+    "sympy__sympy-16597": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zmj5eln8vztg1aut",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zmj5eln8vztg1aut.tar"
+    },
+    "sympy__sympy-16766": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_y5tycfaz1re4vyol",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_y5tycfaz1re4vyol.tar"
+    },
+    "sympy__sympy-16792": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_d0upbwqk08xr40bs",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_d0upbwqk08xr40bs.tar"
+    },
+    "sympy__sympy-16886": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cvei34zmvdzk7h5d",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cvei34zmvdzk7h5d.tar"
+    },
+    "sympy__sympy-17139": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tqf9030437vom8zx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tqf9030437vom8zx.tar"
+    },
+    "sympy__sympy-17318": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_l6dkc7ccrwc1ojo3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_l6dkc7ccrwc1ojo3.tar"
+    },
+    "sympy__sympy-17630": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ewzoi4i97mo056m3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ewzoi4i97mo056m3.tar"
+    },
+    "sympy__sympy-17655": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qrvr4lcovycou0be",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qrvr4lcovycou0be.tar"
+    },
+    "sympy__sympy-18189": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rjdbb78krz5s4giv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rjdbb78krz5s4giv.tar"
+    },
+    "sympy__sympy-18199": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u24pr4ywdvfr4z4j",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u24pr4ywdvfr4z4j.tar"
+    },
+    "sympy__sympy-18211": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9ewi2alrw0rj91cv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9ewi2alrw0rj91cv.tar"
+    },
+    "sympy__sympy-18698": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vh71cnb3aanoi3e5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vh71cnb3aanoi3e5.tar"
+    },
+    "sympy__sympy-18763": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ws9y31tyzh56mq15",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ws9y31tyzh56mq15.tar"
+    },
+    "sympy__sympy-19040": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1nfy5mtqdxsin85b",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1nfy5mtqdxsin85b.tar"
+    },
+    "sympy__sympy-19346": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wlbka74tfzscole1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wlbka74tfzscole1.tar"
+    },
+    "sympy__sympy-19495": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_2o1tyrnqld7nsh6x",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_2o1tyrnqld7nsh6x.tar"
+    },
+    "sympy__sympy-19637": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3hzw6d35ueqxv4sv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3hzw6d35ueqxv4sv.tar"
+    },
+    "sympy__sympy-19783": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_o99uwkiqc3jswvcm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_o99uwkiqc3jswvcm.tar"
+    },
+    "sympy__sympy-19954": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_z2umx7qgw6t5cl08",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_z2umx7qgw6t5cl08.tar"
+    },
+    "sympy__sympy-20154": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cvksozysk19li190",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cvksozysk19li190.tar"
+    },
+    "sympy__sympy-20428": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_avm0meeq9uvvzefy",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_avm0meeq9uvvzefy.tar"
+    },
+    "sympy__sympy-20438": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_pcmjsh0uhs6qw4gf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_pcmjsh0uhs6qw4gf.tar"
+    },
+    "sympy__sympy-20590": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zhzdglkogyeista0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zhzdglkogyeista0.tar"
+    },
+    "sympy__sympy-20801": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6479ys7m6w21ykx9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6479ys7m6w21ykx9.tar"
+    },
+    "sympy__sympy-20916": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_w3cfo4oms3sa5bgr",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_w3cfo4oms3sa5bgr.tar"
+    },
+    "sympy__sympy-21379": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_t9zk717aoa7zjatz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_t9zk717aoa7zjatz.tar"
+    },
+    "sympy__sympy-21596": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rq5qr4d71kxjaf5j",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rq5qr4d71kxjaf5j.tar"
+    },
+    "sympy__sympy-21612": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ter8s8fwmyhg7dl9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ter8s8fwmyhg7dl9.tar"
+    },
+    "sympy__sympy-21847": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qkjrwk966mostjvo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qkjrwk966mostjvo.tar"
+    },
+    "sympy__sympy-21930": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_t2bilf3rj9gsbhn8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_t2bilf3rj9gsbhn8.tar"
+    },
+    "sympy__sympy-22080": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9tfl0b3h84sjicll",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9tfl0b3h84sjicll.tar"
+    },
+    "sympy__sympy-22456": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_b1an7jn0ztq8udo8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_b1an7jn0ztq8udo8.tar"
+    },
+    "sympy__sympy-22714": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tpi0l8wwg2vurl6t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tpi0l8wwg2vurl6t.tar"
+    },
+    "sympy__sympy-22914": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cy9mupr13rzctwml",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cy9mupr13rzctwml.tar"
+    },
+    "sympy__sympy-23262": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_m1h5hvniua1p1rso",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_m1h5hvniua1p1rso.tar"
+    },
+    "sympy__sympy-23413": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fcp9zjv56skfbcfu",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fcp9zjv56skfbcfu.tar"
+    },
+    "sympy__sympy-23534": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_q92n8mjx3vgr7d0s",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_q92n8mjx3vgr7d0s.tar"
+    },
+    "sympy__sympy-23824": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9iaagyexobih5zkn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9iaagyexobih5zkn.tar"
+    },
+    "sympy__sympy-23950": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_29zbsq962iel3zo6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_29zbsq962iel3zo6.tar"
+    },
+    "sympy__sympy-24066": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zvi1vr2pv49bv45w",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zvi1vr2pv49bv45w.tar"
+    },
+    "sympy__sympy-24213": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6ausnor0d9d2irey",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6ausnor0d9d2irey.tar"
+    },
+    "sympy__sympy-24443": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6f014ylxzga9io6q",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6f014ylxzga9io6q.tar"
+    },
+    "sympy__sympy-24539": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_swg895710hkdadnp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_swg895710hkdadnp.tar"
+    },
+    "sympy__sympy-24562": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hvr5qeyqgragyrtt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hvr5qeyqgragyrtt.tar"
+    },
+    "sympy__sympy-24661": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ub21irdrhj15hp65",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ub21irdrhj15hp65.tar"
+    },
+    "astropy__astropy-6938": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ggmnjizdq08crt5t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ggmnjizdq08crt5t.tar"
+    },
+    "astropy__astropy-7746": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_76v79j7xjmiux45d",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_76v79j7xjmiux45d.tar"
+    },
+    "django__django-10924": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9y3s36y1cciwagom",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9y3s36y1cciwagom.tar"
+    },
+    "django__django-11001": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_h0970nnd7j9iky6k",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_h0970nnd7j9iky6k.tar"
+    },
+    "django__django-11019": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_k0aa4uo1vbbemkb9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_k0aa4uo1vbbemkb9.tar"
+    },
+    "django__django-11039": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ossvu8qo06slb3jv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ossvu8qo06slb3jv.tar"
+    },
+    "django__django-11049": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ufqp2vj0nkpb7zb6",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ufqp2vj0nkpb7zb6.tar"
+    },
+    "django__django-11283": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9ui6o9ozd2aj6b68",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9ui6o9ozd2aj6b68.tar"
+    },
+    "django__django-11422": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_o098hiqv6579921t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_o098hiqv6579921t.tar"
+    },
+    "django__django-11564": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kj9ogbm3529kusel",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kj9ogbm3529kusel.tar"
+    },
+    "django__django-11583": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1l829ek9b6kx954t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1l829ek9b6kx954t.tar"
+    },
+    "django__django-11620": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fsi48wgmchqu8yh1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fsi48wgmchqu8yh1.tar"
+    },
+    "django__django-11630": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kdunte50aywqfso4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kdunte50aywqfso4.tar"
+    },
+    "django__django-11742": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6lwryvmoby9248iv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6lwryvmoby9248iv.tar"
+    },
+    "django__django-11797": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_uhp8m6mikb08qxwf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_uhp8m6mikb08qxwf.tar"
+    },
+    "django__django-11905": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_m01yl9t6wrkygfi2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_m01yl9t6wrkygfi2.tar"
+    },
+    "django__django-11910": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vtywaf6xxiyshb02",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vtywaf6xxiyshb02.tar"
+    },
+    "django__django-12113": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1c45hroyfo7qeox8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1c45hroyfo7qeox8.tar"
+    },
+    "django__django-12184": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4fqcccgvqyfqxm3t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4fqcccgvqyfqxm3t.tar"
+    },
+    "django__django-12284": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_oa13xsemsjt1cb0a",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_oa13xsemsjt1cb0a.tar"
+    },
+    "django__django-12286": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zxl10ijj1pwxr5iw",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zxl10ijj1pwxr5iw.tar"
+    },
+    "django__django-12453": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_m1m2bhbirpoeppki",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_m1m2bhbirpoeppki.tar"
+    },
+    "django__django-12470": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ta984maasvjvzdp4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ta984maasvjvzdp4.tar"
+    },
+    "django__django-12497": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_prmu3y94vrq4vl8k",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_prmu3y94vrq4vl8k.tar"
+    },
+    "django__django-12589": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_la7t4lkbbcxdbkzc",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_la7t4lkbbcxdbkzc.tar"
+    },
+    "django__django-12700": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ia3fr4r5cfsltmid",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ia3fr4r5cfsltmid.tar"
+    },
+    "django__django-12747": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cj4o9hjk3hi258jd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cj4o9hjk3hi258jd.tar"
+    },
+    "django__django-12856": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_utud1978h7z5xk5z",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_utud1978h7z5xk5z.tar"
+    },
+    "django__django-12908": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_to105xa3hhzortjs",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_to105xa3hhzortjs.tar"
+    },
+    "django__django-12915": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_w60s5plgb0ptat7t",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_w60s5plgb0ptat7t.tar"
+    },
+    "django__django-12983": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_urb1cvxmlxf1ptfj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_urb1cvxmlxf1ptfj.tar"
+    },
+    "django__django-13220": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_h4zrxh3jzhxnwkdu",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_h4zrxh3jzhxnwkdu.tar"
+    },
+    "django__django-13230": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fzfh08k9jzoeqrbl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fzfh08k9jzoeqrbl.tar"
+    },
+    "django__django-13265": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_nha127q98lshp9g3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_nha127q98lshp9g3.tar"
+    },
+    "django__django-13321": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_oesx5b7r5opi3w7u",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_oesx5b7r5opi3w7u.tar"
+    },
+    "django__django-13447": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_25lazq2kt2g2rx4h",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_25lazq2kt2g2rx4h.tar"
+    },
+    "django__django-13448": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ro3g84ggg84oxo50",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ro3g84ggg84oxo50.tar"
+    },
+    "django__django-13660": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_78kgjnirr3exbz9n",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_78kgjnirr3exbz9n.tar"
+    },
+    "django__django-13710": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_oooxxyms4myjev7a",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_oooxxyms4myjev7a.tar"
+    },
+    "django__django-13757": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fk1ib2mecco3cfj2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fk1ib2mecco3cfj2.tar"
+    },
+    "django__django-13768": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_n3c0045wgu3cpfkn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_n3c0045wgu3cpfkn.tar"
+    },
+    "django__django-14016": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ete1223fsxfkwl3c",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ete1223fsxfkwl3c.tar"
+    },
+    "django__django-14382": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1igfm773e9jdh9xu",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1igfm773e9jdh9xu.tar"
+    },
+    "django__django-14411": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fv6ra3ozcu8fb9ea",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fv6ra3ozcu8fb9ea.tar"
+    },
+    "django__django-14667": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qy6q9e7zmagcssw0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qy6q9e7zmagcssw0.tar"
+    },
+    "django__django-14730": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_newibn54z1n153qo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_newibn54z1n153qo.tar"
+    },
+    "django__django-14997": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ah1pllbivtjvkzvt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ah1pllbivtjvkzvt.tar"
+    },
+    "django__django-15061": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_dv76w4zgmdxrrj6b",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_dv76w4zgmdxrrj6b.tar"
+    },
+    "django__django-15202": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_39lkmgds7iickiaz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_39lkmgds7iickiaz.tar"
+    },
+    "django__django-15213": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_obo3hfkm3vezm8bh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_obo3hfkm3vezm8bh.tar"
+    },
+    "django__django-15320": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sxz3nkfa6s4pbdfo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sxz3nkfa6s4pbdfo.tar"
+    },
+    "django__django-15347": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wz57s4uitfwhsorm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wz57s4uitfwhsorm.tar"
+    },
+    "django__django-15388": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8e15hn6768opiorl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8e15hn6768opiorl.tar"
+    },
+    "django__django-15400": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lhtivexul4boe0mz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lhtivexul4boe0mz.tar"
+    },
+    "django__django-15498": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5czkcj9v7pairp2o",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5czkcj9v7pairp2o.tar"
+    },
+    "django__django-15738": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ye5an7zzmia1qt7x",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ye5an7zzmia1qt7x.tar"
+    },
+    "django__django-15781": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mou3280hz8tbgx0v",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mou3280hz8tbgx0v.tar"
+    },
+    "django__django-15789": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_e6ooayv2hfc0q0ny",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_e6ooayv2hfc0q0ny.tar"
+    },
+    "django__django-15790": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8evnoa6rpd9r9152",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8evnoa6rpd9r9152.tar"
+    },
+    "django__django-15819": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_xwxi05wk1a22hmv9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_xwxi05wk1a22hmv9.tar"
+    },
+    "django__django-15902": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rwg0le1y6y3v7fu2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rwg0le1y6y3v7fu2.tar"
+    },
+    "django__django-15996": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4ibu0qjv2doug4o4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4ibu0qjv2doug4o4.tar"
+    },
+    "django__django-16041": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_i39vdo7r9ldimndr",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_i39vdo7r9ldimndr.tar"
+    },
+    "django__django-16046": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bobwp6rg0hjv0e6c",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bobwp6rg0hjv0e6c.tar"
+    },
+    "django__django-16229": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_g072e9q82h9dzv7j",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_g072e9q82h9dzv7j.tar"
+    },
+    "django__django-16379": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_gtrm5vubz7udmkzb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_gtrm5vubz7udmkzb.tar"
+    },
+    "django__django-16400": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_palzklmza3xvd4ns",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_palzklmza3xvd4ns.tar"
+    },
+    "django__django-16408": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_75dwbrvacd69flq3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_75dwbrvacd69flq3.tar"
+    },
+    "django__django-16816": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qp2cokhbq32049xo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qp2cokhbq32049xo.tar"
+    },
+    "django__django-16820": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ofa7fhcn0g38nesb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ofa7fhcn0g38nesb.tar"
+    },
+    "django__django-16873": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_s2orn4iku9lefe18",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_s2orn4iku9lefe18.tar"
+    },
+    "django__django-16910": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ljbteszm0itjjxlv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ljbteszm0itjjxlv.tar"
+    },
+    "django__django-17051": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qyv1csd3z29yfwos",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qyv1csd3z29yfwos.tar"
+    },
+    "matplotlib__matplotlib-18869": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ahdu9grm7vxkz8cw",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ahdu9grm7vxkz8cw.tar"
+    },
+    "matplotlib__matplotlib-22711": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_oohlt28bda0fhaeb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_oohlt28bda0fhaeb.tar"
+    },
+    "matplotlib__matplotlib-22835": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lxscco6e39yjrte5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lxscco6e39yjrte5.tar"
+    },
+    "matplotlib__matplotlib-23562": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4ejzjpl7obotmt5q",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4ejzjpl7obotmt5q.tar"
+    },
+    "matplotlib__matplotlib-23563": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fqxskixkbh4b0814",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fqxskixkbh4b0814.tar"
+    },
+    "matplotlib__matplotlib-23913": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_84muxzavdjmqx9jm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_84muxzavdjmqx9jm.tar"
+    },
+    "matplotlib__matplotlib-23964": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_s85dzz3efsgtlwkr",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_s85dzz3efsgtlwkr.tar"
+    },
+    "matplotlib__matplotlib-23987": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_d44nat453s6ci8c9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_d44nat453s6ci8c9.tar"
+    },
+    "matplotlib__matplotlib-24265": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_thn1i0saiycpjmk4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_thn1i0saiycpjmk4.tar"
+    },
+    "matplotlib__matplotlib-24334": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9l3g2s9rjfdkycnn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9l3g2s9rjfdkycnn.tar"
+    },
+    "matplotlib__matplotlib-25079": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_c5b9guvxkg3lfzqd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_c5b9guvxkg3lfzqd.tar"
+    },
+    "matplotlib__matplotlib-25433": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sj0hkgnbg3kfht08",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sj0hkgnbg3kfht08.tar"
+    },
+    "matplotlib__matplotlib-25442": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_b1ncneo9091sgicl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_b1ncneo9091sgicl.tar"
+    },
+    "matplotlib__matplotlib-25498": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_knr8unk9foal4jk5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_knr8unk9foal4jk5.tar"
+    },
+    "matplotlib__matplotlib-26011": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0yd2hvihiemn820q",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0yd2hvihiemn820q.tar"
+    },
+    "matplotlib__matplotlib-26020": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ec8r5j9rkhb518zq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ec8r5j9rkhb518zq.tar"
+    },
+    "mwaskom__seaborn-2848": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wf7s96urbgcx5ud4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wf7s96urbgcx5ud4.tar"
+    },
+    "mwaskom__seaborn-3010": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_be7paohajee1nhp1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_be7paohajee1nhp1.tar"
+    },
+    "mwaskom__seaborn-3190": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_c1pwhcpzkv1dok3i",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_c1pwhcpzkv1dok3i.tar"
+    },
+    "mwaskom__seaborn-3407": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_gf48a1o26jk7xr5e",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_gf48a1o26jk7xr5e.tar"
+    },
+    "pallets__flask-4045": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_geisq59lbte0t01i",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_geisq59lbte0t01i.tar"
+    },
+    "pallets__flask-4992": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ifbxy52q9sf1xskp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ifbxy52q9sf1xskp.tar"
+    },
+    "pallets__flask-5063": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ehayap1doqt5nwmp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ehayap1doqt5nwmp.tar"
+    },
+    "psf__requests-1963": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bgghcetu9ygtlpcv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bgghcetu9ygtlpcv.tar"
+    },
+    "psf__requests-2148": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8ohphdylnx29by4m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8ohphdylnx29by4m.tar"
+    },
+    "psf__requests-2674": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_bdy7kstkldg3t659",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_bdy7kstkldg3t659.tar"
+    },
+    "psf__requests-3362": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cz2kd9fn80i4ovag",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cz2kd9fn80i4ovag.tar"
+    },
+    "psf__requests-863": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_qp0vspfp20sg38fk",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_qp0vspfp20sg38fk.tar"
+    },
+    "pydata__xarray-3364": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zok1q17iur9p4z8o",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zok1q17iur9p4z8o.tar"
+    },
+    "pydata__xarray-4248": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9qyj44vh4dordwmh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9qyj44vh4dordwmh.tar"
+    },
+    "pydata__xarray-4493": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_yz98heuae259hr80",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_yz98heuae259hr80.tar"
+    },
+    "pydata__xarray-5131": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_k11soksquo8gi3cs",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_k11soksquo8gi3cs.tar"
+    },
+    "pylint-dev__pylint-5859": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vbopnb78cgngfxie",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vbopnb78cgngfxie.tar"
+    },
+    "pylint-dev__pylint-6506": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_87kh9lqjjq9wc65l",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_87kh9lqjjq9wc65l.tar"
+    },
+    "pylint-dev__pylint-7114": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1wuuf1diqmp3v5ix",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1wuuf1diqmp3v5ix.tar"
+    },
+    "pylint-dev__pylint-7228": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ud9u6e9jwgxw28f7",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ud9u6e9jwgxw28f7.tar"
+    },
+    "pylint-dev__pylint-7993": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lf8jie4tzod920ic",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lf8jie4tzod920ic.tar"
+    },
+    "pytest-dev__pytest-11143": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_r333n8y6b6rdujzd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_r333n8y6b6rdujzd.tar"
+    },
+    "pytest-dev__pytest-11148": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sr6pjvs0iw1bc8yp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sr6pjvs0iw1bc8yp.tar"
+    },
+    "pytest-dev__pytest-5103": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_eq21nuoplbqpt2wq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_eq21nuoplbqpt2wq.tar"
+    },
+    "pytest-dev__pytest-5221": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3kxu3cueib0p7r7x",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3kxu3cueib0p7r7x.tar"
+    },
+    "pytest-dev__pytest-5227": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_j0i4dxgj33tsmmir",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_j0i4dxgj33tsmmir.tar"
+    },
+    "pytest-dev__pytest-5413": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_b7jr39271rubokpq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_b7jr39271rubokpq.tar"
+    },
+    "pytest-dev__pytest-5495": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_y2kwjzxyuhvbf0ny",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_y2kwjzxyuhvbf0ny.tar"
+    },
+    "pytest-dev__pytest-5692": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_fdb2gcnp2pcigaog",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_fdb2gcnp2pcigaog.tar"
+    },
+    "pytest-dev__pytest-6116": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6n7x9d1o0mlb1lec",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6n7x9d1o0mlb1lec.tar"
+    },
+    "pytest-dev__pytest-7168": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_l20jievw4tmupxyh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_l20jievw4tmupxyh.tar"
+    },
+    "pytest-dev__pytest-7220": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u69jr0r7jlpowlx8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u69jr0r7jlpowlx8.tar"
+    },
+    "pytest-dev__pytest-7373": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4kspfoigi6bkyn8e",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4kspfoigi6bkyn8e.tar"
+    },
+    "pytest-dev__pytest-8365": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_z0b3ve7dkzpeignp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_z0b3ve7dkzpeignp.tar"
+    },
+    "pytest-dev__pytest-8906": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_txsm65wowfjnicxd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_txsm65wowfjnicxd.tar"
+    },
+    "pytest-dev__pytest-9359": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_l924di4t5n7cusqn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_l924di4t5n7cusqn.tar"
+    },
+    "scikit-learn__scikit-learn-10508": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_e45ntmgqsplrpgmt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_e45ntmgqsplrpgmt.tar"
+    },
+    "scikit-learn__scikit-learn-10949": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sc7cxa4p8lqdk0ni",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sc7cxa4p8lqdk0ni.tar"
+    },
+    "scikit-learn__scikit-learn-11040": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_twpkfzhpmjescvuq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_twpkfzhpmjescvuq.tar"
+    },
+    "scikit-learn__scikit-learn-11281": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_a6leq2eueafyffoo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_a6leq2eueafyffoo.tar"
+    },
+    "scikit-learn__scikit-learn-12471": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_s44wvxgmcelk880x",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_s44wvxgmcelk880x.tar"
+    },
+    "scikit-learn__scikit-learn-13241": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_c6p8w6zkrv8cg674",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_c6p8w6zkrv8cg674.tar"
+    },
+    "scikit-learn__scikit-learn-13497": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1hk5b7npuzssrejb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1hk5b7npuzssrejb.tar"
+    },
+    "scikit-learn__scikit-learn-13584": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_zvmsl02caxazw8m1",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_zvmsl02caxazw8m1.tar"
+    },
+    "scikit-learn__scikit-learn-14092": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_kzieni3zx0dx8zpp",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_kzieni3zx0dx8zpp.tar"
+    },
+    "scikit-learn__scikit-learn-15512": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_83jy98kfz8sn6zxc",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_83jy98kfz8sn6zxc.tar"
+    },
+    "scikit-learn__scikit-learn-15535": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jd0dni7q1qzhvxmu",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jd0dni7q1qzhvxmu.tar"
+    },
+    "scikit-learn__scikit-learn-25500": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lcizetcd71a1lo5n",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lcizetcd71a1lo5n.tar"
+    },
+    "scikit-learn__scikit-learn-25570": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_rmjbze7qt9a74jh4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_rmjbze7qt9a74jh4.tar"
+    },
+    "scikit-learn__scikit-learn-25638": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_r0fbcm61pabqn90m",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_r0fbcm61pabqn90m.tar"
+    },
+    "sphinx-doc__sphinx-10325": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hv5wzq9nhtm3uwa5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hv5wzq9nhtm3uwa5.tar"
+    },
+    "sphinx-doc__sphinx-10451": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_86hrlv1hxv16obxt",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_86hrlv1hxv16obxt.tar"
+    },
+    "sphinx-doc__sphinx-7686": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_9lzlv87bvmg1a5e3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_9lzlv87bvmg1a5e3.tar"
+    },
+    "sphinx-doc__sphinx-7738": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u32a6q5b30jxj8s5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u32a6q5b30jxj8s5.tar"
+    },
+    "sphinx-doc__sphinx-7975": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_q4jydxvaeemblo6x",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_q4jydxvaeemblo6x.tar"
+    },
+    "sphinx-doc__sphinx-8273": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_s8jeysl4zmab4wde",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_s8jeysl4zmab4wde.tar"
+    },
+    "sphinx-doc__sphinx-8282": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_pujjewwegterdfxo",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_pujjewwegterdfxo.tar"
+    },
+    "sphinx-doc__sphinx-8435": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_7r4f5yy61cf5ss53",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_7r4f5yy61cf5ss53.tar"
+    },
+    "sphinx-doc__sphinx-8474": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_t1is66up2trqhfkx",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_t1is66up2trqhfkx.tar"
+    },
+    "sphinx-doc__sphinx-8506": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_afg0mw8c42wcu5gj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_afg0mw8c42wcu5gj.tar"
+    },
+    "sphinx-doc__sphinx-8627": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vhrbfr7g5krac6lm",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vhrbfr7g5krac6lm.tar"
+    },
+    "sphinx-doc__sphinx-8713": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8m0lwyp1uqjmd1ab",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8m0lwyp1uqjmd1ab.tar"
+    },
+    "sphinx-doc__sphinx-8801": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vdou12a0jmeeoj3v",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vdou12a0jmeeoj3v.tar"
+    },
+    "sympy__sympy-11400": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_juzz54psm0etfity",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_juzz54psm0etfity.tar"
+    },
+    "sympy__sympy-11870": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4wsgd20dynt2uj74",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4wsgd20dynt2uj74.tar"
+    },
+    "sympy__sympy-11897": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hotmmuxzc4ykherh",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hotmmuxzc4ykherh.tar"
+    },
+    "sympy__sympy-12171": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ua6shtco5v2q9raz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ua6shtco5v2q9raz.tar"
+    },
+    "sympy__sympy-12236": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_hot1l8np4u3hgsb7",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_hot1l8np4u3hgsb7.tar"
+    },
+    "sympy__sympy-12454": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_a28786v7vj4o5dud",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_a28786v7vj4o5dud.tar"
+    },
+    "sympy__sympy-13043": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5xwzd5e7di2vv0ns",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5xwzd5e7di2vv0ns.tar"
+    },
+    "sympy__sympy-13146": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_pcbdk9g61awnwue4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_pcbdk9g61awnwue4.tar"
+    },
+    "sympy__sympy-13177": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ov2qi5ujwfjvqu6p",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ov2qi5ujwfjvqu6p.tar"
+    },
+    "sympy__sympy-13437": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_h3rillt98up366sb",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_h3rillt98up366sb.tar"
+    },
+    "sympy__sympy-13471": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_vu26qd2gv9h84m2l",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_vu26qd2gv9h84m2l.tar"
+    },
+    "sympy__sympy-13773": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1aqntywdv03yf1g5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1aqntywdv03yf1g5.tar"
+    },
+    "sympy__sympy-13895": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_tsm82fnhq2qmg74l",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_tsm82fnhq2qmg74l.tar"
+    },
+    "sympy__sympy-13915": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jszyxh00almpfk36",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jszyxh00almpfk36.tar"
+    },
+    "sympy__sympy-13971": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ivhxl6wczv8q6qhi",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ivhxl6wczv8q6qhi.tar"
+    },
+    "sympy__sympy-14024": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sg33j5d35g08her7",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sg33j5d35g08her7.tar"
+    },
+    "sympy__sympy-14308": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_leg4olw23ihq0tme",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_leg4olw23ihq0tme.tar"
+    },
+    "sympy__sympy-14317": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_v0wbvj3m35t3udop",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_v0wbvj3m35t3udop.tar"
+    },
+    "sympy__sympy-14396": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_cmlcgwykxpf4irfd",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_cmlcgwykxpf4irfd.tar"
+    },
+    "sympy__sympy-14774": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_4z7hbbu545ao56h0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_4z7hbbu545ao56h0.tar"
+    },
+    "sympy__sympy-14817": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_c06qbgfvplxegqho",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_c06qbgfvplxegqho.tar"
+    },
+    "sympy__sympy-15011": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_s2xzwborw96s9g98",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_s2xzwborw96s9g98.tar"
+    },
+    "sympy__sympy-15308": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1qcocn7lmwazkzy9",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1qcocn7lmwazkzy9.tar"
+    },
+    "sympy__sympy-15346": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_0vxfa0jjm4ognwk4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_0vxfa0jjm4ognwk4.tar"
+    },
+    "sympy__sympy-15609": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_83m6hgok6z478f9h",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_83m6hgok6z478f9h.tar"
+    },
+    "sympy__sympy-15678": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_jnym2mrwjjf8456b",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_jnym2mrwjjf8456b.tar"
+    },
+    "sympy__sympy-16106": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ff85ch1har7sg943",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ff85ch1har7sg943.tar"
+    },
+    "sympy__sympy-16281": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ndjwp5vfd1okjy8q",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ndjwp5vfd1okjy8q.tar"
+    },
+    "sympy__sympy-16503": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_y5ayf2vddybsp37n",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_y5ayf2vddybsp37n.tar"
+    },
+    "sympy__sympy-16988": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_wzqqydf5yv0pp5yg",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_wzqqydf5yv0pp5yg.tar"
+    },
+    "sympy__sympy-17022": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5e93066hdd0x1vvv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5e93066hdd0x1vvv.tar"
+    },
+    "sympy__sympy-18057": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_3psm5ysobhw528ky",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_3psm5ysobhw528ky.tar"
+    },
+    "sympy__sympy-18087": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_u6b6fjsz9t9i63i2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_u6b6fjsz9t9i63i2.tar"
+    },
+    "sympy__sympy-18532": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ibpawlmucnwelsa2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ibpawlmucnwelsa2.tar"
+    },
+    "sympy__sympy-18621": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_chu9mtwb09gmwqm8",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_chu9mtwb09gmwqm8.tar"
+    },
+    "sympy__sympy-18835": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_56aw7cj0a4v8a9cn",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_56aw7cj0a4v8a9cn.tar"
+    },
+    "sympy__sympy-19007": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_1ttthv0jwgep95g5",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_1ttthv0jwgep95g5.tar"
+    },
+    "sympy__sympy-19254": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_buo3919kpdnjbn41",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_buo3919kpdnjbn41.tar"
+    },
+    "sympy__sympy-19487": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_6dmj4g9pq3wzlpz0",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_6dmj4g9pq3wzlpz0.tar"
+    },
+    "sympy__sympy-20049": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_53qazh3ftz269xpj",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_53qazh3ftz269xpj.tar"
+    },
+    "sympy__sympy-20212": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_mamyw9gqc465zbbv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_mamyw9gqc465zbbv.tar"
+    },
+    "sympy__sympy-20322": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ypt0zpqj8xoeszez",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ypt0zpqj8xoeszez.tar"
+    },
+    "sympy__sympy-20442": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ef1qvaarga9tyyxz",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ef1qvaarga9tyyxz.tar"
+    },
+    "sympy__sympy-20639": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_012q4rkl8a15s0l3",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_012q4rkl8a15s0l3.tar"
+    },
+    "sympy__sympy-21055": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_k62p5xy6kbrkwj8u",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_k62p5xy6kbrkwj8u.tar"
+    },
+    "sympy__sympy-21171": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_8suc41qs559yazcf",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_8suc41qs559yazcf.tar"
+    },
+    "sympy__sympy-21614": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_2riegp50lls22kr4",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_2riegp50lls22kr4.tar"
+    },
+    "sympy__sympy-21627": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_yt69hqflfpdjp3kv",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_yt69hqflfpdjp3kv.tar"
+    },
+    "sympy__sympy-22005": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_j8ci8esk393aongg",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_j8ci8esk393aongg.tar"
+    },
+    "sympy__sympy-22840": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_s9c5t7i45c1dl6xl",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_s9c5t7i45c1dl6xl.tar"
+    },
+    "sympy__sympy-23117": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_lf4z0sznbfaonx18",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_lf4z0sznbfaonx18.tar"
+    },
+    "sympy__sympy-23191": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_sus59rizo68wzqaq",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_sus59rizo68wzqaq.tar"
+    },
+    "sympy__sympy-24102": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_yma54kjlkxhx3t1f",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_yma54kjlkxhx3t1f.tar"
+    },
+    "sympy__sympy-24152": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_ln3tmf4kzr19azq2",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_ln3tmf4kzr19azq2.tar"
+    },
+    "sympy__sympy-24909": {
+        "runtime_image_repo": "ghcr.io/all-hands-ai/runtime",
+        "lock_tag": "oh_v0.11.0_5mf20j24fbln0boa",
+        "image_path": "/hdd1/zzr/docker_images//ghcr.io/all-hands-ai/runtime:oh_v0.11.0_5mf20j24fbln0boa.tar"
+    }
+}

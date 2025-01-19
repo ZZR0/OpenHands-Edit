@@ -40,48 +40,18 @@ def test_gemini_api():
 
 
 def test_litellm():
+    import json
     from litellm import completion
 
     # message_path = '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-1.5-flash_maxiter_100_N_v2.1-no-hint-nofc_notest-run_1/llm_completions/astropy__astropy-7606/draft_editor:gemini__gemini-1.5-flash-1734070124.4145105.json'
-    message_path = '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-nofc_wtest-run_1/llm_completions/django__django-11265/gemini__gemini-2.0-flash-exp-1734099381.7370067.json'
+    # message_path = '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-nofc_wtest-run_1/llm_completions/django__django-11265/gemini__gemini-2.0-flash-exp-1734099381.7370067.json'
+    message_path = '/hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit/gemini-2.0-flash-exp_maxiter_100_N_v2.1-no-hint-selectiontest-run_1/llm_completions/django__django-9296/gemini__gemini-2.0-flash-exp-1736575148.025474.json'
     with open(message_path, 'r') as f:
         data = json.load(f)
-    messages = data['messages']
-    # tools = data["kwargs"]["tools"]
-    # messages = [
-    #     {
-    #         'content': "You are a helpful assistant that can interact with a computer to solve tasks.\n<IMPORTANT>\n* If user provides a path, you should NOT assume it's relative to the current working directory. Instead, you should explore the file system to find the file before working on it.\n</IMPORTANT>\n",
-    #         'role': 'system'
-    #     },
-    #     {
-    #         'content':  "<uploaded_files>\n/workspace/django__django__4.2\n</uploaded_files>\nI've uploaded a python code repository in the directory django__django__4.2. Consider the following PR description:\n\n<pr_description>\nUserCreationForm should save data from ManyToMany form fields\nDescription\n\t\nWhen using contrib.auth.forms.UserCreationForm with a custom User model which has ManyToManyField fields, the data in all related form fields (e.g. a ModelMultipleChoiceField) is not saved. \nThis is because unlike its parent class django.forms.ModelForm, UserCreationForm.save(commit=True) omits to call self.save_m2m(). \nThis has been discussed on the #django-developers mailing list \u200bhttps://groups.google.com/u/1/g/django-developers/c/2jj-ecoBwE4 and I'm ready to work on a PR.\n\n</pr_description>\n\nCan you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?\nI've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\nYour task is to make the minimal changes to non-tests files in the /workspace directory to ensure the <pr_description> is satisfied.\n### Follow These Steps to Resolve the Issue:\n1. **Familiarize Yourself with the Repository**:\n   - Explore the codebase to understand its structure and identify relevant files, classes, functions, or variables that may be affected by the `<pr_description>`.\n2. **Analyze the Problem**:\n   - Identify the specific areas of the codebase that require changes.\n   - Provide a detailed breakdown of the files, code locations, and any related dependencies that need to be addressed.\n3. **Implement the Fix**:\n   - Edit the source code in the identified locations to resolve the issue.\n   - Ensure that your changes are efficient, clean, and adhere to Python best practices.\n4. **Handle Edge Cases**:\n   - Consider potential edge cases and ensure your solution is robust enough to handle them.\n5. **Rerun Your Patch**:\n   - After making the necessary changes, rerun your patch to verify its functionality. Note that you do not need to run any tests yourself; the testing process will be handled by someone else. Once you have completed your changes, simply return it.\n\n### Additional Notes:\n   - Be thorough in your analysis and implementation. It’s okay if your response is detailed and lengthy, as long as it fully addresses the problem.\n   - Clearly document your reasoning, approach, and the changes made to the codebase.\n",
-    #         'role': 'user'
-    #     },
-    #     {
-    #         'content': [],
-    #         'role': 'assistant',
-    #         'tool_calls': [
-    #             {
-    #                 'index': 0,
-    #                 'function': {
-    #                     'arguments': '{"command":"ls /workspace/django__django__4.2"}',
-    #                     'name': 'execute_bash'
-    #                 },
-    #                 'id': 'call_0NMUDgSnYkPlW79Mn113FcVi',
-    #                 'type': 'function'
-    #             }
-    #         ]
-    #     },
-    #     {
-    #         'content': 'OBSERVATION:\nls /workspace/django__django__4.2\r\nAUTHORS\t\t  INSTALL\t  README.rst  js_tests\t      setup.cfg\r\nCONTRIBUTING.rst  LICENSE\t  django      package.json    setup.py\r\nDjango.egg-info   LICENSE.python  docs\t      pyproject.toml  tests\r\nGruntfile.js\t  MANIFEST.in\t  extras      scripts\t      tox.ini[Python Interpreter: /opt/miniconda3/envs/testbed/bin/python]\nroot@openhands-workspace:/workspace/django__django__4.2 # \n[Command finished with exit code 0]',
-    #         'role': 'tool',
-    #         'cache_control': {
-    #             'type': 'ephemeral'
-    #         },
-    #         'tool_call_id': 'call_0NMUDgSnYkPlW79Mn113FcVi',
-    #         'name': 'execute_bash'
-    #     }
-    # ]
+    # import pdb; pdb.set_trace()
+    messages = data['messages'][:32]
+    # print(messages)
+    # messages=[
     # messages=[
     #     {'role': 'system', 'content': 'You are a helpful assistant.'},
     #     # {'role': 'user', 'content': "What's the weather like in Beijing?"},
@@ -110,8 +80,8 @@ def test_litellm():
     # import pdb; pdb.set_trace()
     response = completion(
         api_key=api_key,
-        # model="gemini/gemini-2.0-flash-exp",
-        model='gemini/gemini-1.5-flash',
+        model="gemini/gemini-2.0-flash-exp",
+        # model='gemini/gemini-1.5-flash',
         messages=messages,
         # tools=tools,
         temperature=0.2,
@@ -773,10 +743,25 @@ def test_bashsession():
     )
     print(bash_session.workdir)
     # bash_session._execute_bash(command, timeout=60, keep_prompt=False)
+
+def test_re():
+    import re
+    response_content = '''```json
+    dasd
     
+    ```'''
+    pattern = r'```json(.*?)```'  # 匹配 << >> 之间的内容
+    matches = re.findall(pattern, response_content, flags=re.DOTALL)
+    if matches:
+        json_content = matches[0]
+        print("匹配成功！内容如下：")
+        print(json_content)
+    else:
+        print("未匹配到内容。")
+
 if __name__ == '__main__':
     # test_gemini_api()
-    # test_litellm()
+    test_litellm()
     # test_openrouter()
     # test_gemini()
     # test_openai()
@@ -787,4 +772,5 @@ if __name__ == '__main__':
     # test_clustering()
     # test_parameter_parsing()
     # test_action()
-    test_bashsession()
+    # test_bashsession()
+    # test_re()

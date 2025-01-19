@@ -93,6 +93,7 @@ class CodeActAgent(Agent):
             if config.micro_agent_name
             else None
         )
+        self.config.function_calling = True
         if (
             self.config.function_calling
             and not self.llm.config.supports_function_calling

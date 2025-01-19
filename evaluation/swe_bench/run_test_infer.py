@@ -435,14 +435,15 @@ def complete_runtime(
 
     assert_and_raise(git_patch is not None, 'Failed to get git diff (None)')
 
-    action = CmdRunAction(command=f'cat /workspace/reproduce_error.py', keep_prompt=False)
-    action.timeout = 600
-    logger.info(action, extra={'msg_type': 'ACTION'})
-    obs = runtime.run_action(action)
-    logger.info(obs, extra={'msg_type': 'OBSERVATION'})
-    assert_and_raise(obs.exit_code == 0, f'Failed to cat /workspace/reproduce_error.py: {str(obs)}')
-    reproduce_error_script = obs.content.strip()
-    assert_and_raise(reproduce_error_script is not None, 'Failed to get reproduce_error.py (None)')
+    reproduce_error_script = ""
+    # action = CmdRunAction(command=f'cat /workspace/reproduce_error.py', keep_prompt=False)
+    # action.timeout = 600
+    # logger.info(action, extra={'msg_type': 'ACTION'})
+    # obs = runtime.run_action(action)
+    # logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    # assert_and_raise(obs.exit_code == 0, f'Failed to cat /workspace/reproduce_error.py: {str(obs)}')
+    # reproduce_error_script = obs.content.strip()
+    # assert_and_raise(reproduce_error_script is not None, 'Failed to get reproduce_error.py (None)')
 
     logger.info('-' * 30)
     logger.info('END Runtime Completion Fn')
@@ -615,8 +616,9 @@ def process_instance(
         return output
     except Exception as e:
         logger.error(f'Error occurred: {e}')
+        # remove_docker_image(config.sandbox.base_container_image)
         return EvalOutput(
-            instance_id="",
+            instance_id="Failed",
             instruction="",
             instance={},  # SWE Bench specific
             test_result={},
