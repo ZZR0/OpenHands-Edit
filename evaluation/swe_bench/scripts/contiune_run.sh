@@ -32,69 +32,69 @@ function run_one() {
     
 }
 
-echo "COPY CONFIG"
-rm /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
-cp /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-0-125.toml /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
+# echo "COPY CONFIG"
+# rm /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
+# cp /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-0-125.toml /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
+
+# # run_one
+# run_one
+# run_one
+# run_one
+# run_one
+
+# echo "MOVE OUTPUT"
+# mv /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit-v-0-125
+
+
+# echo "CLEAN DOCKER"
+# docker container ls | grep openhands | awk '{print $1}' | xargs docker rm -f
+# yes y | docker builder prune
+
+# echo "DONE config-v-0-125"
+
+
+
+# echo "COPY CONFIG"
+# rm /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
+# cp /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-1-125.toml /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
 
 # run_one
-run_one
-run_one
-run_one
-run_one
+# run_one
+# run_one
+# run_one
+# run_one
 
-echo "MOVE OUTPUT"
-mv /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit-v-0-125
-
-
-echo "CLEAN DOCKER"
-docker container ls | grep openhands | awk '{print $1}' | xargs docker rm -f
-yes y | docker builder prune
-
-echo "DONE config-v-0-125"
+# echo "MOVE OUTPUT"
+# mv /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit-v-1-125
 
 
+# echo "CLEAN DOCKER"
+# docker container ls | grep openhands | awk '{print $1}' | xargs docker rm -f
+# yes y | docker builder prune
 
-echo "COPY CONFIG"
-rm /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
-cp /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-1-125.toml /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
-
-run_one
-run_one
-run_one
-run_one
-run_one
-
-echo "MOVE OUTPUT"
-mv /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit-v-1-125
-
-
-echo "CLEAN DOCKER"
-docker container ls | grep openhands | awk '{print $1}' | xargs docker rm -f
-yes y | docker builder prune
-
-echo "DONE config-v-1-125"
+# echo "DONE config-v-1-125"
 
 
 
-echo "COPY CONFIG"
-rm /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
-cp /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-2-125.toml /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
+# echo "COPY CONFIG"
+# rm /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
+# cp /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-2-125.toml /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
 
-run_one
-run_one
-run_one
-run_one
-run_one
+# run_one
+# run_one
+# run_one
+# run_one
+# run_one
 
-echo "MOVE OUTPUT"
-mv /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit-v-2-125
+# echo "MOVE OUTPUT"
+# mv /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit /hdd2/zzr/OpenHands-fn-calling/evaluation/evaluation_outputs/outputs/princeton-nlp__SWE-bench_Verified-test/CodeActAgentEdit-v-2-125
 
 
-echo "CLEAN DOCKER"
-docker container ls | grep openhands | awk '{print $1}' | xargs docker rm -f
-yes y | docker builder prune
+# echo "CLEAN DOCKER"
+# docker container ls | grep openhands | awk '{print $1}' | xargs docker rm -f
+# yes y | docker builder prune
 
-echo "DONE config-v-2-125"
+# echo "DONE config-v-2-125"
 
 
 
@@ -104,7 +104,7 @@ echo "COPY CONFIG"
 rm /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
 cp /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config-v-3-125.toml /hdd2/zzr/OpenHands-fn-calling/evaluation/swe_bench/config.toml
 
-run_one
+# run_one
 run_one
 run_one
 run_one
